@@ -49,6 +49,26 @@
 
 ---
 
+## v2.1.0 - New Features (2 May 2025)
+
+### 🆕 New Features
+- **IP Lookup** (`/iplookup`) — Look up IP address details (country, city, ISP, timezone, coords)
+- **Morse Code** (`/morse`) — Encode text to Morse code and decode Morse to text
+- **Binary Converter** (`/binary`) — Text ↔ Binary conversion
+- **Roman Numerals** (`/roman`) — Numbers ↔ Roman numerals (1-3999)
+- **Random Quote** (`/quote`) — Inspirational quotes from Quotable API
+- **Dice Roller** (`/roll`) — Roll any dice configuration (e.g. 2d6, 4d20)
+- **Coin Flip** (`/flip`) — Heads or tails
+- **Random Choice** (`/choose`) — Pick randomly from a comma-separated list
+- **Number Facts** (`/numberfact`) — Interesting trivia about any number
+- **Text Statistics** (`/textstats`) — Detailed analysis (chars, words, lines, reading time, etc.)
+
+### ✨ Improvements
+- **Tools menu now has 3 pages** with proper pagination
+- **Updated `/help`** with all 20+ commands organized by category
+
+---
+
 ## v1.0.5 Beta (5 March 2025)
 - Initial public release
 - URL Shortener (Bitly)
