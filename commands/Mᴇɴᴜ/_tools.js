@@ -20,7 +20,7 @@ var adsFooter = Libs.Helpers.getAdsFooter()
 
 var pages = {
   "1": {
-    caption: "<b>⚙️ Cᴏʀᴇ Tᴏᴏʟꜱ (1/7)</b>",
+    caption: "<b>⚙️ Cᴏʀᴇ Tᴏᴏʟꜱ (1/10)</b>",
     buttons: [
       [
         { text: "🔗 Sʜᴏʀᴛᴇɴᴇʀ", callback_data: "/shortener" },
@@ -54,7 +54,7 @@ var pages = {
     ]
   },
   "2": {
-    caption: "<b>🔄 Cᴏɴᴠᴇʀᴛᴇʀꜱ & Sᴇᴀʀᴄʜ (2/7)</b>",
+    caption: "<b>🔄 Cᴏɴᴠᴇʀᴛᴇʀꜱ & Sᴇᴀʀᴄʜ (2/10)</b>",
     buttons: [
       [
         { text: "📡 Mᴏʀꜱᴇ Cᴏᴅᴇ", callback_data: "/morse" },
@@ -80,7 +80,7 @@ var pages = {
     ]
   },
   "3": {
-    caption: "<b>📲 Tᴇʟᴇɢʀᴀᴍ & 🐙 Gɪᴛʜᴜʙ (3/7)</b>",
+    caption: "<b>📲 Tᴇʟᴇɢʀᴀᴍ & 🐙 Gɪᴛʜᴜʙ (3/10)</b>",
     buttons: [
       [
         { text: "🏷️ Sᴛɪᴄᴋᴇʀ Iɴꜰᴏ", callback_data: "/stickerinfo" },
@@ -126,7 +126,7 @@ var pages = {
     ]
   },
   "4": {
-    caption: "<b>🎌 Aɴɪᴍᴇ & Wᴇᴀᴛʜᴇʀ (4/7)</b>",
+    caption: "<b>🎌 Aɴɪᴍᴇ & Wᴇᴀᴛʜᴇʀ (4/10)</b>",
     buttons: [
       [
         { text: "🎌 Aɴɪᴍᴇ Sᴇᴀʀᴄʜ", callback_data: "/anime" },
@@ -150,7 +150,7 @@ var pages = {
     ]
   },
   "5": {
-    caption: "<b>🤖 Aɪ Tᴏᴏʟꜱ (5/7) — Nᴏ API Nᴇᴇᴅᴇᴅ</b>",
+    caption: "<b>🤖 Aɪ Tᴏᴏʟꜱ (5/10) — Nᴏ API Nᴇᴇᴅᴇᴅ</b>",
     buttons: [
       [
         { text: "📝 Sᴜᴍᴍᴀʀɪᴢᴇ", callback_data: "/summarize" },
@@ -176,7 +176,7 @@ var pages = {
     ]
   },
   "6": {
-    caption: "<b>🎲 Fᴜɴ & Rᴀɴᴅᴏᴍ (6/7)</b>",
+    caption: "<b>🎲 Fᴜɴ & Rᴀɴᴅᴏᴍ (6/10)</b>",
     buttons: [
       [
         { text: "💡 Qᴜᴏᴛᴇ", callback_data: "/quote" },
@@ -201,7 +201,7 @@ var pages = {
     ]
   },
   "7": {
-    caption: "<b>🔤 Tᴇxᴛ Eꜰꜰᴇᴄᴛꜱ (7/7)</b>",
+    caption: "<b>🔤 Tᴇxᴛ Eꜰꜰᴇᴄᴛꜱ (7/10)</b>",
     buttons: [
       [
         { text: "👏 Cʟᴀᴘ Tᴇxᴛ", callback_data: "/clap" },
@@ -218,6 +218,71 @@ var pages = {
       [
         { text: "◁", callback_data: "/tools6" },
         { text: "❼", callback_data: "/start" },
+        { text: "▷", callback_data: "/tools8" }
+      ]
+    ]
+  },
+  "8": {
+    caption: "<b>📊 Pᴏʟʟꜱ & 🎨 Aɪ (8/10)</b>",
+    buttons: [
+      [
+        { text: "📊 Cʀᴇᴀᴛᴇ Pᴏʟʟ", callback_data: "/poll" },
+        { text: "🎯 Cʀᴇᴀᴛᴇ Qᴜɪᴢ", callback_data: "/quiz" }
+      ],
+      [
+        { text: "🎨 Aɪ Iᴍᴀɢᴇ Gᴇɴ", callback_data: "/imagine" }
+      ],
+      [
+        { text: "📡 RSS Fᴇᴇᴅ", callback_data: "/rss" },
+        { text: "⏰ Sᴄʜᴇᴅᴜʟᴇ", callback_data: "/schedule" }
+      ],
+      [
+        { text: "◁", callback_data: "/tools7" },
+        { text: "❽", callback_data: "/start" },
+        { text: "▷", callback_data: "/tools9" }
+      ]
+    ]
+  },
+  "9": {
+    caption: "<b>💰 Eᴄᴏɴᴏᴍʏ (9/10)</b>",
+    buttons: [
+      [
+        { text: "💼 Bᴀʟᴀɴᴄᴇ", callback_data: "/balance" },
+        { text: "🎁 Dᴀɪʟʏ", callback_data: "/daily" }
+      ],
+      [
+        { text: "💸 Tʀᴀɴꜰᴇʀ", callback_data: "/transfer" },
+        { text: "🏆 Lᴇᴀᴅᴇʀʙᴏᴀʀᴅ", callback_data: "/leaderboard" }
+      ],
+      [
+        { text: "🔗 Rᴇꜰ Lɪɴᴋ", callback_data: "/referral" },
+        { text: "📊 Mʏ Sᴛᴀᴛꜱ", callback_data: "/mystats" }
+      ],
+      [
+        { text: "◁", callback_data: "/tools8" },
+        { text: "❾", callback_data: "/start" },
+        { text: "▷", callback_data: "/tools10" }
+      ]
+    ]
+  },
+  "10": {
+    caption: "<b>⚙️ Sᴇᴛᴛɪɴɢꜱ (10/10)</b>",
+    buttons: [
+      [
+        { text: "⚙️ Sᴇᴛᴛɪɴɢꜱ", callback_data: "/settings" },
+        { text: "🌐 Lᴀɴɢᴜᴀɢᴇ", callback_data: "/lang" }
+      ],
+      [
+        { text: "📊 Mʏ Sᴛᴀᴛꜱ", callback_data: "/mystats" },
+        { text: "📦 Exᴘᴏʀᴛ Dᴀᴛᴀ", callback_data: "/export" }
+      ],
+      [
+        { text: "🕐 Tɪᴍᴇᴢᴏɴᴇ", callback_data: "/timezone" },
+        { text: "🗑️ Dᴇʟᴇᴛᴇ Dᴀᴛᴀ", callback_data: "/deldata" }
+      ],
+      [
+        { text: "◁", callback_data: "/tools9" },
+        { text: "❿", callback_data: "/start" },
         { text: "▷", callback_data: "/tools" }
       ]
     ]
@@ -226,7 +291,7 @@ var pages = {
 
 var page = "1"
 if (request && request.data) {
-  for (var p = "2"; p <= "7"; p++) {
+  for (var p = "2"; p <= "10"; p++) {
     if (request.data.indexOf("tools" + p) !== -1) { page = p; break }
   }
 }
