@@ -20,7 +20,7 @@ var input = (params || message || "").trim()
 var match = input.match(/^(\d+)([smhd])\s+(.+)/i)
 
 if (!match) {
-  Bot.sendMessage("<b❌ Iɴᴠᴀʟɪᴅ ꜰᴏʀᴍᴀᴛ.</b>\n\n<b>Uꜱᴀɢᴇ:</b> <code>/remind 30m Take a break</code>\n\n<b>Uɴɪᴛs:</b> s=sᴇᴄᴏɴᴅs, m=ᴍɪɴᴜᴛᴇs, h=ʜᴏᴜʀs, d=ᴅᴀʏs", {
+  Bot.sendMessage("<b>❌ Iɴᴠᴀʟɪᴅ ꜰᴏʀᴍᴀᴛ.</b>\n\n<b>Uꜱᴀɢᴇ:</b> <code>/remind 30m Take a break</code>\n\n<b>Uɴɪᴛs:</b> s=sᴇᴄᴏɴᴅs, m=ᴍɪɴᴜᴛᴇs, h=ʜᴏᴜʀs, d=ᴅᴀʏs", {
     parse_mode: "HTML",
     reply_markup: { inline_keyboard: [[{ text: "🔁 Tʀʏ Aɢᴀɪɴ", callback_data: "/remind" }]] }
   })

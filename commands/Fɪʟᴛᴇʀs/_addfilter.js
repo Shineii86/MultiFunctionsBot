@@ -28,7 +28,7 @@ var trigger = parts[0].trim().toLowerCase()
 var response = parts.slice(1).join("|").trim()
 
 if (!trigger || !response) {
-  Bot.sendMessage("<b❌ Bᴏᴛʜ ᴛʀɪɢɢᴇʀ ᴀɴᴅ ʀᴇsᴘᴏɴsᴇ ʀᴇǫᴜɪʀᴇᴅ.</b>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>❌ Bᴏᴛʜ ᴛʀɪɢɢᴇʀ ᴀɴᴅ ʀᴇsᴘᴏɴsᴇ ʀᴇǫᴜɪʀᴇᴅ.</b>", { parse_mode: "HTML" })
   return
 }
 

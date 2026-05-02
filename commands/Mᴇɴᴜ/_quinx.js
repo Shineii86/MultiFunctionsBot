@@ -21,8 +21,8 @@ var status = options.result ? options.result.status : null
 var isMember = status === "member" || status === "administrator" || status === "creator"
 
 // Greeting based on IST time
-var now = new Date()
-var istHours = (now.getUTCHours() + 5 + now.getUTCMinutes() / 60 + 30 / 60) % 24
+var istDate = Libs.Helpers.getISTDate()
+var istHours = istDate.getUTCHours()
 var greeting
 
 if (istHours >= 5 && istHours < 12) {

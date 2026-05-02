@@ -18,7 +18,7 @@ CMD*/
 
 var num = parseInt(message.trim())
 if (isNaN(num) || num < 1 || num > 20) {
-  Bot.sendMessage("<b❌ Sᴇɴᴅ ᴀ ɴᴜᴍʙᴇʀ ʙᴇᴛᴡᴇᴇɴ 1 ᴀɴᴅ 20.</b>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>❌ Sᴇɴᴅ ᴀ ɴᴜᴍʙᴇʀ ʙᴇᴛᴡᴇᴇɴ 1 ᴀɴᴅ 20.</b>", { parse_mode: "HTML" })
   return
 }
 

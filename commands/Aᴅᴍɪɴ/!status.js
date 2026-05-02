@@ -36,7 +36,7 @@ var caption = "<b>🤖 Bᴏᴛ Lɪᴠᴇ Sᴛᴀᴛɪsᴛɪᴄs</b>\n" +
   "<b>» Dᴀᴛᴇ:</b> " + dateStr + "\n" +
   "<b>» Tɪᴍᴇ:</b> " + timeStr + "\n" +
   "<b>» Dᴀʏ:</b> " + dayStr + "\n\n" +
-  "<b>Bᴏᴛ Cʀᴇᴀᴛᴇᴅ:</b> 25 Mᴀʀᴄʜ 2025"
+  "<b>Bᴏᴛ Cʀᴇᴀᴛᴇᴅ:</b> 25 Jᴀɴᴜᴀʀʏ 2025"
 
 var buttons = [
   [{ text: "Rᴇғʀᴇsʜ 🔄", callback_data: "!status" }],

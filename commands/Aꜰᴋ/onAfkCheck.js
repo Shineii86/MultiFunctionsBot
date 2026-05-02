@@ -32,15 +32,35 @@ if (afkReason) {
 // Check if mentioned user is AFK
 if (request.reply_to_message && request.reply_to_message.from) {
   var targetId = request.reply_to_message.from.id
-  var targetAfk = User.getProperty({
-    name: "afk",
-    user_id: targetId
-  })
-  if (targetAfk) {
-    var afkTime = User.getProperty({
-      name: "afk_time",
+  var targetAfk = null
+  var afkTime = ""
+
+  try {
+    targetAfk = User.getProperty({
+      name: "afk",
       user_id: targetId
-    }) || ""
+    })
+    if (targetAfk) {
+      afkTime = User.getProperty({
+        name: "afk_time",
+        user_id: targetId
+      }) || ""
+    }
+  } catch (e) {
+    // Cross-user property access may not be supported
+    // Fallback: check via Bot storage
+    try {
+      var afkData = Bot.getProperty("afk_" + targetId)
+      if (afkData && afkData.reason) {
+        targetAfk = afkData.reason
+        afkTime = afkData.time || ""
+      }
+    } catch (e2) {
+      // Silently fail - cannot check other user's AFK status
+    }
+  }
+
+  if (targetAfk) {
     var name = (request.reply_to_message.from.first_name || "User")
     var timeStr = ""
     if (afkTime) {

@@ -20,7 +20,7 @@ var input = (params || message || "").trim()
 var spaceIdx = input.indexOf(" ")
 
 if (spaceIdx === -1 || !input) {
-  Bot.sendMessage("<b❌ Uꜱᴀɢᴇ:</b> <code>/save name text</code>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>❌ Uꜱᴀɢᴇ:</b> <code>/save name text</code>", { parse_mode: "HTML" })
   return
 }
 
@@ -28,7 +28,7 @@ var name = input.substring(0, spaceIdx).toLowerCase().trim()
 var content = input.substring(spaceIdx + 1).trim()
 
 if (!name || !content) {
-  Bot.sendMessage("<b❌ Bᴏᴛʜ ɴᴀᴍᴇ ᴀɴᴅ ᴄᴏɴᴛᴇɴᴛ ʀᴇǫᴜɪʀᴇᴅ.</b>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>❌ Bᴏᴛʜ ɴᴀᴍᴇ ᴀɴᴅ ᴄᴏɴᴛᴇɴᴛ ʀᴇǫᴜɪʀᴇᴅ.</b>", { parse_mode: "HTML" })
   return
 }
 

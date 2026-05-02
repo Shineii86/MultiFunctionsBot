@@ -17,7 +17,7 @@
 CMD*/
 
 if (!request.reply_to_message) {
-  Bot.sendMessage("<b❌ Rᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴡᴀʀɴ ᴛʜᴇᴍ.</b>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>❌ Rᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴡᴀʀɴ ᴛʜᴇᴍ.</b>", { parse_mode: "HTML" })
   return
 }
 

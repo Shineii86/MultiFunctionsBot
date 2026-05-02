@@ -18,7 +18,7 @@ CMD*/
 
 var name = (params || message || "").trim().toLowerCase()
 if (!name) {
-  Bot.sendMessage("<b❌ Uꜱᴀɢᴇ:</b> <code>/delnote name</code>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>❌ Uꜱᴀɢᴇ:</b> <code>/delnote name</code>", { parse_mode: "HTML" })
   return
 }
 
@@ -30,5 +30,5 @@ if (notes[name]) {
   Bot.setProperty("notes_" + chatId, notes, "json")
   Bot.sendMessage("<b>✅ Nᴏᴛᴇ ᴅᴇʟᴇᴛᴇᴅ:</b> <code>#" + name + "</code>", { parse_mode: "HTML" })
 } else {
-  Bot.sendMessage("<b❌ Nᴏᴛᴇ ɴᴏᴛ ꜰᴏᴜɴᴅ:</b> <code>#" + name + "</code>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>❌ Nᴏᴛᴇ ɴᴏᴛ ꜰᴏᴜɴᴅ:</b> <code>#" + name + "</code>", { parse_mode: "HTML" })
 }

@@ -18,7 +18,7 @@ CMD*/
 
 var admin = Bot.getProperty("admin")
 if (user.telegramid != admin) {
-  Bot.sendMessage("<b🚷 Aᴅᴍɪɴ ᴏɴʟʏ.</b>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>🚷 Aᴅᴍɪɴ ᴏɴʟʏ.</b>", { parse_mode: "HTML" })
   return
 }
 

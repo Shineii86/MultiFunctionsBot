@@ -18,7 +18,7 @@ CMD*/
 
 var admin = Bot.getProperty("admin")
 if (!admin) {
-  Bot.sendMessage("<b❌ Nᴏ ᴀᴅᴍɪɴ ᴄᴏɴꜰɪɢᴜʀᴇᴅ.</b>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>❌ Nᴏ ᴀᴅᴍɪɴ ᴄᴏɴꜰɪɢᴜʀᴇᴅ.</b>", { parse_mode: "HTML" })
   return
 }
 

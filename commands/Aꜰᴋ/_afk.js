@@ -20,6 +20,12 @@ var reason = params || message || "AFK"
 User.setProperty("afk", reason, "string")
 User.setProperty("afk_time", new Date().toISOString(), "string")
 
+// Also store in Bot properties for cross-user AFK checking
+Bot.setProperty("afk_" + user.telegramid, {
+  reason: reason,
+  time: new Date().toISOString()
+}, "json")
+
 var name = Libs.Helpers.getUserMention()
 var adsFooter = Libs.Helpers.getAdsFooter()
 
