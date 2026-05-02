@@ -16,28 +16,34 @@
   group: 
 CMD*/
 
+var chatId = request.chat ? request.chat.id : user.telegramid
 var targetId = user.telegramid
-if (request.reply_to_message && request.reply_to_message.from) {
-  targetId = request.reply_to_message.from.id
-} else if (params) {
-  targetId = parseInt(params)
+
+// If replying to someone, check their warns
+var replyTo = request.reply_to_message
+if (replyTo && replyTo.from) {
+  targetId = replyTo.from.id
 }
 
-var chatId = request.chat ? request.chat.id : user.telegramid
 var warnKey = "warns_" + chatId + "_" + targetId
 var warns = Bot.getProperty(warnKey, 0)
 var maxWarns = Bot.getProperty("max_warns", 3)
+var bar = Libs.Helpers.getProgressBar(warns, maxWarns, maxWarns)
 
-var adsFooter = Libs.Helpers.getAdsFooter()
+var caption = "<b>⚠️ Wᴀʀɴɪɴɢꜱ Sᴛᴀᴛᴜꜱ</b>\n\n" +
+  "<b>👤 Uꜱᴇʀ Iᴅ:</b> <code>" + targetId + "</code>\n" +
+  "<b>📊 Wᴀʀɴɪɴɢꜱ:</b> " + warns + "/" + maxWarns + "\n" +
+  "<b>ᴘʀᴏɢʀᴇꜱꜱ:</b> " + bar + "\n\n"
 
-var caption = "<b>⚠️ Wᴀʀɴɪɴɢs</b>\n\n" +
-  "<b>🆔 Usᴇʀ ID:</b> <code>" + targetId + "</code>\n" +
-  "<b>📊 Wᴀʀɴs:</b> " + warns + "/" + maxWarns + "\n" +
-  "<b>📉 Rᴇᴍᴀɪɴɪɴɢ:</b> " + (maxWarns - warns) + " ʙᴇꜰᴏʀᴇ ʙᴀɴ" +
-  adsFooter
+if (warns === 0) {
+  caption += "✅ Nᴏ ᴡᴀʀɴɪɴɢꜱ. Cʟᴇᴀɴ ʀᴇᴄᴏʀᴅ!"
+} else if (warns >= maxWarns) {
+  caption += "🚫 Uꜱᴇʀ ꜱʜᴏᴜʟᴅ ʙᴇ ʙᴀɴɴᴇᴅ."
+} else {
+  caption += "⚡ " + (maxWarns - warns) + " ᴡᴀʀɴɪɴɢꜱ ʀᴇᴍᴀɪɴɪɴɢ ʙᴇꜰᴏʀᴇ ʙᴀɴ."
+}
 
 Bot.sendMessage(caption, {
   parse_mode: "HTML",
-  disable_web_page_preview: true,
-  reply_markup: { inline_keyboard: [[{ text: "Cʟᴏsᴇ ✕", callback_data: "/close" }]] }
+  reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
 })

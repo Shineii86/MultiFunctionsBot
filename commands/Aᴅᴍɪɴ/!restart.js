@@ -16,5 +16,11 @@
   group: 
 CMD*/
 
-Bot.sendMessage("<b>🔄 Rᴇsᴛᴀʀᴛɪɴɢ Bᴏᴛ Fᴏʀ Aʟʟ Usᴇʀs...</b>", { parse_mode: "HTML" })
+var admin = Bot.getProperty("admin")
+if (user.telegramid != admin) {
+  Bot.sendMessage("<b>🚷 Aᴅᴍɪɴ Oɴʟʏ.</b>", { parse_mode: "HTML" })
+  return
+}
+
+Bot.sendMessage("<b>🔄 Rᴇꜱᴛᴀʀᴛɪɴɢ Bᴏᴛ Fᴏʀ Aʟʟ Uꜱᴇʀꜱ...</b>", { parse_mode: "HTML" })
 Bot.runAll({ command: "/start" })

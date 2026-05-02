@@ -18,64 +18,102 @@ CMD*/
 
 var adsFooter = Libs.Helpers.getAdsFooter()
 
-var caption = "<b>👮 Hᴇʟᴘ — Aʟʟ Cᴏᴍᴍᴀɴᴅs (40+)</b>\n\n" +
+var caption = "<b>╭━━ 📚 Aʟʟ Cᴏᴍᴍᴀɴᴅꜱ ━━╮</b>\n\n" +
   "<b>📌 Mᴇɴᴜ</b>\n" +
-  "» /start — Sᴛᴀʀᴛ ʙᴏᴛ | /help — Tʜɪs ᴍᴇɴᴜ | /about — Iɴꜰᴏ\n\n" +
-  "<b>⚙️ Cᴏʀᴇ Tᴏᴏʟs</b>\n" +
-  "» /shortener — Uʀʟ Sʜᴏʀᴛᴇɴᴇʀ\n" +
-  "» /telegramId — Tᴇʟᴇɢʀᴀᴍ Pʀᴏꜰɪʟᴇ\n" +
-  "» /password — Pᴀssᴡᴏʀᴅ Gᴇɴ\n" +
-  "» /translate — Tᴇxᴛ Tʀᴀɴsʟᴀᴛɪᴏɴ\n" +
-  "» /qrcode — QR Cᴏᴅᴇ Gᴇɴ\n" +
-  "» /base64 — Bᴀsᴇ64 Eɴᴄ/Dᴇᴄ\n" +
-  "» /hash — Hᴀsʜ Gᴇɴ (MD5/SHA)\n" +
-  "» /wordcount — Wᴏʀᴅ Cᴏᴜɴᴛᴇʀ\n" +
-  "» /uuid — UUID Gᴇɴ | /datetime — Wᴏʀʟᴅ Cʟᴏᴄᴋ\n\n" +
-  "<b>🔄 Cᴏɴᴠᴇʀᴛᴇʀs</b>\n" +
-  "» /morse — Mᴏʀsᴇ Cᴏᴅᴇ | /binary — Bɪɴᴀʀʏ\n" +
-  "» /roman — Rᴏᴍᴀɴ Nᴜᴍᴇʀᴀʟs\n" +
-  "» /exchange — Cᴜʀʀᴇɴᴄʏ Cᴏɴᴠᴇʀᴛᴇʀ\n" +
-  "» /iplookup — IP Lᴏᴏᴋᴜᴘ | /wiki — Wɪᴋɪᴘᴇᴅɪᴀ\n" +
-  "» /textstats — Tᴇxᴛ Aɴᴀʟʏsɪs\n" +
-  "» /numberfact — Nᴜᴍʙᴇʀ Tʀɪᴠɪᴀ\n\n" +
-  "<b>📲 Tᴇʟᴇɢʀᴀᴍ</b>\n" +
-  "» /stickerinfo — Sᴛɪᴄᴋᴇʀ Dᴇᴛᴀɪʟs\n" +
-  "» /chatinfo — Cʜᴀᴛ Iɴꜰᴏ & ID\n" +
-  "» /channelinfo — Cʜᴀɴɴᴇʟ/Gʀᴏᴜᴘ Iɴꜰᴏ\n" +
-  "» /pfp — Pʀᴏꜰɪʟᴇ Pʜᴏᴛᴏ\n" +
-  "» /botcheck — Cʜᴇᴄᴋ Iꜰ Usᴇʀ Is Bᴏᴛ\n" +
-  "» /mention — Gᴇɴᴇʀᴀᴛᴇ Mᴇɴᴛɪᴏɴ Lɪɴᴋ\n" +
-  "» /groupstats — Gʀᴏᴜᴘ Dᴇᴛᴀɪʟs\n" +
-  "» /adminlist — Lɪsᴛ Aʟʟ Aᴅᴍɪɴs\n" +
-  "» /membercount — Mᴇᴍʙᴇʀ Cᴏᴜɴᴛ\n" +
-  "» /pinned — Pɪɴɴᴇᴅ Mᴇssᴀɢᴇ\n" +
-  "» /grouplink — Iɴᴠɪᴛᴇ Lɪɴᴋ\n" +
-  "» /banlist — Bᴀɴɴᴇᴅ Usᴇʀs\n" +
-  "» /settitle — Sᴇᴛ Gʀᴏᴜᴘ Tɪᴛʟᴇ\n" +
-  "» /setdesc — Sᴇᴛ Gʀᴏᴜᴘ Dᴇsᴄ\n\n" +
+  "├ /start — Sᴛᴀʀᴛ Bᴏᴛ\n" +
+  "├ /help — Tʜɪꜱ Mᴇɴᴜ\n" +
+  "└ /about — Bᴏᴛ Iɴꜰᴏ\n\n" +
+  "<b>⚙️ Cᴏʀᴇ Tᴏᴏʟꜱ</b>\n" +
+  "├ /shortener — Uʀʟ Sʜᴏʀᴛᴇɴᴇʀ\n" +
+  "├ /telegramId — Tᴇʟᴇɢʀᴀᴍ Pʀᴏꜰɪʟᴇ\n" +
+  "├ /password — Pᴀꜱꜱᴡᴏʀᴅ Gᴇɴ\n" +
+  "├ /translate — Tᴇxᴛ Tʀᴀɴꜱʟᴀᴛɪᴏɴ\n" +
+  "├ /qrcode — QR Cᴏᴅᴇ Gᴇɴ\n" +
+  "├ /base64 — Bᴀꜱᴇ64 Eɴᴄ/Dᴇᴄ\n" +
+  "├ /hash — Hᴀꜱʜ Gᴇɴ (MD5/SHA)\n" +
+  "├ /wordcount — Wᴏʀᴅ Cᴏᴜɴᴛᴇʀ\n" +
+  "├ /uuid — Uᴜɪᴅ Gᴇɴ\n" +
+  "├ /datetime — Wᴏʀʟᴅ Cʟᴏᴄᴋ\n" +
+  "├ /textcase — Tᴇxᴛ Cᴀꜱᴇ Cᴏɴᴠᴇʀᴛ\n" +
+  "└ /hex — Hᴇx Eɴᴄ/Dᴇᴄ\n\n" +
+  "<b>🔄 Cᴏɴᴠᴇʀᴛᴇʀꜱ & Sᴇᴀʀᴄʜ</b>\n" +
+  "├ /morse — Mᴏʀꜱᴇ Cᴏᴅᴇ\n" +
+  "├ /binary — Bɪɴᴀʀʏ Cᴏɴᴠᴇʀᴛᴇʀ\n" +
+  "├ /roman — Rᴏᴍᴀɴ Nᴜᴍᴇʀᴀʟꜱ\n" +
+  "├ /exchange — Cᴜʀʀᴇɴᴄʏ (160+)\n" +
+  "├ /iplookup — IP Gᴇᴏʟᴏᴄᴀᴛɪᴏɴ\n" +
+  "├ /wiki — Wɪᴋɪᴘᴇᴅɪᴀ Sᴇᴀʀᴄʜ\n" +
+  "├ /textstats — Tᴇxᴛ Aɴᴀʟʏꜱɪꜱ\n" +
+  "└ /numberfact — Nᴜᴍʙᴇʀ Tʀɪᴠɪᴀ\n\n" +
+  "<b>📲 Tᴇʟᴇɢʀᴀᴍ Tᴏᴏʟꜱ</b>\n" +
+  "├ /stickerinfo — Sᴛɪᴄᴋᴇʀ Dᴇᴛᴀɪʟꜱ\n" +
+  "├ /chatinfo — Cʜᴀᴛ Iᴅ & Iɴꜰᴏ\n" +
+  "├ /channelinfo — Cʜᴀɴɴᴇʟ Iɴꜰᴏ\n" +
+  "├ /pfp — Pʀᴏꜰɪʟᴇ Pʜᴏᴛᴏ\n" +
+  "├ /botcheck — Iꜰ Uꜱᴇʀ Iꜱ Bᴏᴛ\n" +
+  "├ /mention — Mᴇɴᴛɪᴏɴ Lɪɴᴋ\n" +
+  "├ /groupstats — Gʀᴏᴜᴘ Dᴇᴛᴀɪʟꜱ\n" +
+  "├ /adminlist — Lɪꜱᴛ Aᴅᴍɪɴꜱ\n" +
+  "├ /membercount — Mᴇᴍʙᴇʀ Cᴏᴜɴᴛ\n" +
+  "├ /pinned — Pɪɴɴᴇᴅ Mᴇꜱꜱᴀɢᴇ\n" +
+  "├ /grouplink — Iɴᴠɪᴛᴇ Lɪɴᴋ\n" +
+  "├ /baninfo — Bᴀɴɴᴇᴅ Uꜱᴇʀꜱ\n" +
+  "├ /settitle — Sᴇᴛ Gʀᴏᴜᴘ Tɪᴛʟᴇ\n" +
+  "├ /setdesc — Sᴇᴛ Gʀᴏᴜᴘ Dᴇꜱᴄ\n" +
+  "├ /invitecount — Iɴᴠɪᴛᴇ Cᴏᴜɴᴛ\n" +
+  "└ /text2gif — Tᴇxᴛ Tᴏ Gɪꜰ\n\n" +
   "<b>🐙 Gɪᴛʜᴜʙ</b>\n" +
-  "» /github — Usᴇʀ Pʀᴏꜰɪʟᴇ\n" +
-  "» /ghrepos — Lɪsᴛ Usᴇʀ's Rᴇᴘᴏs\n" +
-  "» /ghrepoinfo — Rᴇᴘᴏ Dᴇᴛᴀɪʟs\n" +
-  "» /ghsearch — Sᴇᴀʀᴄʜ Rᴇᴘᴏs\n" +
-  "» /ghfollowers — Lɪsᴛ Fᴏʟʟᴏᴡᴇʀs\n\n" +
+  "├ /github — Uꜱᴇʀ Pʀᴏꜰɪʟᴇ\n" +
+  "├ /ghrepos — Lɪꜱᴛ Rᴇᴘᴏꜱ\n" +
+  "├ /ghrepoinfo — Rᴇᴘᴏ Dᴇᴛᴀɪʟꜱ\n" +
+  "├ /ghsearch — Sᴇᴀʀᴄʜ Rᴇᴘᴏꜱ\n" +
+  "└ /ghfollowers — Fᴏʟʟᴏᴡᴇʀꜱ\n\n" +
   "<b>🎌 Aɴɪᴍᴇ & Wᴇᴀᴛʜᴇʀ</b>\n" +
-  "» /anime — Aɴɪᴍᴇ Sᴇᴀʀᴄʜ | /manga — Mᴀɴɢᴀ\n" +
-  "» /character — Cʜᴀʀᴀᴄᴛᴇʀ Lᴏᴏᴋᴜᴘ\n" +
-  "» /weather — Cᴜʀʀᴇɴᴛ Wᴇᴀᴛʜᴇʀ\n" +
-  "» /forecast — 3-Dᴀʏ Fᴏʀᴇᴄᴀsᴛ\n\n" +
-  "<b>🤖 Aɪ (Nᴏ API)</b>\n" +
-  "» /summarize — Tᴇxᴛ Sᴜᴍᴍᴀʀɪᴢᴇʀ\n" +
-  "» /sentiment — Sᴇɴᴛɪᴍᴇɴᴛ Aɴᴀʟʏsɪs\n" +
-  "» /readability — Rᴇᴀᴅᴀʙɪʟɪᴛʏ Sᴄᴏʀᴇ\n" +
-  "» /keyword — Kᴇʏᴡᴏʀᴅ Exᴛʀᴀᴄᴛᴏʀ\n" +
-  "» /paraphrase — Tᴇxᴛ Pᴀʀᴀᴘʜʀᴀsᴇʀ\n" +
-  "» /grammar — Gʀᴀᴍᴍᴀʀ Cʜᴇᴄᴋᴇʀ\n" +
-  "» /plagiarism — Dᴜᴘʟɪᴄᴀᴛᴇ Dᴇᴛᴇᴄᴛᴏʀ\n" +
-  "» /chatbot — Aɪ Cʜᴀᴛʙᴏᴛ\n\n" +
-  "<b>🎲 Fᴜɴ</b>\n" +
-  "» /quote — Qᴜᴏᴛᴇs | /joke — Jᴏᴋᴇs | /advice — Aᴅᴠɪᴄᴇ\n" +
-  "» /roll — Dɪᴄᴇ | /flip — Cᴏɪɴ | /choose — Rᴀɴᴅᴏᴍ Pɪᴄᴋ" +
+  "├ /anime — Aɴɪᴍᴇ Sᴇᴀʀᴄʜ\n" +
+  "├ /manga — Mᴀɴɢᴀ Sᴇᴀʀᴄʜ\n" +
+  "├ /character — Cʜᴀʀᴀᴄᴛᴇʀ Lᴏᴏᴋᴜᴘ\n" +
+  "├ /weather — Cᴜʀʀᴇɴᴛ Wᴇᴀᴛʜᴇʀ\n" +
+  "├ /forecast — 3-Dᴀʏ Fᴏʀᴇᴄᴀꜱᴛ\n" +
+  "└ /airquality — Aɪʀ Qᴜᴀʟɪᴛʏ Iɴᴅᴇx\n\n" +
+  "<b>🤖 Aɪ Tᴏᴏʟꜱ (Nᴏ API)</b>\n" +
+  "├ /summarize — Tᴇxᴛ Sᴜᴍᴍᴀʀɪᴢᴇʀ\n" +
+  "├ /sentiment — Sᴇɴᴛɪᴍᴇɴᴛ Aɴᴀʟʏꜱɪꜱ\n" +
+  "├ /readability — Rᴇᴀᴅᴀʙɪʟɪᴛʏ Sᴄᴏʀᴇ\n" +
+  "├ /keyword — Kᴇʏᴡᴏʀᴅ Exᴛʀᴀᴄᴛᴏʀ\n" +
+  "├ /paraphrase — Tᴇxᴛ Pᴀʀᴀᴘʜʀᴀꜱᴇʀ\n" +
+  "├ /grammar — Gʀᴀᴍᴍᴀʀ Cʜᴇᴄᴋᴇʀ\n" +
+  "├ /plagiarism — Dᴜᴘʟɪᴄᴀᴛᴇ Dᴇᴛᴇᴄᴛᴏʀ\n" +
+  "└ /chatbot — Aɪ Cʜᴀᴛʙᴏᴛ\n\n" +
+  "<b>🎲 Fᴜɴ & Rᴀɴᴅᴏᴍ</b>\n" +
+  "├ /quote — Iɴꜱᴘɪʀᴀᴛɪᴏɴᴀʟ Qᴜᴏᴛᴇꜱ\n" +
+  "├ /joke — Rᴀɴᴅᴏᴍ Jᴏᴋᴇꜱ\n" +
+  "├ /advice — Lɪꜰᴇ Aᴅᴠɪᴄᴇ\n" +
+  "├ /roll — Rᴏʟʟ Dɪᴄᴇ (2d6)\n" +
+  "├ /flip — Cᴏɪɴ Fʟɪᴘ\n" +
+  "├ /choose — Rᴀɴᴅᴏᴍ Pɪᴄᴋ\n" +
+  "├ /8ball — Mᴀɢɪᴄ 8-Bᴀʟʟ\n" +
+  "├ /clap — 👏 Cʟᴀᴘ Tᴇxᴛ\n" +
+  "├ /emojify — Eᴍᴏᴊɪ Lᴇᴛᴛᴇʀꜱ\n" +
+  "├ /mock — Mᴏᴄᴋɪɴɢ Cᴀꜱᴇ\n" +
+  "├ /reverse — Rᴇᴠᴇʀꜱᴇ Tᴇxᴛ\n" +
+  "├ /vaporwave — Ｗɪᴅᴇ Tᴇxᴛ\n" +
+  "└ /zalgo — Z̸ᴀʟɢᴏ Gʟɪᴛᴄʜ\n\n" +
+  "<b>🛡️ Gʀᴏᴜᴘ Mᴀɴᴀɢᴇᴍᴇɴᴛ</b>\n" +
+  "├ /warn — Wᴀʀɴ Uꜱᴇʀ\n" +
+  "├ /unwarn — Rᴇᴍᴏᴠᴇ Wᴀʀɴɪɴɢ\n" +
+  "├ /warnings — Vɪᴇᴡ Wᴀʀɴɪɴɢꜱ\n" +
+  "├ /setwarns — Sᴇᴛ Mᴀx Wᴀʀɴꜱ\n" +
+  "├ /notes — Sᴀᴠᴇᴅ Nᴏᴛᴇꜱ\n" +
+  "├ /save — Sᴀᴠᴇ A Nᴏᴛᴇ\n" +
+  "├ /delnote — Dᴇʟᴇᴛᴇ A Nᴏᴛᴇ\n" +
+  "├ /addfilter — Aᴅᴅ Fɪʟᴛᴇʀ\n" +
+  "├ /delfilter — Dᴇʟᴇᴛᴇ Fɪʟᴛᴇʀ\n" +
+  "├ /filters — Lɪꜱᴛ Fɪʟᴛᴇʀꜱ\n" +
+  "├ /remind — Sᴇᴛ Rᴇᴍɪɴᴅᴇʀ\n" +
+  "├ /reminders — Yᴏᴜʀ Rᴇᴍɪɴᴅᴇʀꜱ\n" +
+  "├ /clearreminders — Cʟᴇᴀʀ Aʟʟ\n" +
+  "└ /afk — Sᴇᴛ AFK Sᴛᴀᴛᴜꜱ\n\n" +
+  "<b>╰━━━━━━━━━━━━━━━━━━╯</b>" +
   adsFooter
 
 var buttons = [

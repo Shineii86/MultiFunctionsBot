@@ -1,54 +1,59 @@
 /*CMD
   command: /feedback
-  help: Send feedback/suggestion to bot admin
+  help: Send feedback to the developer
   need_reply: true
   auto_retry_time: 
   folder: Fᴇᴇᴅʙᴀᴄᴋ
 
   <<ANSWER
-💬 Sᴇɴᴅ ʏᴏᴜʀ ꜰᴇᴇᴅʙᴀᴄᴋ, sᴜɢɢᴇsᴛɪᴏɴ, ʙᴜɢ ʀᴇᴘᴏʀᴛ, ᴏʀ 갭ᴇᴀᴛᴜʀᴇ ʀᴇǫᴜᴇsᴛ!
+💬 Sᴇɴᴅ ʏᴏᴜʀ ꜰᴇᴇᴅʙᴀᴄᴋ, ꜱᴜɢɢᴇꜱᴛɪᴏɴ, ᴏʀ ʙᴜɢ ʀᴇᴘᴏʀᴛ.
   ANSWER
 
   <<KEYBOARD
 
   KEYBOARD
-  aliases: /suggest /bug /feature
+  aliases: 
   group: 
 CMD*/
 
 var admin = Bot.getProperty("admin")
-if (!admin) {
-  Bot.sendMessage("<b>❌ Nᴏ ᴀᴅᴍɪɴ ᴄᴏɴꜰɪɢᴜʀᴇᴅ.</b>", { parse_mode: "HTML" })
+var adsFooter = Libs.Helpers.getAdsFooter()
+var text = message.trim()
+
+if (!text || text.length < 5) {
+  Bot.sendMessage("<b>❌ Pʟᴇᴀꜱᴇ ᴡʀɪᴛᴇ ᴀ ᴍᴇᴀɴɪɴɢꜰᴜʟ ꜰᴇᴇᴅʙᴀᴄᴋ.</b>", { parse_mode: "HTML" })
   return
 }
 
-var type = "💬 Fᴇᴇᴅʙᴀᴄᴋ"
-if (message.toLowerCase().indexOf("bug") !== -1 || message.toLowerCase().indexOf("error") !== -1) type = "🐛 Bᴜɢ Rᴇᴘᴏʀᴛ"
-else if (message.toLowerCase().indexOf("feature") !== -1 || message.toLowerCase().indexOf("add") !== -1) type = "💡 Fᴇᴀᴛᴜʀᴇ Rᴇǫᴜᴇsᴛ"
-else if (message.toLowerCase().indexOf("suggest") !== -1) type = "📝 Sᴜɢɢᴇsᴛɪᴏɴ"
-
-var name = Libs.Helpers.getUserMention()
-var username = user.username ? "@" + user.username : "N/A"
-
-var log = "<b>" + type + "</b>\n\n" +
-  "<b>👤 Fʀᴏᴍ:</b> " + name + "\n" +
-  "<b>🌐 Usᴇʀɴᴀᴍᴇ:</b> " + username + "\n" +
-  "<b>🆔 ID:</b> <code>" + user.telegramid + "</code>\n\n" +
-  "<b>📝 Mᴇssᴀɢᴇ:</b>\n<blockquote>" + message + "</blockquote>\n" +
-  "<b>🕐 Tɪᴍᴇ:</b> " + new Date().toISOString().slice(0, 19).replace("T", " ") + " UTC"
-
-// Send to admin
-Api.sendMessage({
-  chat_id: admin,
-  text: log,
-  parse_mode: "HTML",
-  disable_web_page_preview: true
+// Store feedback
+var feedbacks = Bot.getProperty("feedbacks", [])
+feedbacks.push({
+  name: user.first_name || "Aɴᴏɴʏᴍᴏᴜꜱ",
+  id: user.telegramid,
+  text: text,
+  time: new Date().toISOString()
 })
+if (feedbacks.length > 100) feedbacks = feedbacks.slice(-100)
+Bot.setProperty("feedbacks", feedbacks, "json")
 
-// Confirm to user
-var adsFooter = Libs.Helpers.getAdsFooter()
-Bot.sendMessage("<b>✅ " + type + " Sᴇɴᴛ!</b>\n\nTʜᴀɴᴋs ꜰᴏʀ ʏᴏᴜʀ ꜰᴇᴇᴅʙᴀᴄᴋ! Tʜᴇ ᴀᴅᴍɪɴ ᴡɪʟʟ ʀᴇᴠɪᴇᴡ ɪᴛ sᴏᴏɴ." + adsFooter, {
+// Notify admin
+if (admin) {
+  Api.sendMessage({
+    chat_id: admin,
+    text: "<b>📬 Nᴇᴡ Fᴇᴇᴅʙᴀᴄᴋ</b>\n\n" +
+      "<b>👤 Fʀᴏᴍ:</b> " + Libs.Helpers.getUserMention() + "\n" +
+      "<b>🆔 Iᴅ:</b> <code>" + user.telegramid + "</code>\n\n" +
+      "<b>📝 Mᴇꜱꜱᴀɢᴇ:</b>\n<blockquote>" + Libs.Helpers.escapeHTML(text) + "</blockquote>",
+    parse_mode: "HTML",
+    disable_web_page_preview: true,
+    reply_markup: { inline_keyboard: [[{ text: "💬 Rᴇᴘʟʏ", url: "tg://user?id=" + user.telegramid }]] }
+  })
+}
+
+Bot.sendMessage("<b>✅ Fᴇᴇᴅʙᴀᴄᴋ Sᴇɴᴛ!</b>\n\n" +
+  "Tʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ʏᴏᴜʀ ꜰᴇᴇᴅʙᴀᴄᴋ! Tʜᴇ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴡɪʟʟ ʀᴇᴠɪᴇᴡ ɪᴛ ꜱᴏᴏɴ. 🙏" +
+  adsFooter, {
   parse_mode: "HTML",
   disable_web_page_preview: true,
-  reply_markup: { inline_keyboard: [[{ text: "💬 Sᴇɴᴅ Mᴏʀᴇ", callback_data: "/feedback" }, { text: "Cʟᴏsᴇ ✕", callback_data: "/close" }]] }
+  reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
 })

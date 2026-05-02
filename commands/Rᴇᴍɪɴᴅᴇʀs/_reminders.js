@@ -19,38 +19,37 @@ CMD*/
 var reminders = Bot.getProperty("reminders_" + user.telegramid, [])
 var adsFooter = Libs.Helpers.getAdsFooter()
 
+var caption = "<b>📋 Yᴏᴜʀ Rᴇᴍɪɴᴅᴇʀꜱ</b>\n\n"
+
 if (reminders.length === 0) {
-  Bot.sendMessage("<b⏰ Nᴏ ᴀᴄᴛɪᴠᴇ ʀᴇᴍɪɴᴅᴇʀs.</b>\n\nUsᴇ <code>/remind 30m message</code> ᴛᴏ sᴇᴛ ᴏɴᴇ." + adsFooter, {
-    parse_mode: "HTML",
-    reply_markup: { inline_keyboard: [[{ text: "⏰ Sᴇᴛ Rᴇᴍɪɴᴅᴇʀ", callback_data: "/remind" }]] }
-  })
-  return
+  caption += "Nᴏ ᴀᴄᴛɪᴠᴇ ʀᴇᴍɪɴᴅᴇʀꜱ.\n\n"
+  caption += "<b>💡 Uꜱᴀɢᴇ:</b> <code>/remind 30m Mᴇꜱꜱᴀɢᴇ</code>"
+} else {
+  caption += "<b>Tᴏᴛᴀʟ:</b> " + reminders.length + "\n\n"
+  for (var i = 0; i < reminders.length; i++) {
+    var r = reminders[i]
+    var remaining = Math.max(0, r.time - Date.now())
+    var mins = Math.ceil(remaining / 60000)
+    var timeLabel = mins > 60 ? Math.ceil(mins / 60) + "ʜ" : mins + "ᴍ"
+    caption += (i + 1) + ". " + r.text + " — <i>" + timeLabel + " ʀᴇᴍᴀɪɴɪɴɢ</i>\n"
+  }
 }
 
-var caption = "<b>⏰ Yᴏᴜʀ Rᴇᴍɪɴᴅᴇʀs (" + reminders.length + ")</b>\n\n"
-for (var i = 0; i < reminders.length; i++) {
-  var r = reminders[i]
-  var remaining = r.time - Date.now()
-  var timeLeft = ""
-  if (remaining > 0) {
-    var mins = Math.floor(remaining / 60000)
-    if (mins < 60) timeLeft = mins + "m ʟᴇꜰᴛ"
-    else if (mins < 1440) timeLeft = Math.floor(mins / 60) + "h ʟᴇꜰᴛ"
-    else timeLeft = Math.floor(mins / 1440) + "d ʟᴇꜰᴛ"
-  } else {
-    timeLeft = "Oᴠᴇʀᴅᴜᴇ"
-  }
-  caption += (i + 1) + ". <b>" + r.text + "</b> — " + timeLeft + "\n"
-}
 caption += adsFooter
 
 var buttons = [
-  [{ text: "🗑️ Cʟᴇᴀʀ Aʟʟ", callback_data: "clearReminders" }],
-  [{ text: "⏰ Sᴇᴛ Nᴇᴡ", callback_data: "/remind" }, { text: "Cʟᴏsᴇ ✕", callback_data: "/close" }]
+  [
+    { text: "⏰ Nᴇᴡ Rᴇᴍɪɴᴅᴇʀ", callback_data: "/remind" },
+    { text: "🗑️ Cʟᴇᴀʀ Aʟʟ", callback_data: "/clearreminders" }
+  ],
+  [
+    { text: "◁", callback_data: "/tools" },
+    { text: "○", callback_data: "/start" },
+    { text: "✕", callback_data: "/close" }
+  ]
 ]
 
-Bot.sendMessage(caption, {
-  parse_mode: "HTML",
-  disable_web_page_preview: true,
+Libs.Helpers.editOrSend({
+  text: caption,
   reply_markup: { inline_keyboard: buttons }
 })

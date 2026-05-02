@@ -16,24 +16,31 @@
   group: 
 CMD*/
 
+var admin = Bot.getProperty("admin")
+if (user.telegramid != admin) {
+  Bot.sendMessage("<b>🚷 Aᴅᴍɪɴ Oɴʟʏ.</b>", { parse_mode: "HTML" })
+  return
+}
+
 var firstName = user && user.first_name
-  ? "<a href='tg://user?id=" + user.telegramid + "'>" + user.first_name + "</a>"
+  ? "<a href='tg://user?id=" + user.telegramid + "'>" + Libs.Helpers.escapeHTML(user.first_name) + "</a>"
   : "Uɴᴋɴᴏᴡɴ"
 
-var caption = "<b>👤 Aᴅᴍɪɴ Pʀᴏғɪʟᴇ</b>\n\n" +
-  "<b>👤 Fɪʀsᴛ Nᴀᴍᴇ:</b> " + firstName + "\n" +
-  "<b>👥 Lᴀsᴛ Nᴀᴍᴇ:</b> " + (user.last_name || "Uɴᴋɴᴏᴡɴ") + "\n" +
-  "<b>🌐 Usᴇʀɴᴀᴍᴇ:</b> " + (user.username ? "@" + user.username : "Uɴᴋɴᴏᴡɴ") + "\n" +
-  "<b>🏆 Pʀᴇᴍɪᴜᴍ:</b> " + (user.is_premium ? "Yᴇs" : "Nᴏ") + "\n" +
-  "<b>🏳️ Lᴀɴɢᴜᴀɢᴇ:</b> " + (user.language_code || "Uɴᴋɴᴏᴡɴ") + "\n" +
-  "<b>🆔 Usᴇʀ Iᴅ:</b> <code>" + user.telegramid + "</code>\n" +
-  "<b>💁 Pʀᴏғɪʟᴇ:</b> <a href='tg://user?id=" + user.telegramid + "'>Vɪᴇᴡ Pʀᴏғɪʟᴇ</a>"
+var caption = "<b>╭━━ 👤 Aᴅᴍɪɴ Pʀᴏꜰɪʟᴇ ━━╮</b>\n\n" +
+  "<b>👤 Nᴀᴍᴇ:</b> " + firstName + "\n" +
+  "<b>👥 Lᴀꜱᴛ Nᴀᴍᴇ:</b> " + (user.last_name || "N/A") + "\n" +
+  "<b>🌐 Uꜱᴇʀɴᴀᴍᴇ:</b> " + (user.username ? "@" + user.username : "N/A") + "\n" +
+  "<b>💎 Pʀᴇᴍɪᴜᴍ:</b> " + (user.is_premium ? "Yᴇꜱ ⭐" : "Nᴏ") + "\n" +
+  "<b>🗣️ Lᴀɴɢᴜᴀɢᴇ:</b> " + (user.language_code || "N/A") + "\n" +
+  "<b>🆔 Iᴅ:</b> <code>" + user.telegramid + "</code>\n" +
+  "<b>📎 Pʀᴏꜰɪʟᴇ:</b> <a href='tg://user?id=" + user.telegramid + "'>Vɪᴇᴡ</a>\n\n" +
+  "<b>╰━━━━━━━━━━━━━━━━━━╯</b>"
 
 var buttons = [
-  [{ text: "⚠️ Dᴀɴɢᴇʀ", callback_data: "!logout" }],
+  [{ text: "⚠️ Dᴀɴɢᴇʀ Zᴏɴᴇ — Lᴏɢᴏᴜᴛ", callback_data: "!logout" }],
   [
     { text: "◁ Bᴀᴄᴋ", callback_data: "!master" },
-    { text: "Cʟᴏsᴇ ✕", callback_data: "/close" }
+    { text: "Cʟᴏꜱᴇ ✕", callback_data: "/close" }
   ]
 ]
 

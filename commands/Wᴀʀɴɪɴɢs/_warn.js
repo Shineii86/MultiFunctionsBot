@@ -16,51 +16,50 @@
   group: 
 CMD*/
 
-if (!request.reply_to_message) {
-  Bot.sendMessage("<b>❌ Rᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴡᴀʀɴ ᴛʜᴇᴍ.</b>", { parse_mode: "HTML" })
+var chatId = request.chat ? request.chat.id : user.telegramid
+var admin = Bot.getProperty("admin")
+
+if (user.telegramid != admin) {
+  Bot.sendMessage("<b>🚷 Aᴅᴍɪɴ Oɴʟʏ.</b>", { parse_mode: "HTML" })
   return
 }
 
-var targetUser = request.reply_to_message.from
-var targetId = targetUser.id
-var chatId = request.chat.id
+var replyTo = request.reply_to_message
+if (!replyTo || !replyTo.from) {
+  Bot.sendMessage("<b>❌ Rᴇᴘʟʏ ᴛᴏ ᴀ ᴜꜱᴇʀ'ꜱ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ᴡᴀʀɴ ᴛʜᴇᴍ.</b>", { parse_mode: "HTML" })
+  return
+}
 
-// Get warning count
+var targetId = replyTo.from.id
+var targetName = replyTo.from.first_name || "Uꜱᴇʀ"
+
+if (targetId == admin) {
+  Bot.sendMessage("<b>❌ Cᴀɴɴᴏᴛ ᴡᴀʀɴ ʏᴏᴜʀꜱᴇʟꜰ.</b>", { parse_mode: "HTML" })
+  return
+}
+
 var warnKey = "warns_" + chatId + "_" + targetId
 var warns = Bot.getProperty(warnKey, 0) + 1
 Bot.setProperty(warnKey, warns, "integer")
 
 var maxWarns = Bot.getProperty("max_warns", 3)
-var name = (targetUser.first_name || "") + " " + (targetUser.last_name || "")
-name = name.trim() || targetId
-
-var reason = params || "No reason specified"
-
-var caption = "<b>⚠️ Wᴀʀɴɪɴɢ</b>\n\n" +
-  "<b>👤 Usᴇʀ:</b> <a href='tg://user?id=" + targetId + "'>" + name + "</a>\n" +
-  "<b>📊 Wᴀʀɴs:</b> " + warns + "/" + maxWarns + "\n" +
-  "<b>📝 Rᴇᴀsᴏɴ:</b> " + reason + "\n\n"
 
 if (warns >= maxWarns) {
-  caption += "<b>🚫 Mᴀx ᴡᴀʀɴs ʀᴇᴀᴄʜᴇᴅ! Usᴇʀ ᴡɪʟʟ ʙᴇ ʙᴀɴɴᴇᴅ.</b>"
-  // Ban the user
-  Api.kickChatMember({
-    chat_id: chatId,
-    user_id: targetId
-  })
+  try {
+    Api.banChatMember({ chat_id: chatId, user_id: targetId })
+  } catch (e) {}
   Bot.setProperty(warnKey, 0, "integer")
+
+  Bot.sendMessage("<b>🚫 Uꜱᴇʀ Bᴀɴɴᴇᴅ</b>\n\n" +
+    "<b>👤 Uꜱᴇʀ:</b> " + Libs.Helpers.escapeHTML(targetName) + "\n" +
+    "<b>⚠️ Rᴇᴀꜱᴏɴ:</b> Rᴇᴀᴄʜᴇᴅ " + maxWarns + " ᴡᴀʀɴɪɴɢꜱ",
+    { parse_mode: "HTML" })
 } else {
-  caption += "<b>💡 " + (maxWarns - warns) + " ᴡᴀʀɴ(s) ʀᴇᴍᴀɪɴɪɴɢ ʙᴇꜰᴏʀᴇ ʙᴀɴ.</b>"
+  var bar = Libs.Helpers.getProgressBar(warns, maxWarns, maxWarns)
+  Bot.sendMessage("<b>⚠️ Wᴀʀɴɪɴɢ Iꜱꜱᴜᴇᴅ</b>\n\n" +
+    "<b>👤 Uꜱᴇʀ:</b> " + Libs.Helpers.escapeHTML(targetName) + "\n" +
+    "<b>📊 Wᴀʀɴɪɴɢꜱ:</b> " + warns + "/" + maxWarns + "\n" +
+    bar + "\n\n" +
+    (warns >= maxWarns - 1 ? "<b>⚡ Nᴇxᴛ ᴡᴀʀɴ = Bᴀɴ!</b>" : ""),
+    { parse_mode: "HTML" })
 }
-
-var buttons = [
-  [
-    { text: "🗑️ Rᴇᴍᴏᴠᴇ Wᴀʀɴ", callback_data: "unwarn " + targetId },
-    { text: "🚫 Bᴀɴ Nᴏᴡ", callback_data: "warnBan " + targetId }
-  ]
-]
-
-Bot.sendMessage(caption, {
-  parse_mode: "HTML",
-  reply_markup: { inline_keyboard: buttons }
-})

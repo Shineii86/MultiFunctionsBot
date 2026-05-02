@@ -1,6 +1,6 @@
 /*CMD
   command: /afk
-  help: Set your AFK status
+  help: Set AFK status
   need_reply: false
   auto_retry_time: 
   folder: Aꜰᴋ
@@ -12,24 +12,24 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: /brb
+  aliases: 
   group: 
 CMD*/
 
-var reason = params || message || "AFK"
-User.setProperty("afk", reason, "string")
-User.setProperty("afk_time", new Date().toISOString(), "string")
+var reason = params || message || ""
+var afkData = {
+  active: true,
+  reason: reason.trim() || "Nᴏ ʀᴇᴀꜱᴏɴ ɢɪᴠᴇɴ",
+  since: Date.now()
+}
 
-// Also store in Bot properties for cross-user AFK checking
-Bot.setProperty("afk_" + user.telegramid, {
-  reason: reason,
-  time: new Date().toISOString()
-}, "json")
+User.setProperty("afk", afkData, "json")
 
-var name = Libs.Helpers.getUserMention()
-var adsFooter = Libs.Helpers.getAdsFooter()
+var caption = "<b>💤 AFK Mᴏᴅᴇ Aᴄᴛɪᴠᴀᴛᴇᴅ</b>\n\n" +
+  "<b>📝 Rᴇᴀꜱᴏɴ:</b> " + afkData.reason + "\n\n" +
+  "Oᴛʜᴇʀꜱ ᴡɪʟʟ ʙᴇ ɴᴏᴛɪꜰɪᴇᴅ ᴡʜᴇɴ ᴛʜᴇʏ ᴛᴀɢ ʏᴏᴜ."
 
-Bot.sendMessage("<b>😴 AFK Sᴛᴀᴛᴜs Sᴇᴛ</b>\n\n" + name + " ɪs ɴᴏᴡ AFK.\n<b>📝 Rᴇᴀsᴏɴ:</b> " + reason + "\n\n<i>Yᴏᴜʀ AFK ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏ-ʀᴇᴍᴏᴠᴇᴅ ᴡʜᴇɴ ʏᴏᴜ sᴇɴᴅ ᴀ ᴍᴇssᴀɢᴇ.</i>" + adsFooter, {
+Bot.sendMessage(caption, {
   parse_mode: "HTML",
-  disable_web_page_preview: true
+  reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
 })

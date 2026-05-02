@@ -1,5 +1,5 @@
 /*CMD
-  command: warnBan
+  command: _M_menu
   help: 
   need_reply: false
   auto_retry_time: 
@@ -12,18 +12,6 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases: _M_warnBan
   group: 
 CMD*/
-
-var targetId = parseInt(params) || 0
-var chatId = request.chat ? request.chat.id : user.telegramid
-
-Api.kickChatMember({
-  chat_id: chatId,
-  user_id: targetId
-})
-
-Bot.setProperty("warns_" + chatId + "_" + targetId, 0, "integer")
-
-Bot.sendMessage("<b>🚫 Usᴇʀ ʙᴀɴɴᴇᴅ.</b>", { parse_mode: "HTML" })

@@ -23,15 +23,18 @@ if (!admin) {
 
   Api.sendMessage({
     chat_id: user.telegramid,
-    text: "<b>✅ Yᴏᴜ Aʀᴇ Nᴏᴡ Tʜᴇ Aᴅᴍɪɴ!</b>\n\n<b>Yᴏᴜʀ Iᴅ:</b> <code>" + user.telegramid + "</code>\n\n<b>Yᴏᴜ Hᴀᴠᴇ Fᴜʟʟ Cᴏɴᴛʀᴏʟ Oᴠᴇʀ Tʜɪs Bᴏᴛ.</b>",
+    text: "<b>✅ Aᴅᴍɪɴ Aᴄᴄᴇꜱꜱ Gʀᴀɴᴛᴇᴅ!</b>\n\n" +
+      "<b>🆔 Yᴏᴜʀ Iᴅ:</b> <code>" + user.telegramid + "</code>\n\n" +
+      "Yᴏᴜ Nᴏᴡ Hᴀᴠᴇ Fᴜʟʟ Cᴏɴᴛʀᴏʟ Oᴠᴇʀ Tʜɪꜱ Bᴏᴛ.\n" +
+      "Uꜱᴇ Tʜᴇ Pᴀɴᴇʟ Bᴇʟᴏᴡ Tᴏ Mᴀɴᴀɢᴇ Eᴠᴇʀʏᴛʜɪɴɢ.",
     parse_mode: "HTML",
     disable_web_page_preview: true,
     reply_markup: {
       inline_keyboard: [
-        [{ text: "🧑‍💻 Oᴘᴇɴ Cᴏɴᴛʀᴏʟ Pᴀɴᴇʟ ⚙️", callback_data: "!master" }],
+        [{ text: "👑 Oᴘᴇɴ Aᴅᴍɪɴ Pᴀɴᴇʟ", callback_data: "!master" }],
         [
           { text: "◁ Bᴀᴄᴋ", callback_data: "/start" },
-          { text: "Cʟᴏsᴇ ✕", callback_data: "/close" }
+          { text: "Cʟᴏꜱᴇ ✕", callback_data: "/close" }
         ]
       ]
     }
@@ -39,15 +42,16 @@ if (!admin) {
 } else if (user.telegramid == admin) {
   Api.sendMessage({
     chat_id: user.telegramid,
-    text: "<b>⚠️ Yᴏᴜ Aʀᴇ Aʟʀᴇᴀᴅʏ Tʜᴇ Aᴅᴍɪɴ!</b>\n\n<b>Yᴏᴜʀ Iᴅ:</b> <code>" + user.telegramid + "</code>",
+    text: "<b>ℹ️ Yᴏᴜ Aʀᴇ Aʟʀᴇᴀᴅʏ Tʜᴇ Aᴅᴍɪɴ!</b>\n\n" +
+      "<b>🆔 Yᴏᴜʀ Iᴅ:</b> <code>" + user.telegramid + "</code>",
     parse_mode: "HTML",
     disable_web_page_preview: true,
     reply_markup: {
       inline_keyboard: [
-        [{ text: "🔐 Lᴏɢɪɴ Tᴏ Pᴀɴᴇʟ", callback_data: "!master" }],
+        [{ text: "👑 Oᴘᴇɴ Aᴅᴍɪɴ Pᴀɴᴇʟ", callback_data: "!master" }],
         [
           { text: "◁ Bᴀᴄᴋ", callback_data: "/start" },
-          { text: "Cʟᴏsᴇ ✕", callback_data: "/close" }
+          { text: "Cʟᴏꜱᴇ ✕", callback_data: "/close" }
         ]
       ]
     }
@@ -55,7 +59,7 @@ if (!admin) {
 } else {
   Api.sendMessage({
     chat_id: user.telegramid,
-    text: "<b>🚷 Aᴄᴄᴇss Dᴇɴɪᴇᴅ!</b> Aɴ Aᴅᴍɪɴ Is Aʟʀᴇᴀᴅʏ Sᴇᴛ.",
+    text: "<b>🚷 Aᴄᴄᴇꜱꜱ Dᴇɴɪᴇᴅ!</b>\n\nAɴ Aᴅᴍɪɴ Iꜱ Aʟʀᴇᴀᴅʏ Sᴇᴛ.",
     parse_mode: "HTML",
     disable_web_page_preview: true,
     reply_markup: { inline_keyboard: Libs.Helpers.getBackCloseButtons("/start") }

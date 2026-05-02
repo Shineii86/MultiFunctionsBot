@@ -1,16 +1,15 @@
 /*
  * Helpers.js - Shared utilities for MultiFunctionsBot
- * Extracts common patterns to reduce code duplication
+ * v3.0 - Enhanced with new helper functions
  */
 
-// Shared ads array
 var ADS = [
-  "@MaximXEmojis - Dive into a collection of expressive emojis for every mood! Join now and add flair to your conversations.",
-  "@MaximXSticker - Discover vibrant and diverse sticker packs to enhance your messaging experience. Join us for a visual delight!",
-  "@MaximXBots - Engage with cutting-edge bots designed for fun, utility, and more. Join the bot revolution and elevate your Telegram experience!",
-  "@MaximXWallpaper - Immerse yourself in a gallery of stunning wallpapers to revamp your device's look. Join for a daily dose of aesthetic inspiration.",
-  "@MaximXIcons - Upgrade your profile with unique and stylish icons. Join now and make your profile stand out!",
-  "@MaximXAnime - Dive into the world of anime with curated recommendations and community discussions. Join us and elevate your anime experience!"
+  "@MaximXEmojis - Dive into a collection of expressive emojis for every mood!",
+  "@MaximXSticker - Discover vibrant and diverse sticker packs!",
+  "@MaximXBots - Engage with cutting-edge bots for fun, utility, and more!",
+  "@MaximXWallpaper - Stunning wallpapers to revamp your device's look!",
+  "@MaximXIcons - Upgrade your profile with unique and stylish icons!",
+  "@MaximXAnime - Dive into the world of anime with curated recommendations!"
 ]
 
 function getRandomAd() {
@@ -30,18 +29,18 @@ function editOrSend(opts) {
   for (var k in defaults) { merged[k] = defaults[k] }
   for (var k in opts) { merged[k] = opts[k] }
 
-  if (request.message && request.message.message_id) {
+  if (request && request.message && request.message.message_id) {
     merged.message_id = request.message.message_id
     Api.editMessageText(merged)
   } else {
-    merged.chat_id = opts.chat_id || request.chat.id
+    merged.chat_id = opts.chat_id || (request && request.chat ? request.chat.id : user.telegramid)
     Api.sendMessage(merged)
   }
 }
 
 function getUserMention() {
   if (user && user.first_name) {
-    return "<a href='tg://user?id=" + user.telegramid + "'>" + user.first_name + "</a>"
+    return "<a href='tg://user?id=" + user.telegramid + "'>" + escapeHTML(user.first_name) + "</a>"
   }
   return "Uɴᴋɴᴏᴡɴ"
 }
@@ -79,9 +78,6 @@ function fancyOnOff(val) {
   return val === "On" ? "Oɴ" : "Oғғ"
 }
 
-/**
- * Format a number with commas (e.g. 1234567 → "1,234,567")
- */
 function formatNumber(num) {
   if (num === null || num === undefined) return "0"
   var parts = String(num).split(".")
@@ -89,9 +85,6 @@ function formatNumber(num) {
   return parts.join(".")
 }
 
-/**
- * Relative time string (e.g. "2 hours ago", "3 days ago")
- */
 function timeAgo(timestamp) {
   var now = Date.now()
   var ts = typeof timestamp === "number" ? timestamp : new Date(timestamp).getTime()
@@ -115,9 +108,6 @@ function timeAgo(timestamp) {
   return years + (years === 1 ? " year ago" : " years ago")
 }
 
-/**
- * Truncate text with ellipsis
- */
 function truncate(text, len) {
   if (!text) return ""
   len = len || 100
@@ -125,9 +115,6 @@ function truncate(text, len) {
   return text.substring(0, len - 1) + "…"
 }
 
-/**
- * Escape HTML special characters
- */
 function escapeHTML(text) {
   if (!text) return ""
   return String(text)
@@ -138,9 +125,6 @@ function escapeHTML(text) {
     .replace(/'/g, "&#039;")
 }
 
-/**
- * Visual progress bar (e.g. ▰▰▰▱▱▱▱▱▱▱)
- */
 function getProgressBar(value, max, length) {
   length = length || 10
   var filled = Math.round((value / max) * length)
@@ -152,20 +136,62 @@ function getProgressBar(value, max, length) {
   return bar
 }
 
-/**
- * Get IST date object
- */
 function getISTDate() {
   var now = new Date()
   var istOffset = 5.5 * 60 * 60 * 1000
   return new Date(now.getTime() + istOffset)
 }
 
-/**
- * Format a separator line
- */
 function separator() {
   return "▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬"
+}
+
+function getStatusEmoji(status) {
+  var map = {
+    "online": "🟢", "offline": "🔴", "idle": "🟡",
+    "maintenance": "🔧", "error": "⚠️", "success": "✅",
+    "pending": "⏳", "banned": "🚫", "muted": "🔇"
+  }
+  return map[status] || "⚪"
+}
+
+function formatDuration(seconds) {
+  if (!seconds || seconds < 0) return "0s"
+  var d = Math.floor(seconds / 86400)
+  var h = Math.floor((seconds % 86400) / 3600)
+  var m = Math.floor((seconds % 3600) / 60)
+  var s = seconds % 60
+  var parts = []
+  if (d > 0) parts.push(d + "d")
+  if (h > 0) parts.push(h + "h")
+  if (m > 0) parts.push(m + "m")
+  if (s > 0 || parts.length === 0) parts.push(s + "s")
+  return parts.join(" ")
+}
+
+function chunkArray(arr, size) {
+  var chunks = []
+  for (var i = 0; i < arr.length; i += size) {
+    chunks.push(arr.slice(i, i + size))
+  }
+  return chunks
+}
+
+function createPaginatedList(items, page, perPage) {
+  perPage = perPage || 10
+  var totalPages = Math.ceil(items.length / perPage)
+  if (page < 1) page = 1
+  if (page > totalPages) page = totalPages
+  var start = (page - 1) * perPage
+  var end = start + perPage
+  return {
+    items: items.slice(start, end),
+    page: page,
+    totalPages: totalPages,
+    totalItems: items.length,
+    hasNext: page < totalPages,
+    hasPrev: page > 1
+  }
 }
 
 publish({
@@ -183,5 +209,9 @@ publish({
   escapeHTML: escapeHTML,
   getProgressBar: getProgressBar,
   getISTDate: getISTDate,
-  separator: separator
+  separator: separator,
+  getStatusEmoji: getStatusEmoji,
+  formatDuration: formatDuration,
+  chunkArray: chunkArray,
+  createPaginatedList: createPaginatedList
 })

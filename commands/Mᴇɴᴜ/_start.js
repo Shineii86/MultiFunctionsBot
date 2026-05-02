@@ -30,7 +30,9 @@ chats.forEach(function(chat_id) {
 function doTouchOwnLink() {
   Api.sendMessage({
     chat_id: user.telegramid,
-    text: "<b>⚠️ 𝖤𝗋𝗋𝗈𝗋: 𝖲𝖾𝗅𝖿-𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅𝗌 𝖠𝗋𝖾 𝖭𝗈𝗍 𝖠𝗅𝗅𝗈𝗐𝖾𝖽.</b>\n\n𝖸𝗈𝗎 𝖢𝖺𝗇𝗇𝗈𝗍 𝖴𝗌𝖾 𝖸𝗈𝗎𝗋 𝖮𝗐𝗇 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄. 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗁𝖺𝗋𝖾 𝖸𝗈𝗎𝗋 𝖫𝗂𝗇𝗄 𝖶𝗂𝗍𝗁 𝖮𝗍𝗁𝖾𝗋𝗌 𝖳𝗈 𝖦𝖺𝗂𝗇 𝖱𝖾𝗐𝖺𝗋𝖽𝗌.",
+    text: "<b>⚠️ Sᴇʟꜰ-Rᴇꜰᴇʀʀᴀʟ Dᴇᴛᴇᴄᴛᴇᴅ</b>\n\n" +
+      "𝖸𝗈𝗎 𝖢𝖺𝗇𝗇𝗈𝗍 𝖴𝗌𝖾 𝖸𝗈𝗎𝗋 𝖮𝗐𝗇 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄.\n" +
+      "𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗁𝖺𝗋𝖾 𝖸𝗈𝗎𝗋 𝖫𝗂𝗇𝗄 𝖶𝗂𝗍𝗁 𝖮𝗍𝗁𝖾𝗋𝗌 𝖳𝗈 𝖦𝖺𝗂𝗇 𝖱𝖾𝗐𝖺𝗋𝖽𝗌.",
     parse_mode: "HTML",
     disable_web_page_preview: true,
     message_effect_id: "5104858069142078462",
@@ -42,7 +44,9 @@ function doTouchOwnLink() {
 function doAttracted(channel) {
   Api.sendMessage({
     chat_id: user.telegramid,
-    text: "<b>📢 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖭𝗈𝗍𝗂𝖿𝗂𝖼𝖺𝗍𝗂𝗈𝗇:</b>\n\n𝖸𝗈𝗎 𝖩𝗈𝗂𝗇𝖾𝖽 𝖳𝗁𝖾 𝖡𝗈𝗍 𝖳𝗁𝗋𝗈𝗎𝗀𝗁 𝖮𝗎𝗋 𝖯𝗎𝖻𝗅𝗂𝖼 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 @MaximXBots. 𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖩𝗈𝗂𝗇𝗂𝗇𝗀!",
+    text: "<b>📢 Rᴇꜰᴇʀʀᴀʟ Nᴏᴛɪꜰɪᴄᴀᴛɪᴏɴ</b>\n\n" +
+      "𝖸𝗈𝗎 𝖩𝗈𝗂𝗇𝖾𝖽 𝖳𝗁𝗋𝗈𝗎𝗀𝗁 @MaximXBots.\n" +
+      "𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖩𝗈𝗂𝗇𝗂𝗇𝗀! 🎉",
     parse_mode: "HTML",
     disable_web_page_preview: true,
     message_effect_id: "5044134455711629726",
@@ -66,19 +70,21 @@ function doAtractedByUser(refUser) {
   if (isSpecial) {
     Api.sendMessage({
       chat_id: user.telegramid,
-      text: "<b>🎉 𝖶𝖾𝗅𝖼𝗈𝗆𝖾! 𝖸𝗈𝗎 𝖴𝗌𝖾𝖽 𝖠 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄!</b>\n\n💮 𝖸𝗈𝗎'𝗏𝖾 𝖱𝖾𝖼𝖾𝗂𝗏𝖾𝖽 <b>1000 $REACT</b> 𝖠𝗌 𝖠 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖡𝗈𝗇𝗎𝗌!\n𝖤𝗑𝗉𝗅𝗈𝗋𝖾 𝖮𝗎𝗋 𝖥𝖾𝖺𝗍𝗎𝗋𝖾𝗌 𝖠𝗇𝖽 𝖲𝗍𝖺𝗋𝗍 𝖤𝖺𝗋𝗇𝗂𝗇𝗀 𝖬𝗈𝗋𝖾!",
+      text: "<b>🎉 Sᴘᴇᴄɪᴀʟ Rᴇꜰᴇʀʀᴀʟ Bᴏɴᴜs!</b>\n\n" +
+        "💮 Yᴏᴜ'ᴠᴇ Rᴇᴄᴇɪᴠᴇᴅ <b>1000 $REACT</b> Aꜱ A Sᴘᴇᴄɪᴀʟ Bᴏɴᴜꜱ!\n" +
+        "E𝐱ᴘʟᴏʀᴇ Oᴜʀ Fᴇᴀᴛᴜʀᴇꜱ Aɴᴅ Sᴛᴀʀᴛ Eᴀʀɴɪɴɢ Mᴏʀᴇ!",
       parse_mode: "HTML",
       disable_web_page_preview: true,
       message_effect_id: "5046509860389126442",
       reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
     })
-
-    // Notify admin about special referral
     var admin = Bot.getProperty("admin")
     if (admin) {
       Api.sendMessage({
         chat_id: admin,
-        text: "<b>🌟 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖠𝗅𝖾𝗋𝗍!</b>\n\n<b>👤 𝖴𝗌𝖾𝗋:</b> " + Libs.Helpers.getUserMention() + "\n🔥 Bonus Given: 1000 REACT",
+        text: "<b>🌟 Sᴘᴇᴄɪᴀʟ Rᴇꜰᴇʀʀᴀʟ Aʟᴇʀᴛ!</b>\n\n" +
+          "<b>👤 Uꜱᴇʀ:</b> " + Libs.Helpers.getUserMention() + "\n" +
+          "<b>🔥 Bᴏɴᴜꜱ:</b> 1000 REACT",
         parse_mode: "HTML",
         disable_web_page_preview: true,
         reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
@@ -87,7 +93,8 @@ function doAtractedByUser(refUser) {
   } else {
     Api.sendMessage({
       chat_id: user.telegramid,
-      text: "<b>🎉 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 <a href='t.me/" + bot.name + "'>𝖬𝗎𝗅𝗍𝗂 𝖥𝗎𝗇𝖼𝗍𝗂𝗈𝗇𝗌 𝖡𝗈𝗍</a></b>\n\n𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖩𝗈𝗂𝗇𝗂𝗇𝗀 𝖳𝗁𝗋𝗈𝗎𝗀𝗁 𝖠 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄. 𝖸𝗈𝗎'𝗏𝖾 𝖱𝖾𝖼𝖾𝗂𝗏𝖾𝖽 <b>5 $REACT</b> 𝖠𝗌 𝖠 𝖡𝗈𝗇𝗎𝗌!",
+      text: "<b>🎉 Wᴇʟᴄᴏᴍᴇ Tᴏ <a href='t.me/" + bot.name + "'>Mᴜʟᴛɪ Fᴜɴᴄᴛɪᴏɴꜱ Bᴏᴛ</a></b>\n\n" +
+        "𝖸𝗈𝗎'𝗏𝖾 𝖱𝖾𝖼𝖾𝗂𝗏𝖾𝖽 <b>5 $REACT</b> Aꜱ A Rᴇꜰᴇʀʀᴀʟ Bᴏɴᴜꜱ! 🎁",
       parse_mode: "HTML",
       disable_web_page_preview: true,
       message_effect_id: "5046509860389126442",
@@ -95,10 +102,12 @@ function doAtractedByUser(refUser) {
     })
   }
 
-  // Notify the referrer
   Api.sendMessage({
     chat_id: refUser.telegramid,
-    text: "<b>🔔 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖭𝗈𝗍𝗂𝖿𝗂𝖼𝖺𝗍𝗂𝗈𝗇:</b>\n\n𝖠 𝖭𝖾𝗐 𝖴𝗌𝖾𝗋 𝖧𝖺𝗌 𝖩𝗈𝗂𝗇𝖾𝖽 𝖵𝗂𝖺 𝖸𝗈𝗎𝗋 𝖫𝗂𝗇𝗄:\n\n<b>👤 𝖴𝗌𝖾𝗋:</b> " + Libs.Helpers.getUserMention() + "\n\n𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖲𝗁𝖺𝗋𝗂𝗇𝗀!",
+    text: "<b>🔔 Rᴇꜰᴇʀʀᴀʟ Nᴏᴛɪꜰɪᴄᴀᴛɪᴏɴ</b>\n\n" +
+      "A Nᴇᴡ Uꜱᴇʀ Jᴏɪɴᴇᴅ Vɪᴀ Yᴏᴜʀ Lɪɴᴋ:\n" +
+      "<b>👤 Uꜱᴇʀ:</b> " + Libs.Helpers.getUserMention() + "\n\n" +
+      "Tʜᴀɴᴋ Yᴏᴜ Fᴏʀ Sʜᴀʀɪɴɢ! 🎉",
     parse_mode: "HTML",
     disable_web_page_preview: true,
     message_effect_id: "5046509860389126442",
@@ -108,14 +117,7 @@ function doAtractedByUser(refUser) {
 
 // Already joined
 function doAlreadyAttracted() {
-  Api.sendMessage({
-    chat_id: user.telegramid,
-    text: "<b>⚠️ 𝖭𝗈𝗍𝗂𝖼𝖾:</b> 𝖸𝗈𝗎'𝗏𝖾 𝖠𝗅𝗋𝖾𝖺𝖽𝗒 𝖲𝗍𝖺𝗋𝗍𝖾𝖽 𝖳𝗁𝗂𝗌 𝖡𝗈𝗍. 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖱𝖾𝗐𝖺𝗋𝖽𝗌 𝖠𝗋𝖾 𝖮𝗇𝗅𝗒 𝖥𝗈𝗋 𝖭𝖾𝗐 𝖴𝗌𝖾𝗋𝗌.",
-    parse_mode: "HTML",
-    disable_web_page_preview: true,
-    message_effect_id: "5107584321108051014",
-    reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
-  })
+  // Silently pass - don't spam returning users
 }
 
 // Referral tracking
@@ -146,33 +148,70 @@ if (chat && chat.just_created && chat.chat_type === "private") {
     status.add(1)
   }
 
-  var now = new Date()
-  var istOffset = 5.5 * 60 * 60 * 1000
-  var istDate = new Date(now.getTime() + istOffset)
-  var dateStr = istDate.toISOString().slice(0, 10)
-  var timeStr = istDate.toISOString().slice(11, 19)
-
   if (admin) {
     var Name = Libs.Helpers.getUserMention()
-    var adminText = "<b>▧ Nᴇᴡ Usᴇʀ Nᴏᴛɪғɪᴄᴀᴛɪᴏɴ ✨</b>\n" +
-      "┋\n" +
-      "┋┏ Nᴀᴍᴇ: " + Name + "\n" +
-      "┋┣ Usᴇʀɴᴀᴍᴇ: @${" + (user.username || "N/A") + "}\n" +
-      "┋┣ Tᴇʟᴇɢʀᴀᴍ Iᴅ: <code>" + user.telegramid + "</code>\n" +
-      "┋┃\n" +
-      "┋┣ Dᴀᴛᴇ: " + dateStr + "\n" +
-      "┋┣ Tɪᴍᴇ: " + timeStr + "\n" +
-      "┋┃\n" +
-      "┋┣ Tᴏᴛᴀʟ Usᴇʀs: " + status.value() + "\n" +
-      "┋┗ Bᴏᴛ Nᴀᴍᴇ: @" + bot.name
+    var username = user.username ? "@" + user.username : "N/A"
+    var istDate = Libs.Helpers.getISTDate()
+    var dateStr = istDate.toISOString().slice(0, 10)
+    var timeStr = istDate.toISOString().slice(11, 19)
+
+    var adminText = "<b>✨ Nᴇᴡ Uꜱᴇʀ Nᴏᴛɪꜰɪᴄᴀᴛɪᴏɴ</b>\n" +
+      Libs.Helpers.separator() + "\n\n" +
+      "<b>👤 Nᴀᴍᴇ:</b> " + Name + "\n" +
+      "<b>🌐 Uꜱᴇʀɴᴀᴍᴇ:</b> " + username + "\n" +
+      "<b>🆔 Tᴇʟᴇɢʀᴀᴍ Iᴅ:</b> <code>" + user.telegramid + "</code>\n\n" +
+      "<b>📅 Dᴀᴛᴇ:</b> " + dateStr + "\n" +
+      "<b>🕐 Tɪᴍᴇ:</b> " + timeStr + "\n\n" +
+      "<b>📊 Tᴏᴛᴀʟ Uꜱᴇʀꜱ:</b> " + Libs.Helpers.formatNumber(status.value()) + "\n" +
+      "<b>🤖 Bᴏᴛ:</b> @" + bot.name
 
     Api.sendMessage({
       chat_id: admin,
       text: adminText,
       parse_mode: "HTML",
       reply_markup: {
-        inline_keyboard: [[{ text: "Pʀᴏғɪʟᴇ Lɪɴᴋ", url: "tg://user?id=" + user.telegramid }]]
+        inline_keyboard: [[{ text: "👤 Pʀᴏꜰɪʟᴇ Lɪɴᴋ", url: "tg://user?id=" + user.telegramid }]]
       }
     })
   }
 }
+
+// Main welcome message
+var totalUsers = Libs.ResourcesLib.anotherChatRes("totalusers", "global")
+var userCount = totalUsers.value() || 0
+var adsFooter = Libs.Helpers.getAdsFooter()
+
+var welcome = "<b>╭━━━━━━━━━━━━━━━━━╮</b>\n" +
+  "  <b>🤖 Mᴜʟᴛɪ Fᴜɴᴄᴛɪᴏɴꜱ Bᴏᴛ</b>\n" +
+  "  <i>Yᴏᴜʀ Aʟʟ-Iɴ-Oɴᴇ Tᴇʟᴇɢʀᴀᴍ Uᴛɪʟɪᴛʏ</i>\n" +
+  "<b>╰━━━━━━━━━━━━━━━━━╯</b>\n\n" +
+  "Hᴇʏ " + Libs.Helpers.getUserMention() + "! Wᴇʟᴄᴏᴍᴇ Bᴀᴄᴋ! 👋\n\n" +
+  "<b>📊 Sᴛᴀᴛꜱ:</b>\n" +
+  "├ 👥 " + Libs.Helpers.formatNumber(userCount) + " Uꜱᴇʀꜱ Tʀᴜꜱᴛ Uꜱ\n" +
+  "├ ⚡ 50+ Pᴏᴡᴇʀꜰᴜʟ Tᴏᴏʟꜱ\n" +
+  "└ 🆓 Aʟʟ Fᴇᴀᴛᴜʀᴇꜱ Fʀᴇᴇ\n\n" +
+  "<b>⚡ Qᴜɪᴄᴋ Aᴄᴄᴇꜱꜱ:</b>\n" +
+  "├ /help — Aʟʟ Cᴏᴍᴍᴀɴᴅꜱ\n" +
+  "├ /tools — Bʀᴏᴡꜱᴇ Tᴏᴏʟꜱ\n" +
+  "└ /about — Bᴏᴛ Iɴꜰᴏ\n\n" +
+  "<i>Pɪᴄᴋ Aɴ Oᴘᴛɪᴏɴ Bᴇʟᴏᴡ Tᴏ Gᴇᴛ Sᴛᴀʀᴛᴇᴅ!</i>" +
+  adsFooter
+
+var buttons = [
+  [
+    { text: "📚 Hᴇʟᴘ", callback_data: "/help" },
+    { text: "⚙️ Tᴏᴏʟꜱ", callback_data: "/tools" }
+  ],
+  [
+    { text: "ℹ️ Aʙᴏᴜᴛ", callback_data: "/about" },
+    { text: "💬 Fᴇᴇᴅʙᴀᴄᴋ", callback_data: "/feedback" }
+  ],
+  [
+    { text: "🐙 Gɪᴛʜᴜʙ", url: "https://github.com/Shineii86/MultiFunctionsBot" }
+  ]
+]
+
+Libs.Helpers.editOrSend({
+  text: welcome,
+  reply_markup: { inline_keyboard: buttons }
+})

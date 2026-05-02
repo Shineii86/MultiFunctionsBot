@@ -21,12 +21,11 @@ var admin = Bot.getProperty("admin")
 if (user.telegramid == admin) {
   Bot.setProperty("admin", "", "integer")
 
-  var caption = "<b>👤 Bᴏᴛ Aᴅᴍɪɴ Hᴀs Bᴇᴇɴ Rᴇᴍᴏᴠᴇᴅ.</b>"
-  var buttons = [[{ text: "Lᴏɢᴏᴜᴛ Pᴀɴᴇʟ", callback_data: "/start" }]]
-
   Libs.Helpers.editOrSend({
-    text: caption,
-    reply_markup: { inline_keyboard: buttons }
+    text: "<b>🚪 Aᴅᴍɪɴ Aᴄᴄᴇꜱꜱ Rᴇᴍᴏᴠᴇᴅ</b>\n\n" +
+      "Yᴏᴜ ʜᴀᴠᴇ ʙᴇᴇɴ ʟᴏɢɢᴇᴅ ᴏᴜᴛ.\n" +
+      "Tᴏ ʀᴇ-ɢᴀɪɴ ᴀᴄᴄᴇꜱꜱ, ᴜꜱᴇ !ZeroTwo",
+    reply_markup: { inline_keyboard: [[{ text: "◁ Bᴀᴄᴋ Tᴏ Bᴏᴛ", callback_data: "/start" }]] }
   })
 } else if (admin) {
   Libs.Helpers.editOrSend({

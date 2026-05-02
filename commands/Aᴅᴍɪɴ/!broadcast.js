@@ -6,11 +6,9 @@
   folder: Aᴅᴍɪɴ
 
   <<ANSWER
-*📨 Pʟᴇᴀsᴇ Sᴇɴᴅ A Pʜᴏᴛᴏ, Vɪᴅᴇᴏ, Sᴛɪᴄᴋᴇʀ, Oʀ Tᴇxᴛ.  
-I Wɪʟʟ Pʀᴏᴄᴇss Yᴏᴜʀ Mᴇssᴀɢᴇ Aɴᴅ Bʀᴏᴀᴅᴄᴀsᴛ Iᴛ Qᴜɪᴄᴋʟʏ.*
-
-✅ Fᴏʀᴡᴀʀᴅᴇᴅ Mᴇssᴀɢᴇs Sᴜᴘᴘᴏʀᴛᴇᴅ
-✅ Aʟʟ Mᴇssᴀɢᴇ Tʏᴘᴇs Sᴜᴘᴘᴏʀᴛᴇᴅ
+📨 Sᴇɴᴅ A Pʜᴏᴛᴏ, Vɪᴅᴇᴏ, Sᴛɪᴄᴋᴇʀ, Oʀ Tᴇxᴛ Tᴏ Bʀᴏᴀᴅᴄᴀꜱᴛ.
+  ✅ Fᴏʀᴡᴀʀᴅᴇᴅ Mᴇꜱꜱᴀɢᴇꜱ Sᴜᴘᴘᴏʀᴛᴇᴅ
+  ✅ Aʟʟ Mᴇꜱꜱᴀɢᴇ Tʏᴘᴇꜱ Sᴜᴘᴘᴏʀᴛᴇᴅ
   ANSWER
 
   <<KEYBOARD
@@ -20,9 +18,15 @@ I Wɪʟʟ Pʀᴏᴄᴇss Yᴏᴜʀ Mᴇssᴀɢᴇ Aɴᴅ Bʀᴏᴀᴅᴄᴀsᴛ 
   group: 
 CMD*/
 
+var admin = Bot.getProperty("admin")
+if (user.telegramid != admin) {
+  Bot.sendMessage("<b>🚷 Aᴅᴍɪɴ Oɴʟʏ.</b>", { parse_mode: "HTML" })
+  return
+}
+
 var idstore = Bot.getProperty("idstore")
 if (!idstore || idstore.length === 0) {
-  Bot.sendMessage("Nᴏ Sᴛᴏʀᴇᴅ Iᴅ")
+  Bot.sendMessage("<b>❌ Nᴏ Sᴛᴏʀᴇᴅ Iᴅꜱ.</b>", { parse_mode: "HTML" })
   return
 }
 
@@ -30,7 +34,7 @@ var total = idstore.length
 var sent = 0
 var failed = 0
 
-Bot.sendMessage("<b>📢 Bʀᴏᴀᴅᴄᴀsᴛɪɴɢ Tᴏ " + total + " Usᴇʀs...</b>", { parse_mode: "HTML" })
+Bot.sendMessage("<b>📢 Bʀᴏᴀᴅᴄᴀꜱᴛɪɴɢ Tᴏ " + Libs.Helpers.formatNumber(total) + " Uꜱᴇʀꜱꜱ...</b>\n\n⏳ Pʟᴇᴀꜱᴇ ᴡᴀɪᴛ...", { parse_mode: "HTML" })
 
 for (var index in idstore) {
   var targetId = idstore[index]
@@ -49,20 +53,25 @@ for (var index in idstore) {
       }
       if (request.caption) opts.caption = request.caption
       Api.sendPhoto(opts)
-    } else if (request.text) {
-      Api.sendMessage({
-        chat_id: targetId,
-        text: "<b>📢 Aᴅᴍɪɴ Bʀᴏᴀᴅᴄᴀsᴛ</b>\n<blockquote>" + request.text + "</blockquote>",
-        parse_mode: "HTML",
-        protect_content: true,
-        disable_web_page_preview: true
-      })
     } else if (request.video) {
       Api.sendVideo({
         chat_id: targetId,
         video: request.video.file_id,
         caption: request.caption || "",
         parse_mode: "HTML"
+      })
+    } else if (request.animation) {
+      Api.sendAnimation({
+        chat_id: targetId,
+        animation: request.animation.file_id,
+        caption: request.caption || "",
+        parse_mode: "HTML"
+      })
+    } else if (request.voice) {
+      Api.sendVoice({
+        chat_id: targetId,
+        voice: request.voice.file_id,
+        caption: request.caption || ""
       })
     } else if (request.audio) {
       Api.sendAudio({
@@ -82,6 +91,14 @@ for (var index in idstore) {
         chat_id: targetId,
         sticker: request.sticker.file_id
       })
+    } else if (request.text) {
+      Api.sendMessage({
+        chat_id: targetId,
+        text: "<b>📢 Aᴅᴍɪɴ Bʀᴏᴀᴅᴄᴀꜱᴛ</b>\n<blockquote>" + request.text + "</blockquote>",
+        parse_mode: "HTML",
+        protect_content: true,
+        disable_web_page_preview: true
+      })
     }
     sent++
   } catch (e) {
@@ -89,12 +106,15 @@ for (var index in idstore) {
   }
 }
 
+var sentBar = Libs.Helpers.getProgressBar(sent, total, 10)
+
 Bot.sendMessage(
-  "<b>✅ Bʀᴏᴀᴅᴄᴀsᴛ Cᴏᴍᴘʟᴇᴛᴇ!</b>\n\n" +
-  "<b>📊 Sᴛᴀᴛs:</b>\n" +
-  "» Tᴏᴛᴀʟ: " + total + "\n" +
-  "» Sᴇɴᴛ: " + sent + "\n" +
-  "» Fᴀɪʟᴇᴅ: " + failed,
+  "<b>✅ Bʀᴏᴀᴅᴄᴀꜱᴛ Cᴏᴍᴘʟᴇᴛᴇ!</b>\n\n" +
+  "<b>📊 Rᴇꜱᴜʟᴛꜱ:</b>\n" +
+  "├ 📤 Sᴇɴᴛ: <b>" + Libs.Helpers.formatNumber(sent) + "</b>\n" +
+  "├ ❌ Fᴀɪʟᴇᴅ: <b>" + Libs.Helpers.formatNumber(failed) + "</b>\n" +
+  "├ 📋 Tᴏᴛᴀʟ: <b>" + Libs.Helpers.formatNumber(total) + "</b>\n" +
+  "└ " + sentBar,
   { parse_mode: "HTML" }
 )
 

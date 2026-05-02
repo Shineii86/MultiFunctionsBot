@@ -16,16 +16,23 @@
   group: 
 CMD*/
 
+var admin = Bot.getProperty("admin")
+if (user.telegramid != admin) {
+  Bot.sendMessage("<b>🚷 Aᴅᴍɪɴ Oɴʟʏ.</b>", { parse_mode: "HTML" })
+  return
+}
+
 Bot.setProperty("maintenance", "On", "string")
 
-var caption = "<b>🔴 Mᴀɪɴᴛᴇɴᴀɴᴄᴇ Mᴏᴅᴇ:</b> Aᴄᴛɪᴠᴀᴛᴇᴅ\n" +
-  "𝘚𝘤𝘩𝘦𝘥𝘶𝘭𝘦𝘥 𝘔𝘢𝘪𝘯𝘵𝘦𝘯𝘢𝘯𝘤𝘦 𝘐𝘯 𝘗𝘳𝘰𝘨𝘳𝘦𝘴𝘴. 𝘚𝘦𝘳𝘷𝘪𝘤𝘦𝘴 𝘞𝘪𝘭𝘭 𝘙𝘦𝘴𝘶𝘮𝘦 𝘚𝘩𝘰𝘳𝘵𝘭𝘺.\n\n" +
-  "<b>Sᴛᴀᴛᴜs:</b> 𝗧𝗘𝗠𝗣𝗢𝗥𝗔𝗥𝗜𝗟𝗬 𝗢𝗙𝗙𝗟𝗜𝗡𝗘"
+var caption = "<b>🔴 Mᴀɪɴᴛᴇɴᴀɴᴄᴇ Aᴄᴛɪᴠᴀᴛᴇᴅ</b>\n\n" +
+  "𝘚𝘤𝘩𝘦𝘥𝘶𝘭𝘦𝘥 𝘮𝘢𝘪𝘯𝘵𝘦𝘯𝘢𝘯𝘤𝘦 𝘪𝘯 𝘱𝘳𝘰𝘨𝘳𝘦𝘴𝘴.\n" +
+  "𝘚𝘦𝘳𝘷𝘪𝘤𝘦𝘴 𝘸𝘪𝘭𝘭 𝘳𝘦𝘴𝘶𝘮𝘦 𝘴𝘩𝘰𝘳𝘵𝘭𝘺.\n\n" +
+  "<b>Sᴛᴀᴛᴜꜱ:</b> Tᴇᴍᴘᴏʀᴀʀɪʟʏ Oꜰꜰʟɪɴᴇ 🔴"
 
 var buttons = [
   [
     { text: "◁ Bᴀᴄᴋ", callback_data: "!master" },
-    { text: "Cʟᴏsᴇ ✕", callback_data: "!close" }
+    { text: "Cʟᴏꜱᴇ ✕", callback_data: "/close" }
   ]
 ]
 

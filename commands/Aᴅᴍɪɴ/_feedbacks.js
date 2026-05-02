@@ -18,12 +18,34 @@ CMD*/
 
 var admin = Bot.getProperty("admin")
 if (user.telegramid != admin) {
-  Bot.sendMessage("<b>🚷 Aᴅᴍɪɴ ᴏɴʟʏ.</b>", { parse_mode: "HTML" })
+  Bot.sendMessage("<b>🚷 Aᴅᴍɪɴ Oɴʟʏ.</b>", { parse_mode: "HTML" })
   return
 }
 
 var adsFooter = Libs.Helpers.getAdsFooter()
-Bot.sendMessage("<b📋 Fᴇᴇᴅʙᴀᴄᴋ</b>\n\nFᴇᴇᴅʙᴀᴄᴋ ᴍᴇssᴀɢᴇs ᴀʀᴇ sᴇɴᴛ ᴅɪʀᴇᴄᴛʟʏ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ.\nUsᴇ /feedback ᴛᴏ ᴘʀᴏᴍᴘᴛ ᴜsᴇʀs ꜰᴏʀ ꜰᴇᴇᴅʙᴀᴄᴋ." + adsFooter, {
+var feedbacks = Bot.getProperty("feedbacks", [])
+
+var caption = "<b>📬 Fᴇᴇᴅʙᴀᴄᴋ Mᴀɴᴀɢᴇᴍᴇɴᴛ</b>\n\n"
+
+if (feedbacks.length === 0) {
+  caption += "Nᴏ ꜰᴇᴇᴅʙᴀᴄᴋ ʏᴇᴛ.\n\n"
+} else {
+  caption += "<b>📋 Rᴇᴄᴇɴᴛ Fᴇᴇᴅʙᴀᴄᴋ (" + feedbacks.length + "):</b>\n"
+  var recent = feedbacks.slice(-5).reverse()
+  for (var i = 0; i < recent.length; i++) {
+    var fb = recent[i]
+    caption += (i + 1) + ". <b>" + (fb.name || "Aɴᴏɴʏᴍᴏᴜꜱ") + "</b>: " + (fb.text || "").substring(0, 80) + "\n"
+  }
+  caption += "\n"
+}
+
+caption += "<b>💡 Usᴇ:</b> /feedback ᴛᴏ ᴘʀᴏᴍᴘᴛ ᴜꜱᴇʀꜱ ꜰᴏʀ ꜰᴇᴇᴅʙᴀᴄᴋ" +
+  adsFooter
+
+var buttons = [[{ text: "Cʟᴏꜱᴇ ✕", callback_data: "/close" }]]
+
+Bot.sendMessage(caption, {
   parse_mode: "HTML",
-  reply_markup: { inline_keyboard: [[{ text: "Cʟᴏsᴇ ✕", callback_data: "/close" }]] }
+  disable_web_page_preview: true,
+  reply_markup: { inline_keyboard: buttons }
 })

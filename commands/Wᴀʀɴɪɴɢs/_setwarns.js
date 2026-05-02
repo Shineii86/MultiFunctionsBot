@@ -6,7 +6,7 @@
   folder: Wᴀʀɴɪɴɢs
 
   <<ANSWER
-⚠️ Sᴇɴᴅ ᴛʜᴇ ᴍᴀx ɴᴜᴍʙᴇʀ ᴏꜰ ᴡᴀʀɴɪɴɢs ʙᴇꜰᴏʀᴇ ʙᴀɴ (ᴇ.ɢ. 3).
+⚠️ Sᴇɴᴅ ᴛʜᴇ ᴍᴀx ɴᴜᴍʙᴇʀ ᴏꜰ ᴡᴀʀɴɪɴɢꜱ ʙᴇꜰᴏʀᴇ ʙᴀɴ (ᴇ.ɢ. 3).
   ANSWER
 
   <<KEYBOARD
@@ -16,6 +16,12 @@
   group: 
 CMD*/
 
+var admin = Bot.getProperty("admin")
+if (user.telegramid != admin) {
+  Bot.sendMessage("<b>🚷 Aᴅᴍɪɴ Oɴʟʏ.</b>", { parse_mode: "HTML" })
+  return
+}
+
 var num = parseInt(message.trim())
 if (isNaN(num) || num < 1 || num > 20) {
   Bot.sendMessage("<b>❌ Sᴇɴᴅ ᴀ ɴᴜᴍʙᴇʀ ʙᴇᴛᴡᴇᴇɴ 1 ᴀɴᴅ 20.</b>", { parse_mode: "HTML" })
@@ -24,7 +30,8 @@ if (isNaN(num) || num < 1 || num > 20) {
 
 Bot.setProperty("max_warns", num, "integer")
 
-Bot.sendMessage("<b>✅ Mᴀx ᴡᴀʀɴɪɴɢs sᴇᴛ ᴛᴏ:</b> " + num, {
+Bot.sendMessage("<b>✅ Mᴀx ᴡᴀʀɴɪɴɢꜱ ꜱᴇᴛ ᴛᴏ:</b> " + num + "\n\n" +
+  Libs.Helpers.getProgressBar(0, num, num), {
   parse_mode: "HTML",
-  reply_markup: { inline_keyboard: [[{ text: "◁ Bᴀᴄᴋ", callback_data: "/logs" }]] }
+  reply_markup: { inline_keyboard: [[{ text: "◁ Bᴀᴄᴋ", callback_data: "!master" }]] }
 })

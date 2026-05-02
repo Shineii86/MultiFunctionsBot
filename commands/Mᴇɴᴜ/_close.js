@@ -1,6 +1,6 @@
 /*CMD
   command: /close
-  help: Close the current menu
+  help: Close the current message
   need_reply: false
   auto_retry_time: 
   folder: Mᴇɴᴜ
@@ -16,9 +16,11 @@
   group: 
 CMD*/
 
-if (request.data) {
+try {
   Api.deleteMessage({
-    chat_id: request.message.chat.id,
+    chat_id: request.chat.id,
     message_id: request.message.message_id
   })
+} catch (e) {
+  // Silent fail
 }
