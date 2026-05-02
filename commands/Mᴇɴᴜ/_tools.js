@@ -1,6 +1,6 @@
 /*CMD
   command: /tools
-  help: 
+  help: Access bot tools
   need_reply: false
   auto_retry_time: 
   folder: Mᴇɴᴜ
@@ -16,56 +16,38 @@
   group: 
 CMD*/
 
-// Bot Advertising
-var ads = [
-  "@MaximXEmojis - Dive into a collection of expressive emojis for every mood! Join now and add flair to your conversations.",
-  "@MaximXSticker - Discover vibrant and diverse sticker packs to enhance your messaging experience. Join us for a visual delight!",
-  "@MaximXBots - Engage with cutting-edge bots designed for fun, utility, and more. Join the bot revolution and elevate your Telegram experience!",
-  "@MaximXWallpaper - Immerse yourself in a gallery of stunning wallpapers to revamp your device's look. Join for a daily dose of aesthetic inspiration.",
-  "@MaximXIcons - Upgrade your profile with unique and stylish icons. Join now and make your profile stand out!",
-  "@MaximXAnime - Dive into the world of anime with curated recommendations and community discussions. Join us and elevate your anime experience!"
-]
-var randomAd = ads[Math.floor(Math.random() * ads.length)]
+var adsFooter = Libs.Helpers.getAdsFooter()
 
-// Bot Caption Message
-var caption = `<b>Sᴇʟᴇᴄᴛ Aɴ Iᴛᴇᴍ Iɴ Tʜᴇ Mᴇɴᴜ</b>
+var caption = "<b>Sᴇʟᴇᴄᴛ A Tᴏᴏʟ Fʀᴏᴍ Tʜᴇ Mᴇɴᴜ</b>" + adsFooter
 
-📮 Aᴅs: <a href='t.me/QuinxAds'>Ҩᴜɪɴx Aᴅs</a>
-<blockquote>${randomAd}</blockquote>`
-
-// Bot Menu Buttons
 var buttons = [
   [
-    { text: "ʚ Sʜᴏʀᴛᴇɴᴇʀ ɞ", callback_data: "/shortener" },
-    { text: "ʚ Tᴇʟᴇɢʀᴀᴍ Iᴅ ɞ", callback_data: "/telegramId" }
+    { text: "🔗 Sʜᴏʀᴛᴇɴᴇʀ", callback_data: "/shortener" },
+    { text: "🆔 Tᴇʟᴇɢʀᴀᴍ Iᴅ", callback_data: "/telegramId" }
   ],
   [
-    { text: "ʚ Pᴀssᴡᴏʀᴅ ɞ", callback_data: "/password" },
-    { text: "ʚ Tʀᴀɴsʟᴀᴛᴇ ɞ", callback_data: "/translate" }
+    { text: "🔐 Pᴀssᴡᴏʀᴅ", callback_data: "/password" },
+    { text: "🌍 Tʀᴀɴsʟᴀᴛᴇ", callback_data: "/translate" }
   ],
   [
-    { text: "◁", callback_data: "/tools3" },
-    { text: "❶", callback_data: "/start" },
-    { text: "▷", callback_data: "/tool2" }
+    { text: "📱 QR Cᴏᴅᴇ", callback_data: "/qrcode" },
+    { text: "🔤 Bᴀsᴇ64", callback_data: "/base64" }
+  ],
+  [
+    { text: " #  Hᴀsʜ", callback_data: "/hash" },
+    { text: "📝 Wᴏʀᴅ Cᴏᴜɴᴛ", callback_data: "/wordcount" }
+  ],
+  [
+    { text: "🎲 Uᴜɪᴅ", callback_data: "/uuid" },
+    { text: "🕐 Dᴀᴛᴇ/Tɪᴍᴇ", callback_data: "/datetime" }
+  ],
+  [
+    { text: "◁ Bᴀᴄᴋ", callback_data: "/start" },
+    { text: "Cʟᴏsᴇ ✕", callback_data: "/close" }
   ]
 ]
 
-// Check If The Message Exists
-if (request.message && request.message.message_id) {
-  Api.editMessageText({
-    message_id: request.message.message_id,
-    text: caption,
-    parse_mode: "HTML",
-    disable_web_page_preview: true,
-    reply_markup: { inline_keyboard: buttons }
-  })
-} else {
-  Api.sendMessage({
-    chat_id: request.chat.id,
-    text: caption,
-    parse_mode: "HTML",
-    disable_web_page_preview: true,
-    reply_markup: { inline_keyboard: buttons }
-  })
-}
-
+Libs.Helpers.editOrSend({
+  text: caption,
+  reply_markup: { inline_keyboard: buttons }
+})

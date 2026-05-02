@@ -1,84 +1,146 @@
-# MultiFunctionsBot - chat bot
-It is repository for chat bot: [@MultiFunctionsBot](https://t.me/MultiFunctionsBot)
+# MultiFunctionsBot - Telegram Bot
 
-## What it is?
-This repository can be imported to [Bots.Business](https://bots.business) as a worked chat bot.
+A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with multiple utility tools and admin features.
 
-[Bots.Business](https://bots.business) - it is probably the first CBPaaS - Chat Bot Platform as a Service.
+**[@MultiFunctionsBot](https://t.me/MultiFunctionsBot)**
 
-A CBPaaS is a cloud-based platform that enables developers to create chatbots without needing to build backend infrastructure.
+---
 
-## Create your own bot for Telegram from this Git repo
+## Features
 
-How to create bot?
-1. Create bot with [@BotFather](https://telegram.me/BotFather) and take Secret Token
-2. Create bot in App and add Secret Token
-3. Add Public Key from App as [Deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) with read access (and write access for bot exporting if you need it)
-4. Do import for this git repo
+### Menu
+- `/start` - Start the bot & main menu
+- `/help` - List all available commands
+- `/about` - Bot information & credits
 
-Now you can talk with yours new Telegram Bot
+### Tools
+- `/shortener` - Shorten URLs via Bitly API
+- `/telegramId` - View your Telegram profile info
+- `/password` - Generate secure passwords (8-32 chars)
+- `/translate` - Translate text to 20+ languages
+- `/qrcode` - Generate QR codes from text/URLs
+- `/base64` - Base64 encode/decode
+- `/hash` - Generate MD5/SHA1/SHA256/SHA384/SHA512 hashes
+- `/wordcount` - Count words, characters, lines, sentences
+- `/uuid` - Generate random UUIDs (v4)
+- `/datetime` - Current date/time across 10 timezones
 
-See [more](https://help.bots.business/getting-started)
+### Admin Panel
+- `!ZeroTwo` - Claim admin access
+- `!master` - Open admin control panel
+- `!profile` - View admin profile
+- `!maintenance` - Toggle maintenance mode
+- `!broadcast` - Broadcast messages to all users
+- `!status` - View bot statistics
+- `!restart` - Restart bot for all users
+- `!logout` - Remove admin access
 
-## Commands - in commands folder
-File name - it is command name (Bot it can be rewritten in command description)
+### Referral System
+- Deep link referral tracking
+- Special referral bonuses
+- Referral notifications
 
-Command can have: `name`, `help`, `aliases` (second names), `answer`, `keyboard`, `scnarios` (for simple logic) and other options.
+---
 
-### Command description
-It is file header:
+## Setup
 
-    /*CMD
-      command: /test
-      help: this is help for ccommand
-      need_reply: [ true or false here ]
-      auto_retry_time: [ time in sec ]
-      answer: it is example answer for /test command
-      keyboard: button1, button2
-      aliases: /test2, /test3
-    CMD*/
+### Create your own bot from this repo
 
-See [more](https://help.bots.business/commands)
+1. Create a bot with [@BotFather](https://telegram.me/BotFather) and get the Secret Token
+2. Create a bot on [Bots.Business](https://bots.business) and add the Secret Token
+3. Add the Public Key from the App as a [Deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) with read access
+4. Import this git repo
 
-### Command body
-It is command code in JavaScript.
-Use Bot Java Script for logic in command.
+### Configure Bitly (for URL shortener)
+Set your Bitly API token in bot properties:
+```
+Bot.setProperty("bitly_token", "YOUR_BITLY_TOKEN", "string")
+```
 
-For example:
-> Bot.sendMessage(2+2);
+### Set Admin
+Send `!ZeroTwo` in the bot to claim admin access (first user becomes admin).
 
-See [more](https://help.bots.business/scenarios-and-bjs)
+---
 
+## Architecture
 
-## Libraries - in libs folder
-You can store common code in the libs folder. File name - it is library name.
+```
+├── bot.json                    # Bot configuration
+├── libs/
+│   ├── Helpers.js              # Shared utilities (ads, editOrSend, etc.)
+│   ├── DateTimeFormat.js       # Date formatting library
+│   └── ReferralLib.js          # Referral tracking library
+├── commands/
+│   ├── !.js                    # Global error handler
+│   ├── Mᴇɴᴜ/                   # Menu commands
+│   │   ├── _start.js           # /start command
+│   │   ├── _quinx.js           # Membership check handler
+│   │   ├── _about.js           # /about command
+│   │   ├── _tools.js           # /tools menu
+│   │   ├── _help.js            # /help command
+│   │   ├── _close.js           # Close menu
+│   │   └── @.js                # Maintenance check handler
+│   ├── Aᴅᴍɪɴ/                  # Admin commands
+│   │   ├── !ZeroTwo.js         # Claim admin
+│   │   ├── !master.js          # Admin panel
+│   │   ├── !profile.js         # Admin profile
+│   │   ├── !maintenance.js     # Maintenance toggle
+│   │   ├── !On.js              # Enable maintenance
+│   │   ├── !Off.js             # Disable maintenance
+│   │   ├── !broadcast.js       # Broadcast messages
+│   │   ├── !status.js          # Bot statistics
+│   │   ├── !restart.js         # Restart bot
+│   │   └── !logout.js          # Remove admin
+│   ├── Sʜᴏʀᴛᴇɴᴇʀ/              # URL shortener
+│   ├── Tᴇʟᴇɢʀᴀᴍ Iᴅ/           # Telegram ID tool
+│   ├── Pᴀssᴡᴏʀᴅ/               # Password generator
+│   ├── Tʀᴀɴsʟᴀᴛᴇ/             # Translation tool
+│   └── Uᴛɪʟɪᴛɪᴇs/              # Utility tools
+│       ├── _qrcode.js          # QR code generator
+│       ├── _base64.js          # Base64 encode/decode
+│       ├── _hash.js            # Hash generator
+│       ├── _wordcount.js       # Word counter
+│       ├── _uuid.js            # UUID generator
+│       └── _datetime.js        # Date/time display
+```
 
-For example code in myLib.js:
+---
 
-    function hello(){ Bot.sendMessage("Hello from lib!") }
-    function goodbye(name){ Bot.sendMessage("Goodbye, " + name) }
+## Changelog
 
-    publish({
-      sayHello: hello,
-      sayGoodbyeTo: goodbye
-    })
+See [CHANGELOG.md](CHANGELOG.md) for detailed changes.
 
-then you can run in any bot's command:
+---
 
-    Libs.myLib.hello()
-    Libs.myLib.sayGoodbyeTo("Alice")
+## Credits
 
-See [more](https://help.bots.business/git/library)
+- **Developer:** [Shineii Nouzen](https://t.me/Shineii86)
+- **Bot Owner:** [Quinx Official](https://t.me/QuinxOfficial)
+- **UI Idea:** [Yukki Haruno](https://t.me/YukkiiHaruno)
+- **Helper:** [Zoro Roronoa](https://t.me/Senpai86)
+- **Network:** [Quinx Network](https://t.me/QuinxNetwork)
+- **Offered by:** [Maxim 𝕏 Team](https://t.me/MaximXTeam)
 
-## Other bots example
-See other bots examples in the [github](https://github.com/bots-business?utf8=✓&tab=repositories&q=&type=public&language=javascript) or in the [Bot Store](https://bots.business/)
+---
 
+## Links
 
-## Other help
-[Help.bots.business](https://help.bots.business)
+- **Channel:** [Maxim 𝕏 Bots](https://t.me/MaximXBots)
+- **Support:** [Maxim 𝕏 Group](https://t.me/MaximXGroup)
+- **Donate:** [Donate Bot](https://t.me/DonateQxBot)
 
-## API
-See [API](https://api.bots.business/docs#/docs/summary)
+---
 
+## Tech Stack
+
+- **Platform:** [Bots.Business](https://bots.business) (CBPaaS)
+- **Language:** JavaScript
+- **APIs:** Telegram Bot API, Bitly API, Google Translate API, QR Server API
+
+---
+
+## License
+
+This project is maintained by [Maxim 𝕏 Team](https://t.me/MaximXTeam).
 
 ![](https://bots.business/images/web-logo.png)

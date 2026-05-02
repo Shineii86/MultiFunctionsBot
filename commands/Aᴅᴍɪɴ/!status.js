@@ -1,6 +1,6 @@
 /*CMD
   command: !status
-  help: 
+  help: Bot statistics
   need_reply: false
   auto_retry_time: 
   folder: Aᴅᴍɪɴ
@@ -16,56 +16,37 @@
   group: 
 CMD*/
 
-var status = Libs.ResourcesLib.anotherChatRes("totalusers", "global")
+var totalUsers = Libs.ResourcesLib.anotherChatRes("totalusers", "global")
 
-// Get date and time for Asia/Kolkata (IST) and Asia/Dubai (GST)
-let istTime = new Date().toLocaleString("en-US", {
-  timeZone: "Asia/Kolkata"
-})
-let gstTime = new Date().toLocaleString("en-US", {
-  timeZone: "Asia/Dubai"
-})
+// IST date/time
+var now = new Date()
+var istOffset = 5.5 * 60 * 60 * 1000
+var ist = new Date(now.getTime() + istOffset)
 
-var dt_ist = Libs.DateTimeFormat.format(istTime, "dd/mm/yyyy")
-var tm_ist = Libs.DateTimeFormat.format(istTime, "h:MM:ss T")
-var dxy_ist = Libs.DateTimeFormat.format(istTime, " dddd")
+var days = ["Sᴜɴᴅᴀʏ", "Mᴏɴᴅᴀʏ", "Tᴜᴇsᴅᴀʏ", "Wᴇᴅɴᴇsᴅᴀʏ", "Tʜᴜʀsᴅᴀʏ", "Fʀɪᴅᴀʏ", "Sᴀᴛᴜʀᴅᴀʏ"]
+var months = ["Jᴀɴᴜᴀʀʏ", "Fᴇʙʀᴜᴀʀʏ", "Mᴀʀᴄʜ", "Aᴘʀɪʟ", "Mᴀʏ", "Jᴜɴᴇ", "Jᴜʟʏ", "Aᴜɢᴜsᴛ", "Sᴇᴘᴛᴇᴍʙᴇʀ", "Oᴄᴛᴏʙᴇʀ", "Nᴏᴠᴇᴍʙᴇʀ", "Dᴇᴄᴇᴍʙᴇʀ"]
 
-// Message
-var caption = `<b>🤖 Bᴏᴛ Lɪᴠᴇ Sᴛᴀᴛɪsᴛɪᴄs</b>
-<b>» Tᴏᴛᴀʟ Usᴇʀs:</b> ${status.value()}
+var dateStr = ("0" + ist.getUTCDate()).slice(-2) + " " + months[ist.getUTCMonth()] + " " + ist.getUTCFullYear()
+var timeStr = ("0" + ist.getUTCHours()).slice(-2) + ":" + ("0" + ist.getUTCMinutes()).slice(-2) + ":" + ("0" + ist.getUTCSeconds()).slice(-2)
+var dayStr = days[ist.getUTCDay()]
 
-<b>🌐 Dᴀᴛᴀ Fᴏʀ: Tᴏᴅᴀʏ (Isᴛ)</>
-<b>» Dᴀᴛᴇ:</> ${dt_ist}
-<b>» Tɪᴍᴇ:</> ${tm_ist}ᴍ
-<b>» Dᴀʏ:</> ${dxy_ist}
+var caption = "<b>🤖 Bᴏᴛ Lɪᴠᴇ Sᴛᴀᴛɪsᴛɪᴄs</b>\n" +
+  "<b>» Tᴏᴛᴀʟ Usᴇʀs:</b> " + totalUsers.value() + "\n\n" +
+  "<b>🌐 Dᴀᴛᴀ Fᴏʀ: Tᴏᴅᴀʏ (Isᴛ)</b>\n" +
+  "<b>» Dᴀᴛᴇ:</b> " + dateStr + "\n" +
+  "<b>» Tɪᴍᴇ:</b> " + timeStr + "\n" +
+  "<b>» Dᴀʏ:</b> " + dayStr + "\n\n" +
+  "<b>Bᴏᴛ Cʀᴇᴀᴛᴇᴅ:</b> 25 Mᴀʀᴄʜ 2025"
 
-<b>Bᴏᴛ Cʀᴇᴀᴛᴇᴅ:</> 25 Mᴀʀᴄʜ 2025`
-
-// Bot Menu Buttons
 var buttons = [
-  [{ text: "Rᴇғʀᴇsʜ", callback_data: "!status" }],
+  [{ text: "Rᴇғʀᴇsʜ 🔄", callback_data: "!status" }],
   [
     { text: "◁ Bᴀᴄᴋ", callback_data: "!master" },
-    { text: "Cʟᴏsᴇ ✕", callback_data: "!close" }
+    { text: "Cʟᴏsᴇ ✕", callback_data: "/close" }
   ]
 ]
 
-// Check If The Message Exists
-if (request.message && request.message.message_id) {
-  Api.editMessageText({
-    message_id: request.message.message_id,
-    text: caption,
-    parse_mode: "HTML",
-    disable_web_page_preview: true,
-    reply_markup: { inline_keyboard: buttons }
-  })
-} else {
-  Api.sendMessage({
-    chat_id: request.chat.id,
-    text: caption,
-    parse_mode: "HTML",
-    disable_web_page_preview: true,
-    reply_markup: { inline_keyboard: buttons }
-  })
-}
-
+Libs.Helpers.editOrSend({
+  text: caption,
+  reply_markup: { inline_keyboard: buttons }
+})

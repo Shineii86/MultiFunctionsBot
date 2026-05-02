@@ -16,19 +16,24 @@
   group: 
 CMD*/
 
+var token = Bot.getProperty("bitly_token")
+
+if (!token) {
+  Bot.sendMessage(
+    "<b>⚠️ Bɪᴛʟʏ Aᴘɪ ᴛᴏᴋᴇɴ ɪs ɴᴏᴛ ᴄᴏɴꜰɪɢᴜʀᴇᴅ.</b>\n\nPʟᴇᴀsᴇ ᴀsᴋ ᴛʜᴇ ᴀᴅᴍɪɴ ᴛᴏ sᴇᴛ ɪᴛ ᴜsɪɴɢ:\n<code>Bot.setProperty(\"bitly_token\", \"YOUR_TOKEN\", \"string\")</code>",
+    { parse_mode: "HTML" }
+  )
+  return
+}
+
 User.setProperty("longlink", message, "string")
-var token = "aa42e205d8c25dccb5fbe5e99b8049340e01dfc2"
-var dlink = message
-var url = "https://api-ssl.bitly.com/v4/shorten"
 
 HTTP.post({
-  url: url,
+  url: "https://api-ssl.bitly.com/v4/shorten",
   headers: {
     Authorization: "Bearer " + token,
     "Content-type": "application/json"
   },
-
-  body: JSON.stringify({ long_url: dlink }),
+  body: JSON.stringify({ long_url: message }),
   success: "/bitlyShort"
 })
-

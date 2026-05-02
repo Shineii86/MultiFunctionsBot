@@ -1,6 +1,6 @@
 /*CMD
-  command: /password
-  help: Generate a secure password
+  command: pwdLen
+  help: 
   need_reply: false
   auto_retry_time: 
   folder: Pᴀssᴡᴏʀᴅ
@@ -16,14 +16,8 @@
   group: 
 CMD*/
 
-function generatePassword(length, useUpper, useLower, useDigits, useSymbols) {
-  var chars = ""
-  if (useUpper) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  if (useLower) chars += "abcdefghijklmnopqrstuvwxyz"
-  if (useDigits) chars += "0123456789"
-  if (useSymbols) chars += "!@#$%^&*()_-+=<>?"
-  if (!chars) chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=<>?"
-
+function generatePassword(length) {
+  var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=<>?"
   var password = ""
   for (var i = 0; i < length; i++) {
     password += chars.charAt(Math.floor(Math.random() * chars.length))
@@ -31,22 +25,8 @@ function generatePassword(length, useUpper, useLower, useDigits, useSymbols) {
   return password
 }
 
-// Parse options from callback data or defaults
-var length = 16
-var useUpper = true
-var useLower = true
-var useDigits = true
-var useSymbols = true
-
-// Check for custom params in message
-if (message) {
-  var parts = message.split(" ")
-  for (var i = 0; i < parts.length; i++) {
-    if (/^\d+$/.test(parts[i])) length = parseInt(parts[i])
-  }
-}
-
-var password = generatePassword(length, useUpper, useLower, useDigits, useSymbols)
+var length = parseInt(params) || 16
+var password = generatePassword(length)
 var adsFooter = Libs.Helpers.getAdsFooter()
 
 var caption = "<b>🔐 Yᴏᴜʀ Sᴇᴄᴜʀᴇ Pᴀssᴡᴏʀᴅ:</b>\n\n<code>" + password + "</code>\n\n" +

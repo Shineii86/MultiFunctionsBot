@@ -1,6 +1,6 @@
 /*CMD
   command: !logout
-  help: 
+  help: Remove admin access
   need_reply: false
   auto_retry_time: 
   folder: Aᴅᴍɪɴ
@@ -16,60 +16,21 @@
   group: 
 CMD*/
 
-// Retrieve (Developer) Telegram IDs
 var admin = Bot.getProperty("admin")
 
-// Check if the user is either the admin (Owner) or the developer (Master)
 if (user.telegramid == admin) {
-  Bot.setProperty("admin", "", "integer") // Reset Admin
+  Bot.setProperty("admin", "", "integer")
 
-  // Message
-  var caption = `<b>👤 Bᴏᴛ Aᴅᴍɪɴ Hᴀs Bᴇᴇɴ Rᴇᴍᴏᴠᴇᴅ.</b>`
+  var caption = "<b>👤 Bᴏᴛ Aᴅᴍɪɴ Hᴀs Bᴇᴇɴ Rᴇᴍᴏᴠᴇᴅ.</b>"
+  var buttons = [[{ text: "Lᴏɢᴏᴜᴛ Pᴀɴᴇʟ", callback_data: "/start" }]]
 
-  // Initialize the adminButton array
-  var buttons = [
-    //    [
-    //      { text: "", callback_data: "" },
-    //      { text: "", callback_data: "" }
-    //    ],
-    [{ text: "Lᴏɢᴏᴜᴛ 𝘤Pᴀɴᴇʟ", callback_data: "/start" }]
-  ]
-
-  // If the message is a callback query, edit it
-  if (request.message && request.message.message_id) {
-    Api.editMessageText({
-      message_id: request.message.message_id,
-      text: caption,
-      parse_mode: "HTML",
-      disable_web_page_preview: true,
-      reply_markup: { inline_keyboard: buttons }
-    })
-  } else {
-    Api.sendMessage({
-      chat_id: user.telegramid,
-      text: caption,
-      parse_mode: "HTML",
-      disable_web_page_preview: true,
-      reply_markup: { inline_keyboard: buttons }
-    })
-  }
-} else {
-  // Send this message only if the admin is set
-  if (admin) {
-    Api.sendMessage({
-      chat_id: user.telegramid,
-      text: `<b>🚷 Yᴏᴜ Aʀᴇ Nᴏᴛ Aᴜᴛʜᴏʀɪᴢᴇᴅ Tᴏ Aᴄᴄᴇss Tʜɪs Pᴀɴᴇʟ.</b>`,
-      parse_mode: "HTML",
-      disable_web_page_preview: true,
-      reply_markup: {
-        inline_keyboard: [
-          [
-            { text: "◁ Bᴀᴄᴋ", callback_data: "/start" },
-            { text: "Cʟᴏsᴇ ✕", callback_data: "/close" }
-          ]
-        ]
-      }
-    })
-  }
+  Libs.Helpers.editOrSend({
+    text: caption,
+    reply_markup: { inline_keyboard: buttons }
+  })
+} else if (admin) {
+  Libs.Helpers.editOrSend({
+    text: "<b>🚷 Yᴏᴜ Aʀᴇ Nᴏᴛ Aᴜᴛʜᴏʀɪᴢᴇᴅ.</b>",
+    reply_markup: { inline_keyboard: Libs.Helpers.getBackCloseButtons("/start") }
+  })
 }
-

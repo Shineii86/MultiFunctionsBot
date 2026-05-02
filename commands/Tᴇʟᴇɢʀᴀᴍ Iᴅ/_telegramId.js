@@ -1,6 +1,6 @@
 /*CMD
   command: /telegramId
-  help: 
+  help: View your Telegram profile info
   need_reply: false
   auto_retry_time: 
   folder: Tᴇʟᴇɢʀᴀᴍ Iᴅ
@@ -16,72 +16,25 @@
   group: 
 CMD*/
 
-// Define All Dynamic Message Values
-var firstName =
-  user && user.first_name
-    ? `<a href='tg://user?id=${user.telegramid}'>${user.first_name}</a>`
-    : "Uɴᴋɴᴏᴡɴ"
+var firstName = user && user.first_name
+  ? "<a href='tg://user?id=" + user.telegramid + "'>" + user.first_name + "</a>"
+  : "Uɴᴋɴᴏᴡɴ"
 
-var userId = user.telegramid
-var username = user.username ? `@${user.username}` : "Uɴᴋɴᴏᴡɴ"
-var lastName = user.last_name || "Uɴᴋɴᴏᴡɴ"
-var isPremium = user.is_premium ? "Yᴇs" : "Nᴏ"
-var languageCode = user.language_code || "Uɴᴋɴᴏᴡɴ"
-var userProfileLink = `<a href='tg://user?id=${userId}'>Vɪᴇᴡ Pʀᴏғɪʟᴇ</a>`
+var adsFooter = Libs.Helpers.getAdsFooter()
 
-// Bot Advertising
-var ads = [
-  "@MaximXEmojis - Dive into a collection of expressive emojis for every mood! Join now and add flair to your conversations.",
-  "@MaximXSticker - Discover vibrant and diverse sticker packs to enhance your messaging experience. Join us for a visual delight!",
-  "@MaximXBots - Engage with cutting-edge bots designed for fun, utility, and more. Join the bot revolution and elevate your Telegram experience!",
-  "@MaximXWallpaper - Immerse yourself in a gallery of stunning wallpapers to revamp your device's look. Join for a daily dose of aesthetic inspiration.",
-  "@MaximXIcons - Upgrade your profile with unique and stylish icons. Join now and make your profile stand out!",
-  "@MaximXAnime - Dive into the world of anime with curated recommendations and community discussions. Join us and elevate your anime experience!"
-]
-var randomAd = ads[Math.floor(Math.random() * ads.length)]
+var caption = "<b>Yᴏᴜʀ Pʀᴏғɪʟᴇ Iɴғᴏʀᴍᴀᴛɪᴏɴ</b>\n\n" +
+  "<b>👤 Fɪʀsᴛ Nᴀᴍᴇ:</b> " + firstName + "\n" +
+  "<b>👥 Lᴀsᴛ Nᴀᴍᴇ:</b> " + (user.last_name || "Uɴᴋɴᴏᴡɴ") + "\n" +
+  "<b>🌐 Usᴇʀɴᴀᴍᴇ:</b> " + (user.username ? "@" + user.username : "Uɴᴋɴᴏᴡɴ") + "\n" +
+  "<b>🏆 Pʀᴇᴍɪᴜᴍ:</b> " + (user.is_premium ? "Yᴇs" : "Nᴏ") + "\n" +
+  "<b>🏳️ Lᴀɴɢᴜᴀɢᴇ:</b> " + (user.language_code || "Uɴᴋɴᴏᴡɴ") + "\n" +
+  "<b>🆔 Usᴇʀ Iᴅ:</b> <code>" + user.telegramid + "</code>\n" +
+  "<b>💁 Pʀᴏғɪʟᴇ:</b> <a href='tg://user?id=" + user.telegramid + "'>Vɪᴇᴡ Pʀᴏғɪʟᴇ</a>" +
+  adsFooter
 
-// Add logic for Ads status
-var adsStatus = iteration_quota.progress >= 5000 ? "Oɴ" : "Oғғ"
+var buttons = Libs.Helpers.getNavButtons()
 
-// Bot Caption Message
-var caption = `<b>Yᴏᴜʀ Pʀᴏғɪʟᴇ Iɴғᴏʀᴍᴀᴛɪᴏɴ</b>
-
-<b>👤 Fɪʀsᴛ Nᴀᴍᴇ:</b> ${firstName}
-<b>👥 Lᴀsᴛ Nᴀᴍᴇ:</b> ${lastName}
-<b>🌐 Usᴇʀɴᴀᴍᴇ:</b> ${username}
-<b>🏆 Pʀᴇᴍɪᴜᴍ:</b> ${isPremium}
-<b>🏳️ Lᴀɴɢᴜᴀɢᴇ:</b> ${languageCode}
-<b>🆔 Usᴇʀ Iᴅ:</b> <code>${user.telegramid}</code>
-<b>💁 Pʀᴏғɪʟᴇ:</b> ${userProfileLink}
-
-📮 Aᴅs: <a href='t.me/QuinxAds'>Ҩᴜɪɴx Aᴅs</a>
-<blockquote>${randomAd}</blockquote>`
-
-// Bot Menu Buttons
-var buttons = [
-  [
-    { text: "◁", callback_data: "/tools" },
-    { text: "○", callback_data: "/start" },
-    { text: "✕", callback_data: "/close" }
-  ]
-]
-
-// Check If The Message Exists
-if (request.message && request.message.message_id) {
-  Api.editMessageText({
-    message_id: request.message.message_id,
-    text: caption,
-    parse_mode: "HTML",
-    disable_web_page_preview: true,
-    reply_markup: { inline_keyboard: buttons }
-  })
-} else {
-  Api.sendMessage({
-    chat_id: request.chat.id,
-    text: caption,
-    parse_mode: "HTML",
-    disable_web_page_preview: true,
-    reply_markup: { inline_keyboard: buttons }
-  })
-}
-
+Libs.Helpers.editOrSend({
+  text: caption,
+  reply_markup: { inline_keyboard: buttons }
+})

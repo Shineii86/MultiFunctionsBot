@@ -1,6 +1,6 @@
 /*CMD
   command: /start
-  help: 
+  help: Start the bot and access the main menu
   need_reply: false
   auto_retry_time: 
   folder: Mᴇɴᴜ
@@ -17,9 +17,8 @@
 CMD*/
 
 // Membership Checker
-const chats = ["@MaximXBots"]
-
-chats.forEach(chat_id => {
+var chats = ["@MaximXBots"]
+chats.forEach(function(chat_id) {
   Api.getChatMember({
     chat_id: chat_id,
     user_id: user.telegramid,
@@ -27,222 +26,153 @@ chats.forEach(chat_id => {
   })
 })
 
-// ✅ Function to handle self-referrals
+// Referral: self-link touched
 function doTouchOwnLink() {
   Api.sendMessage({
     chat_id: user.telegramid,
-    text: `<b>⚠️ 𝖤𝗋𝗋𝗈𝗋: 𝖲𝖾𝗅𝖿-𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅𝗌 𝖠𝗋𝖾 𝖭𝗈𝗍 𝖠𝗅𝗅𝗈𝗐𝖾𝖽.</b>
-  
-𝖸𝗈𝗎 𝖢𝖺𝗇𝗇𝗈𝗍 𝖴𝗌𝖾 𝖸𝗈𝗎𝗋 𝖮𝗐𝗇 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄 𝖳𝗈 𝖩𝗈𝗂𝗇 𝖳𝗁𝗂𝗌 𝖡𝗈𝗍. 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗁𝖺𝗋𝖾 𝖸𝗈𝗎𝗋 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄 𝖶𝗂𝗍𝗁 𝖮𝗍𝗁𝖾𝗋𝗌 𝖳𝗈 𝖦𝖺𝗂𝗇 𝖱𝖾𝗐𝖺𝗋𝖽𝗌. 𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎!`,
+    text: "<b>⚠️ 𝖤𝗋𝗋𝗈𝗋: 𝖲𝖾𝗅𝖿-𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅𝗌 𝖠𝗋𝖾 𝖭𝗈𝗍 𝖠𝗅𝗅𝗈𝗐𝖾𝖽.</b>\n\n𝖸𝗈𝗎 𝖢𝖺𝗇𝗇𝗈𝗍 𝖴𝗌𝖾 𝖸𝗈𝗎𝗋 𝖮𝗐𝗇 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄. 𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗁𝖺𝗋𝖾 𝖸𝗈𝗎𝗋 𝖫𝗂𝗇𝗄 𝖶𝗂𝗍𝗁 𝖮𝗍𝗁𝖾𝗋𝗌 𝖳𝗈 𝖦𝖺𝗂𝗇 𝖱𝖾𝗐𝖺𝗋𝖽𝗌.",
     parse_mode: "HTML",
     disable_web_page_preview: true,
-    message_effect_id: "5104858069142078462", // 👎
-    reply_markup: {
-      inline_keyboard: [[{ text: "Cʟᴏsᴇ", callback_data: "/close" }]]
-    }
+    message_effect_id: "5104858069142078462",
+    reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
   })
 }
 
-// ✅ Function when a user joins via a public channel
+// Referral: joined via public channel
 function doAttracted(channel) {
   Api.sendMessage({
     chat_id: user.telegramid,
-    text: `<b>📢 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖭𝗈𝗍𝗂𝖿𝗂𝖼𝖺𝗍𝗂𝗈𝗇:</b>
-  
-𝖸𝗈𝗎 𝖩𝗈𝗂𝗇𝖾𝖽 𝖳𝗁𝖾 𝖡𝗈𝗍 𝖳𝗁𝗋𝗈𝗎𝗀𝗁 𝖮𝗎𝗋 𝖯𝗎𝖻𝗅𝗂𝖼 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 @MaximXBots. 𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖩𝗈𝗂𝗇𝗂𝗇𝗀 𝖬𝖾 👑!`,
+    text: "<b>📢 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖭𝗈𝗍𝗂𝖿𝗂𝖼𝖺𝗍𝗂𝗈𝗇:</b>\n\n𝖸𝗈𝗎 𝖩𝗈𝗂𝗇𝖾𝖽 𝖳𝗁𝖾 𝖡𝗈𝗍 𝖳𝗁𝗋𝗈𝗎𝗀𝗁 𝖮𝗎𝗋 𝖯𝗎𝖻𝗅𝗂𝖼 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 @MaximXBots. 𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖩𝗈𝗂𝗇𝗂𝗇𝗀!",
     parse_mode: "HTML",
     disable_web_page_preview: true,
-    message_effect_id: "5044134455711629726", // ❤️
-    reply_markup: {
-      inline_keyboard: [[{ text: "Cʟᴏsᴇ", callback_data: "/close" }]]
-    }
+    message_effect_id: "5044134455711629726",
+    reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
   })
 }
 
-// ✅ Function when a user joins using a referral link
+// Referral: joined via user link
 function doAtractedByUser(refUser) {
   var userBalance = Libs.ResourcesLib.userRes("balance")
-  var refBalance = Libs.ResourcesLib.anotherUserRes(
-    "balance",
-    refUser.telegramid
-  )
-  var isSpecialReferral = params && params == "REACT13437642" // Check if it's the special link
+  var refBalance = Libs.ResourcesLib.anotherUserRes("balance", refUser.telegramid)
+  var isSpecial = params && params === "REACT13437642"
 
-  if (isSpecialReferral) {
-    userBalance.add(1000) // Special referral link gives 1000 REACT
+  if (isSpecial) {
+    userBalance.add(1000)
   } else {
-    userBalance.add(5) // Default referral bonus for other links
+    userBalance.add(5)
   }
+  refBalance.add(5)
 
-  refBalance.add(5) // Referrer always gets 5 REACT
-
-  // ✅ Special Welcome Message for Special Referral Users
-  if (isSpecialReferral) {
+  if (isSpecial) {
     Api.sendMessage({
       chat_id: user.telegramid,
-      text: `<b>🎉 𝖶𝖾𝗅𝖼𝗈𝗆𝖾! 𝖸𝗈𝗎 𝖴𝗌𝖾𝖽 𝖠 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄!</b>
-    
-💮 𝖸𝗈𝗎'𝗏𝖾 𝖱𝖾𝖼𝖾𝗂𝗏𝖾𝖽 <b>1000 $REACT</b> 𝖠𝗌 𝖠 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖡𝗈𝗇𝗎𝗌!
-𝖤𝗑𝗉𝗅𝗈𝗋𝖾 𝖮𝗎𝗋 𝖥𝖾𝖺𝗍𝗎𝗋𝖾𝗌 𝖠𝗇𝖽 𝖲𝗍𝖺𝗋𝗍 𝖤𝖺𝗋𝗇𝗂𝗇𝗀 𝖬𝗈𝗋𝖾 𝖱𝖾𝗐𝖺𝗋𝖽𝗌!`,
+      text: "<b>🎉 𝖶𝖾𝗅𝖼𝗈𝗆𝖾! 𝖸𝗈𝗎 𝖴𝗌𝖾𝖽 𝖠 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄!</b>\n\n💮 𝖸𝗈𝗎'𝗏𝖾 𝖱𝖾𝖼𝖾𝗂𝗏𝖾𝖽 <b>1000 $REACT</b> 𝖠𝗌 𝖠 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖡𝗈𝗇𝗎𝗌!\n𝖤𝗑𝗉𝗅𝗈𝗋𝖾 𝖮𝗎𝗋 𝖥𝖾𝖺𝗍𝗎𝗋𝖾𝗌 𝖠𝗇𝖽 𝖲𝗍𝖺𝗋𝗍 𝖤𝖺𝗋𝗇𝗂𝗇𝗀 𝖬𝗈𝗋𝖾!",
       parse_mode: "HTML",
       disable_web_page_preview: true,
-      message_effect_id: "5046509860389126442", // 🔥
-      reply_markup: {
-        inline_keyboard: [[{ text: "Cʟᴏsᴇ", callback_data: "/close" }]]
-      }
+      message_effect_id: "5046509860389126442",
+      reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
     })
 
-    // ✅ Notify You (Admin) About Special Referral Users
-    Api.sendMessage({
-      chat_id: "5572081489", // Your Telegram ID
-      text: `<b>🌟 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖠𝗅𝖾𝗋𝗍!</b>
-𝖠 𝖴𝗌𝖾𝗋 𝖩𝗈𝗂𝗇𝖾𝖽 𝖴𝗌𝗂𝗇𝗀 𝖸𝗈𝗎𝗋 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄:
-      
-<b>👤 𝖴𝗌𝖾𝗋:</b> <a href="tg://openmessage?user_id=${user.telegramid}">${user.first_name}</a>
-      
-🔥 Bonus Given: 1000 REACT`,
-      parse_mode: "HTML",
-      disable_web_page_preview: true,
-      message_effect_id: "5107584321108051014", // 👍
-      reply_markup: {
-        inline_keyboard: [[{ text: "Cʟᴏsᴇ", callback_data: "/close" }]]
-      }
-    })
+    // Notify admin about special referral
+    var admin = Bot.getProperty("admin")
+    if (admin) {
+      Api.sendMessage({
+        chat_id: admin,
+        text: "<b>🌟 𝖲𝗉𝖾𝖼𝗂𝖺𝗅 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖠𝗅𝖾𝗋𝗍!</b>\n\n<b>👤 𝖴𝗌𝖾𝗋:</b> " + Libs.Helpers.getUserMention() + "\n🔥 Bonus Given: 1000 REACT",
+        parse_mode: "HTML",
+        disable_web_page_preview: true,
+        reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
+      })
+    }
   } else {
-    // ✅ Normal Welcome Message for Regular Referrals
     Api.sendMessage({
       chat_id: user.telegramid,
-      text: `<b>🎉 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 𝖳𝗁𝖾 <a href='t.me/${bot.name}'>𝖱𝖾𝖺𝖼𝗍𝗂𝗈𝗇 𝖡𝗎𝗂𝗅𝖽𝖾𝗋 𝖡𝗈𝗍</a></b>
-      
-𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖩𝗈𝗂𝗇𝗂𝗇𝗀 𝖳𝗁𝗋𝗈𝗎𝗀𝗁 𝖠 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄. 𝖸𝗈𝗎'𝗏𝖾 𝖱𝖾𝖼𝖾𝗂𝗏𝖾𝖽 <b>5 $REACT</b> 𝖠𝗌 𝖠 𝖡𝗈𝗇𝗎𝗌! 𝖲𝗍𝖺𝗋𝗍 𝖤𝖺𝗋𝗇𝗂𝗇𝗀 𝖬𝗈𝗋𝖾 𝖱𝖾𝗐𝖺𝗋𝖽𝗌 𝖳𝗈𝖽𝖺𝗒!`,
+      text: "<b>🎉 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 <a href='t.me/" + bot.name + "'>𝖬𝗎𝗅𝗍𝗂 𝖥𝗎𝗇𝖼𝗍𝗂𝗈𝗇𝗌 𝖡𝗈𝗍</a></b>\n\n𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖩𝗈𝗂𝗇𝗂𝗇𝗀 𝖳𝗁𝗋𝗈𝗎𝗀𝗁 𝖠 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄. 𝖸𝗈𝗎'𝗏𝖾 𝖱𝖾𝖼𝖾𝗂𝗏𝖾𝖽 <b>5 $REACT</b> 𝖠𝗌 𝖠 𝖡𝗈𝗇𝗎𝗌!",
       parse_mode: "HTML",
       disable_web_page_preview: true,
-      message_effect_id: "5046509860389126442", // 🔥
-      reply_markup: {
-        inline_keyboard: [[{ text: "Cʟᴏsᴇ", callback_data: "/close" }]]
-      }
+      message_effect_id: "5046509860389126442",
+      reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
     })
   }
 
-  // ✅ Notify the referrer
+  // Notify the referrer
   Api.sendMessage({
     chat_id: refUser.telegramid,
-    text: `<b>🔔 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖭𝗈𝗍𝗂𝖿𝗂𝖼𝖺𝗍𝗂𝗈𝗇:</b>
-  
-𝖠 𝖭𝖾𝗐 𝖴𝗌𝖾𝗋 𝖧𝖺𝗌 𝖩𝗈𝗂𝗇𝖾𝖽 𝖳𝗁𝖾 𝖡𝗈𝗍 𝖴𝗌𝗂𝗇𝗀 𝖸𝗈𝗎𝗋 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄:
-  
-<b>👤 𝖴𝗌𝖾𝗋:</b> <a href="tg://openmessage?user_id=${user.telegramid}">${user.first_name}</a>
-  
-𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖲𝗁𝖺𝗋𝗂𝗇𝗀 𝖸𝗈𝗎𝗋 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖫𝗂𝗇𝗄! 𝖪𝖾𝖾𝗉 𝖨𝗇𝗏𝗂𝗍𝗂𝗇𝗀 𝖬𝗈𝗋𝖾 𝖴𝗌𝖾𝗋𝗌 𝖳𝗈 𝖤𝖺𝗋𝗇 𝖱𝖾𝗐𝖺𝗋𝖽𝗌.`,
+    text: "<b>🔔 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖭𝗈𝗍𝗂𝖿𝗂𝖼𝖺𝗍𝗂𝗈𝗇:</b>\n\n𝖠 𝖭𝖾𝗐 𝖴𝗌𝖾𝗋 𝖧𝖺𝗌 𝖩𝗈𝗂𝗇𝖾𝖽 𝖵𝗂𝖺 𝖸𝗈𝗎𝗋 𝖫𝗂𝗇𝗄:\n\n<b>👤 𝖴𝗌𝖾𝗋:</b> " + Libs.Helpers.getUserMention() + "\n\n𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖲𝗁𝖺𝗋𝗂𝗇𝗀!",
     parse_mode: "HTML",
     disable_web_page_preview: true,
-    message_effect_id: "5046509860389126442", // 🔥
-    reply_markup: {
-      inline_keyboard: [[{ text: "Cʟᴏsᴇ", callback_data: "/close" }]]
-    }
+    message_effect_id: "5046509860389126442",
+    reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
   })
 }
 
-// ✅ Function for users who have already joined
+// Already joined
 function doAlreadyAttracted() {
   Api.sendMessage({
     chat_id: user.telegramid,
-    text: `<b>⚠️ 𝖭𝗈𝗍𝗂𝖼𝖾:</b> 𝖨𝗍 𝖲𝖾𝖾𝗆𝗌 𝖳𝗁𝖺𝗍 𝖸𝗈𝗎 𝖧𝖺𝗏𝖾 𝖠𝗅𝗋𝖾𝖺𝖽𝗒 𝖲𝗍𝖺𝗋𝗍𝖾𝖽 𝖳𝗁𝗂𝗌 𝖡𝗈𝗍. 𝖳𝗁𝖺𝗇𝗄 𝖸𝗈𝗎 𝖥𝗈𝗋 𝖸𝗈𝗎𝗋 𝖨𝗇𝗍𝖾𝗋𝖾𝗌𝗍, 𝖡𝗎𝗍 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖱𝖾𝗐𝖺𝗋𝖽𝗌 𝖠𝗋𝖾 𝖮𝗇𝗅𝗒 𝖥𝗈𝗋 𝖭𝖾𝗐 𝖴𝗌𝖾𝗋𝗌. 𝖤𝗇𝗃𝗈𝗒 𝖳𝗁𝖾 𝖥𝖾𝖺𝗍𝗎𝗋𝖾𝗌 𝖮𝖿 𝖮𝗎𝗋 𝖡𝗈𝗍!`,
+    text: "<b>⚠️ 𝖭𝗈𝗍𝗂𝖼𝖾:</b> 𝖸𝗈𝗎'𝗏𝖾 𝖠𝗅𝗋𝖾𝖺𝖽𝗒 𝖲𝗍𝖺𝗋𝗍𝖾𝖽 𝖳𝗁𝗂𝗌 𝖡𝗈𝗍. 𝖱𝖾𝖿𝖾𝗋𝗋𝖺𝗅 𝖱𝖾𝗐𝖺𝗋𝖽𝗌 𝖠𝗋𝖾 𝖮𝗇𝗅𝗒 𝖥𝗈𝗋 𝖭𝖾𝗐 𝖴𝗌𝖾𝗋𝗌.",
     parse_mode: "HTML",
     disable_web_page_preview: true,
-    message_effect_id: "5107584321108051014", // 👍
-    reply_markup: {
-      inline_keyboard: [[{ text: "Cʟᴏsᴇ", callback_data: "/close" }]]
-    }
+    message_effect_id: "5107584321108051014",
+    reply_markup: { inline_keyboard: Libs.Helpers.getCloseButton() }
   })
 }
 
-// ✅ Referral tracking configuration
-var trackOptions = {
+// Referral tracking
+Libs.ReferralLib.currentUser.track({
   onTouchOwnLink: doTouchOwnLink,
   onAttracted: doAttracted,
   onAtractedByUser: doAtractedByUser,
   onAlreadyAttracted: doAlreadyAttracted,
   linkPrefix: "REACT"
-}
+})
 
-// ✅ Start referral tracking
-Libs.ReferralLib.currentUser.track(trackOptions)
-
-// 📢 Broadcast
-const idstore = Bot.getProp("idstore", [])
-const done = User.getProp("done")
+// Broadcast: register user
+var idstore = Bot.getProp("idstore", [])
+var done = User.getProp("done")
 if (!done) {
   idstore.push(user.telegramid)
   Bot.setProp("idstore", idstore, "json")
   User.setProp("done", user.telegramid, "text")
 }
-const id = params
 
-// 𝗡𝗘𝗪 𝗨𝗦𝗘𝗥 𝗟𝗢𝗚 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗧𝗜𝗢𝗡 //
-// Retrieve admin ID dynamically
+// New user notification
 var admin = Bot.getProperty("admin")
-
-// Check if the chat was just created and it's a private chat
-if (chat && chat.just_created && chat.chat_type == "private") {
-  // Initialize or retrieve the global counter for new users
+if (chat && chat.just_created && chat.chat_type === "private") {
   var status = Libs.ResourcesLib.anotherChatRes("totalusers", "global")
-
-  // Ensure the counter is properly initialized if it's not already
   if (status.value() === undefined || status.value() === 0) {
-    status.set(1) // Set initial value to 1
+    status.set(1)
   } else {
-    status.add(1) // Increment the counter if it already exists
+    status.add(1)
   }
-  // Get the current date and time in Asia/Kolkata timezone
-  var currentDate = new Date().toLocaleDateString("en-US", {
-    timeZone: "Asia/Kolkata"
-  })
-  var currentTime = new Date().toLocaleTimeString("en-US", {
-    timeZone: "Asia/Kolkata"
-  })
 
-  // User's Name
-  var Name =
-    user && user.first_name
-      ? `<a href='tg://user?id=${user.telegramid}'>${user.first_name}</a>`
-      : "Unknown"
+  var now = new Date()
+  var istOffset = 5.5 * 60 * 60 * 1000
+  var istDate = new Date(now.getTime() + istOffset)
+  var dateStr = istDate.toISOString().slice(0, 10)
+  var timeStr = istDate.toISOString().slice(11, 19)
 
-  // Bot's Username
-  var BotName = bot.name
+  if (admin) {
+    var Name = Libs.Helpers.getUserMention()
+    var adminText = "<b>▧ Nᴇᴡ Usᴇʀ Nᴏᴛɪғɪᴄᴀᴛɪᴏɴ ✨</b>\n" +
+      "┋\n" +
+      "┋┏ Nᴀᴍᴇ: " + Name + "\n" +
+      "┋┣ Usᴇʀɴᴀᴍᴇ: @${" + (user.username || "N/A") + "}\n" +
+      "┋┣ Tᴇʟᴇɢʀᴀᴍ Iᴅ: <code>" + user.telegramid + "</code>\n" +
+      "┋┃\n" +
+      "┋┣ Dᴀᴛᴇ: " + dateStr + "\n" +
+      "┋┣ Tɪᴍᴇ: " + timeStr + "\n" +
+      "┋┃\n" +
+      "┋┣ Tᴏᴛᴀʟ Usᴇʀs: " + status.value() + "\n" +
+      "┋┗ Bᴏᴛ Nᴀᴍᴇ: @" + bot.name
 
-  // Construct The Log Message
-  var adminText = `
-<b>▧ Nᴇᴡ Usᴇʀ Nᴏᴛɪғɪᴄᴀᴛɪᴏɴ ✨</b>
-┋
-┋┏ Nᴀᴍᴇ: ${Name}
-┋┣ Usᴇʀɴᴀᴍᴇ: <a href="tg://user?id=${user.telegramid}">@${user.username}</a>
-┋┣ Tᴇʟᴇɢʀᴀᴍ Iᴅ: <code>${user.telegramid}</code>
-┋┃
-┋┣ Dᴀᴛᴇ: ${currentDate}
-┋┣ Tɪᴍᴇ: ${currentTime}
-┋┃
-┋┣ Tᴏᴛᴀʟ Usᴇʀs: ${status.value()}
-┋┗ Bᴏᴛ Nᴀᴍᴇ: @${BotName}`
-
-  // Send New user Notification
-  Api.sendMessage({
-    chat_id: admin,
-    text: adminText,
-    parse_mode: "HTML",
-    reply_markup: {
-      inline_keyboard: [
-        [
-          {
-            text: "Pʀᴏғɪʟᴇ Lɪɴᴋ",
-            url: `tg://openmessage?user_id=${user.telegramid}`
-          }
-        ]
-      ]
-    }
-  })
+    Api.sendMessage({
+      chat_id: admin,
+      text: adminText,
+      parse_mode: "HTML",
+      reply_markup: {
+        inline_keyboard: [[{ text: "Pʀᴏғɪʟᴇ Lɪɴᴋ", url: "tg://user?id=" + user.telegramid }]]
+      }
+    })
+  }
 }
-
-// Redirect new users to Quinx
-// Bot.runCommand("/quinx")
-
