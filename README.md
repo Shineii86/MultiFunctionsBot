@@ -1,18 +1,19 @@
 # MultiFunctionsBot - Telegram Bot
 
-A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with **130+ utility tools**, free AI features, economy system, downloaders, developer tools, games, premium subscription, and more.
+A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with **140+ utility tools**, free AI features, economy system, downloaders, developer tools, games, premium subscription, and more.
 
 **[@MultiFunctionsBot](https://t.me/MultiFunctionsBot)**
 
 ---
 
-## ✨ What's New in v3.3.0
+## ✨ What's New in v3.3.1
 
-- 🤖 **AI Chat (GPT-level)** — Multi-turn conversation, free via Pollinations.ai
-- 👑 **Premium Subscription** — 500 $REACT/month, ad-free, 2x rewards, badges
-- 📊 **Bot Analytics** — Command stats, most used commands, user growth
-- 👤 **User Profiles** — XP/Level system, badges, custom bio & title
-- 🔔 **Price Alerts** — Crypto & stock price notifications
+- 🐛 **Bug Fix** — Help & Tools pagination buttons now work (missing callback aliases)
+- 👑 **Admin Panel Overhaul** — 11 new/enhanced commands: user management, settings toggles, activity logs, export IDs
+- ⚙️ **Bot Settings** — Toggle welcome, ads, join notifications, rate limit, antispam from admin panel
+- 📊 **Admin Dashboard** — Enhanced stats with progress bars, top commands, recent users
+- 🔍 **User Search** — Look up any user by Telegram ID
+- 📋 **Activity Logs** — View top commands, recent activity, and latest feedback
 
 ---
 
@@ -257,12 +258,18 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | Command | Description |
 |---|---|
 | `!ZeroTwo` | Claim admin access |
-| `!master` | Admin control panel |
-| `!broadcast` | Broadcast to all users |
+| `!master` | 🆕 Admin control panel (quick stats, 6-button grid) |
+| `!status` | 🆕 Full dashboard — progress bars, top commands, recent users |
+| `!users` | 🆕 User management — total, stored, banned, last 10 |
+| `!usersearch` | 🆕 Search user by Telegram ID |
+| `!banlist` | 🆕 View all banned users |
+| `!exportids` | 🆕 Export all user IDs in chunks |
+| `!logs` | 🆕 Activity logs — top 10 commands, recent activity |
+| `!settings` | 🆕 Bot settings toggle panel |
+| `!broadcast` | Broadcast to all users (text, photo, video, sticker, forward) |
 | `!maintenance` | Toggle maintenance mode |
-| `!status` | Bot statistics with progress bars |
 | `!restart` | Restart bot for all users |
-| `!profile` | Admin profile |
+| `!profile` | 🆕 Admin profile with bot owner stats |
 | `!logout` | Remove admin access |
 
 ### ⚡ Inline Mode
@@ -308,7 +315,7 @@ Send `!ZeroTwo` in the bot to claim admin access.
 │   ├── _middleware.js           # XP tracking & analytics
 │   ├── !.js                    # Error handler
 │   ├── Mᴇɴᴜ/                   # Menu & navigation (7 pages)
-│   ├── Aᴅᴍɪɴ/                  # Admin panel (12 commands)
+│   ├── Aᴅᴍɪɴ/                  # Admin panel (23 commands)
 │   ├── Aɪ/                     # AI tools (11 commands incl. /ai)
 │   ├── Pʀᴇᴍɪᴜᴍ/                # Premium subscription
 │   ├── Pʀᴏꜰɪʟᴇ/                # User profiles & XP
@@ -413,9 +420,9 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed changes.
 
 - **Platform:** [Bots.Business](https://bots.business) (CBPaaS)
 - **Language:** JavaScript
-- **Commands:** 130+
+- **Commands:** 140+
 - **APIs:** 24 external services
-- **Version:** 3.3.0
+- **Version:** 3.3.1
 
 ---
 

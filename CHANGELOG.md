@@ -1,5 +1,39 @@
 # Changelog
 
+## v3.3.1 — May 2, 2025 🐛👑
+
+### 🐛 Bug Fixes
+- **Fixed Help pagination buttons** — `/help2`–`/help5` callbacks were silently dropped because aliases weren't registered. Added all page aliases.
+- **Fixed Tools pagination buttons** — `/tools2`–`/tools10` callbacks had the same issue. Added all page aliases.
+
+### 👑 Admin Panel Upgrade (11 new/enhanced commands)
+
+#### Enhanced
+- `!master` — Redesigned with quick stats bar (users, commands, feedback), 6-button grid, aliases `!admin` `!panel`
+- `!status` — Full dashboard with progress bars, top 5 commands, recent users, version 3.3.0
+- `!profile` — Added bot owner stats (total users, commands, stored IDs)
+- `getAdsFooter()` — Now respects `ads_enabled` toggle
+
+#### New Commands
+- `!users` — User management overview (total, stored, banned, last 10 users)
+- `!usersearch` — Search any user by Telegram ID
+- `!banlist` — View all banned users
+- `!exportids` — Export all user IDs in chunks
+- `!logs` — Activity logs with top 10 commands, recent activity, latest feedback
+- `!settings` — Bot settings toggle panel
+- `!toggle_welcome` — Toggle welcome messages on/off
+- `!toggle_ads` — Toggle advertisements on/off
+- `!toggle_joins` — Toggle join notifications on/off
+- `!toggle_ratelimit` — Toggle rate limiting on/off
+- `!toggle_antispam` — Toggle anti-spam on/off
+
+#### Infrastructure
+- `_middleware.js` — Tracks recent users (name, username, ID) for admin visibility
+- `_start.js` — Stores user profile info on first join
+- `Helpers.js` — `getAdsFooter()` checks `ads_enabled` property
+
+---
+
 ## v3.3.0 — May 2, 2025 🚀
 
 ### ✨ 5 Major Features Added
