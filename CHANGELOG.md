@@ -68,6 +68,36 @@
 - `/deldata` — Delete all personal data
 - Confirmation prompt for safety
 
+#### 15. 📁 File Store
+- `/store` — Upload any file and get shareable link
+- Supports photos, videos, audio, documents, stickers, GIFs
+- `/store list` — View all stored files
+- `/store get ID` — Retrieve file by ID
+- `/store delete ID` — Delete a file
+- Deep link access: `t.me/Bot?start=file_ID`
+
+#### 16. 🖼️ Image Host
+- `/img` — Upload image, get direct URL (telegra.ph)
+- BB code, Markdown, and direct link formats
+- Share button for easy distribution
+
+#### 17. 📋 Pastebin
+- `/paste` — Create paste from text/code
+- Shareable deep link: `t.me/Bot?start=paste_ID`
+- `/paste list` — View your pastes
+- View counter and timestamps
+
+#### 18. 📸 Screenshot Service
+- `/ss` — Take screenshot of any website
+- Full-page capture at 1280x720
+
+#### 19. 📋 Cloud Clipboard
+- `/clip save text` — Save text snippet
+- `/clip get` — Retrieve saved text
+- `/clip share` — Generate shareable link
+- `/clip clear` — Clear clipboard
+- Cross-device sync via bot
+
 ### 📝 Improvements
 - **Help Menu** — Split into 5 paginated pages (under 4096 char limit)
 - **Tools Menu** — Expanded from 7 to 10 pages

@@ -20,6 +20,11 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 - 🔗 **Webhooks** — GitHub & custom webhooks
 - 📦 **Data Export** — Export your data as JSON
 - 🏷️ **Sticker Creator** — Photo to sticker converter
+- 📁 **File Store** — Store files with shareable links
+- 🖼️ **Image Host** — Direct image URLs
+- 📋 **Pastebin** — Share code/text snippets
+- 📸 **Screenshot** — Capture any website
+- 📋 **Cloud Clipboard** — Cross-device text sync
 
 ---
 
@@ -72,6 +77,15 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/plagiarism` | Duplicate detection & originality score |
 | `/chatbot` | AI chatbot (greetings, math, time, jokes) |
 | `/imagine` | 🆕 AI image generation from text prompts |
+
+### 📁 File & Media Tools 🆕
+| Command | Description |
+|---|---|
+| `/store` | Store files with shareable links |
+| `/img` | Upload images, get direct URLs |
+| `/paste` | Pastebin — create & share text/code |
+| `/ss` | Screenshot any website |
+| `/clip` | Cloud clipboard (cross-device) |
 
 ### 📲 Telegram Tools
 | Command | Description |
