@@ -12,7 +12,7 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases: !admin, !panel
   group: 
 CMD*/
 
@@ -23,23 +23,40 @@ if (user.telegramid != admin) {
 }
 
 var mode = Bot.getProperty("maintenance", "Off")
-var modeEmoji = Libs.Helpers.getStatusEmoji(mode === "On" ? "maintenance" : "online")
-var totalUsers = Libs.ResourcesLib.anotherChatRes("totalusers", "global")
-var userCount = Libs.Helpers.formatNumber(totalUsers.value() || 0)
-var idstore = Bot.getProperty("idstore", [])
+var statusEmoji = Libs.Helpers.getStatusEmoji(mode === "On" ? "maintenance" : "online")
+var statusText = mode === "On" ? "Mᴀɪɴᴛᴇɴᴀɴᴄᴇ" : "Oᴘᴇʀᴀᴛɪᴏɴᴀʟ"
 
-var caption = "<b>╭━━ 👑 Aᴅᴍɪɴ Pᴀɴᴇʟ ━━╮</b>\n\n" +
-  "Wᴇʟᴄᴏᴍᴇ Tᴏ Tʜᴇ Cᴏɴᴛʀᴏʟ Pᴀɴᴇʟ.\n" +
-  "Mᴀɴᴀɢᴇ Yᴏᴜʀ Bᴏᴛ Fʀᴏᴍ Hᴇʀᴇ.\n\n" +
-  "<b>🤖 Bᴏᴛ:</b> @" + bot.name + "\n" +
-  "<b>👥 Uꜱᴇʀꜱ:</b> " + userCount + "\n" +
-  "<b>📡 Sᴛᴀᴛᴜꜱ:</b> " + modeEmoji + " " + (mode === "On" ? "Mᴀɪɴᴛᴇɴᴀɴᴄᴇ" : "Oᴘᴇʀᴀᴛɪᴏɴᴀʟ") + "\n\n" +
+var totalUsers = Libs.ResourcesLib.anotherChatRes("totalusers", "global")
+var userCount = totalUsers.value() || 0
+var idstore = Bot.getProperty("idstore", [])
+var storeCount = idstore ? idstore.length : 0
+var cmdCount = Bot.getProperty("cmd_count", 0)
+var todayCmds = Bot.getProperty("cmds_today", 0)
+var feedbacks = Bot.getProperty("feedbacks", [])
+var fbCount = feedbacks ? feedbacks.length : 0
+
+var today = Libs.Helpers.getISTDate().toISOString().slice(0, 10)
+var cmdsDate = Bot.getProperty("cmds_date", "")
+if (cmdsDate !== today) { todayCmds = 0 }
+
+var userBar = Libs.Helpers.getProgressBar(userCount, 10000, 8)
+var cmdBar = Libs.Helpers.getProgressBar(todayCmds, 1000, 8)
+
+var caption = "<b>╭━━ 👑 Aᴅᴍɪɴ Cᴇɴᴛᴇʀ ━━╮</b>\n\n" +
+  "<b>🤖 @" + bot.name + "</b>\n" +
+  "<b>📡 Sᴛᴀᴛᴜꜱ:</b> " + statusEmoji + " " + statusText + "\n\n" +
+  "<b>📊 Qᴜɪᴄᴋ Sᴛᴀᴛꜱ:</b>\n" +
+  "├ 👥 " + Libs.Helpers.formatNumber(userCount) + " Uꜱᴇʀꜱ " + userBar + "\n" +
+  "├ ⚡ " + Libs.Helpers.formatNumber(todayCmds) + " Cᴍᴅꜱ Tᴏᴅᴀʏ " + cmdBar + "\n" +
+  "├ 📋 " + Libs.Helpers.formatNumber(cmdCount) + " Tᴏᴛᴀʟ Cᴍᴅꜱ\n" +
+  "├ 📬 " + fbCount + " Fᴇᴇᴅʙᴀᴄᴋꜱ\n" +
+  "└ 🗄️ " + Libs.Helpers.formatNumber(storeCount) + " Sᴛᴏʀᴇᴅ Iᴅꜱ\n\n" +
   "<b>╰━━━━━━━━━━━━━━━━━━╯</b>"
 
 var buttons = [
   [
-    { text: "👤 Pʀᴏꜰɪʟᴇ", callback_data: "!profile" },
-    { text: "📊 Sᴛᴀᴛꜱ", callback_data: "!status" }
+    { text: "📊 Dᴀꜱʜʙᴏᴀʀᴅ", callback_data: "!status" },
+    { text: "👤 Uꜱᴇʀꜱ", callback_data: "!users" }
   ],
   [
     { text: "📢 Bʀᴏᴀᴅᴄᴀꜱᴛ", callback_data: "!broadcast" },
@@ -47,7 +64,11 @@ var buttons = [
   ],
   [
     { text: "📝 Nᴏᴛᴇꜱ", callback_data: "/notes" },
-    { text: "⚙️ Mᴀɪɴᴛᴇɴᴀɴᴄᴇ", callback_data: "!maintenance" }
+    { text: "📋 Aᴄᴛɪᴠɪᴛʏ", callback_data: "!logs" }
+  ],
+  [
+    { text: "⚙️ Sᴇᴛᴛɪɴɢꜱ", callback_data: "!settings" },
+    { text: "🔧 Mᴀɪɴᴛᴇɴᴀɴᴄᴇ", callback_data: "!maintenance" }
   ],
   [
     { text: "🔄 Rᴇꜱᴛᴀʀᴛ", callback_data: "!restart" },

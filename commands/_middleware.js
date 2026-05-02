@@ -43,6 +43,33 @@ var currentCmd = message ? message.split(" ")[0] : "unknown"
 cmdUsage[currentCmd] = (cmdUsage[currentCmd] || 0) + 1
 Bot.setProperty("cmd_usage", cmdUsage, "json")
 
+// Track recent users (name, username, id)
+var recentUsers = Bot.getProperty("recent_users", [])
+var userId = String(user.telegramid)
+var alreadyTracked = false
+for (var i = 0; i < recentUsers.length; i++) {
+  if (String(recentUsers[i].id) === userId) {
+    recentUsers[i].name = user.first_name || "Unknown"
+    recentUsers[i].username = user.username || ""
+    recentUsers[i].last_seen = Date.now()
+    alreadyTracked = true
+    break
+  }
+}
+if (!alreadyTracked) {
+  recentUsers.push({
+    id: userId,
+    name: user.first_name || "Unknown",
+    username: user.username || "",
+    last_seen: Date.now()
+  })
+}
+// Keep only last 100 users
+if (recentUsers.length > 100) {
+  recentUsers = recentUsers.slice(-100)
+}
+Bot.setProperty("recent_users", recentUsers, "json")
+
 // Level up check
 var oldLevel = Math.floor(xp / 100) + 1
 var newLevel = Math.floor(newXP / 100) + 1

@@ -136,6 +136,19 @@ if (!done) {
   idstore.push(user.telegramid)
   Bot.setProp("idstore", idstore, "json")
   User.setProp("done", user.telegramid, "text")
+
+  // Track new user info
+  var recentUsers = Bot.getProperty("recent_users", [])
+  recentUsers.push({
+    id: String(user.telegramid),
+    name: user.first_name || "Unknown",
+    username: user.username || "",
+    last_seen: Date.now()
+  })
+  if (recentUsers.length > 100) {
+    recentUsers = recentUsers.slice(-100)
+  }
+  Bot.setProperty("recent_users", recentUsers, "json")
 }
 
 // New user notification

@@ -17,6 +17,8 @@ function getRandomAd() {
 }
 
 function getAdsFooter() {
+  var adsEnabled = Bot.getProperty("ads_enabled", true)
+  if (!adsEnabled) return ""
   return "\n\n📮 Aᴅs: <a href='t.me/QuinxAds'>Ҩᴜɪɴx Aᴅs</a>\n<blockquote>" + getRandomAd() + "</blockquote>"
 }
 
