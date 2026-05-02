@@ -44,7 +44,15 @@ var caption = "<b>👮 Hᴇʟᴘ — Aʟʟ Cᴏᴍᴍᴀɴᴅs (40+)</b>\n\n" +
   "» /channelinfo — Cʜᴀɴɴᴇʟ/Gʀᴏᴜᴘ Iɴꜰᴏ\n" +
   "» /pfp — Pʀᴏꜰɪʟᴇ Pʜᴏᴛᴏ\n" +
   "» /botcheck — Cʜᴇᴄᴋ Iꜰ Usᴇʀ Is Bᴏᴛ\n" +
-  "» /mention — Gᴇɴᴇʀᴀᴛᴇ Mᴇɴᴛɪᴏɴ Lɪɴᴋ\n\n" +
+  "» /mention — Gᴇɴᴇʀᴀᴛᴇ Mᴇɴᴛɪᴏɴ Lɪɴᴋ\n" +
+  "» /groupstats — Gʀᴏᴜᴘ Dᴇᴛᴀɪʟs\n" +
+  "» /adminlist — Lɪsᴛ Aʟʟ Aᴅᴍɪɴs\n" +
+  "» /membercount — Mᴇᴍʙᴇʀ Cᴏᴜɴᴛ\n" +
+  "» /pinned — Pɪɴɴᴇᴅ Mᴇssᴀɢᴇ\n" +
+  "» /grouplink — Iɴᴠɪᴛᴇ Lɪɴᴋ\n" +
+  "» /banlist — Bᴀɴɴᴇᴅ Usᴇʀs\n" +
+  "» /settitle — Sᴇᴛ Gʀᴏᴜᴘ Tɪᴛʟᴇ\n" +
+  "» /setdesc — Sᴇᴛ Gʀᴏᴜᴘ Dᴇsᴄ\n\n" +
   "<b>🐙 Gɪᴛʜᴜʙ</b>\n" +
   "» /github — Usᴇʀ Pʀᴏꜰɪʟᴇ\n" +
   "» /ghrepos — Lɪsᴛ Usᴇʀ's Rᴇᴘᴏs\n" +

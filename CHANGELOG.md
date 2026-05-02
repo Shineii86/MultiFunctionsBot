@@ -49,6 +49,25 @@
 
 ---
 
+## v2.5.0 - Telegram Group & Channel Tools (2 May 2025)
+
+### 🆕 New Features (10 group/channel tools)
+- **Group Stats** (`/groupstats`) — Full group overview (type, ID, description, slow mode, forum)
+- **Admin List** (`/adminlist`) — List all admins with roles (owner/admin)
+- **Member Count** (`/membercount`) — Get current member count
+- **Pinned Message** (`/pinned`) — View the pinned message in current chat
+- **Group Link** (`/grouplink`) — Export invite link (bot must be admin)
+- **Ban List** (`/baninfo`) — List all banned users
+- **Invite Count** (`/invitecount`) — Count invite links
+- **Set Title** (`/settitle`) — Change group title (admin only)
+- **Set Description** (`/setdescription`) — Change group description (admin only)
+
+### ✨ Improvements
+- **Tools menu** Telegram page now includes all group management tools
+- **Updated /help** with all Telegram commands
+
+---
+
 ## v2.4.0 - Free AI Features (2 May 2025)
 
 ### 🆕 New Features (8 AI tools, zero API keys needed)

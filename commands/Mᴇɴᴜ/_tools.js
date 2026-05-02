@@ -91,6 +91,18 @@ var pages = {
         { text: "🔗 Mᴇɴᴛɪᴏɴ Lɪɴᴋ", callback_data: "/mention" }
       ],
       [
+        { text: "📊 Gʀᴏᴜᴘ Sᴛᴀᴛs", callback_data: "/groupstats" },
+        { text: "👑 Aᴅᴍɪɴs", callback_data: "/adminlist" }
+      ],
+      [
+        { text: "👥 Mᴇᴍʙᴇʀ Cᴏᴜɴᴛ", callback_data: "/membercount" },
+        { text: "📌 Pɪɴɴᴇᴅ", callback_data: "/pinned" }
+      ],
+      [
+        { text: "🔗 Gʀᴏᴜᴘ Lɪɴᴋ", callback_data: "/grouplink" },
+        { text: "🚫 Bᴀɴ Lɪsᴛ", callback_data: "/baninfo" }
+      ],
+      [
         { text: "🐙 Gɪᴛʜᴜʙ Pʀᴏꜰɪʟᴇ", callback_data: "/github" },
         { text: "📦 Gɪᴛʜᴜʙ Rᴇᴘᴏs", callback_data: "/ghrepos" }
       ],
