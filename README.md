@@ -1,6 +1,6 @@
 # MultiFunctionsBot - Telegram Bot
 
-A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with **40+ utility tools**, Telegram tools, GitHub integration, anime/manga search, weather, and more.
+A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with **50+ utility tools**, free AI features, Telegram tools, GitHub integration, anime/manga search, weather, and more.
 
 **[@MultiFunctionsBot](https://t.me/MultiFunctionsBot)**
 
@@ -41,6 +41,18 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/wiki` | Search Wikipedia articles |
 | `/textstats` | Detailed text analysis |
 | `/numberfact` | Trivia facts about any number |
+
+### 🤖 AI Tools (No API Keys Required)
+| Command | Description |
+|---|---|
+| `/summarize` | Text summarization (extractive algorithm) |
+| `/sentiment` | Sentiment analysis (positive/negative/neutral) |
+| `/readability` | Flesch-Kincaid readability score & grade level |
+| `/keyword` | Keyword extraction with frequency analysis |
+| `/paraphrase` | Text paraphraser with synonym replacement |
+| `/grammar` | Grammar & spelling checker |
+| `/plagiarism` | Duplicate detection & originality score |
+| `/chatbot` | AI chatbot (greetings, math, time, jokes) |
 
 ### 📲 Telegram Tools
 | Command | Description |
@@ -201,7 +213,7 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed changes.
 
 - **Platform:** [Bots.Business](https://bots.business) (CBPaaS)
 - **Language:** JavaScript
-- **Commands:** 40+
+- **Commands:** 50+
 - **APIs:** 14 external services
 
 ---

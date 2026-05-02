@@ -56,6 +56,15 @@ var caption = "<b>👮 Hᴇʟᴘ — Aʟʟ Cᴏᴍᴍᴀɴᴅs (40+)</b>\n\n" +
   "» /character — Cʜᴀʀᴀᴄᴛᴇʀ Lᴏᴏᴋᴜᴘ\n" +
   "» /weather — Cᴜʀʀᴇɴᴛ Wᴇᴀᴛʜᴇʀ\n" +
   "» /forecast — 3-Dᴀʏ Fᴏʀᴇᴄᴀsᴛ\n\n" +
+  "<b>🤖 Aɪ (Nᴏ API)</b>\n" +
+  "» /summarize — Tᴇxᴛ Sᴜᴍᴍᴀʀɪᴢᴇʀ\n" +
+  "» /sentiment — Sᴇɴᴛɪᴍᴇɴᴛ Aɴᴀʟʏsɪs\n" +
+  "» /readability — Rᴇᴀᴅᴀʙɪʟɪᴛʏ Sᴄᴏʀᴇ\n" +
+  "» /keyword — Kᴇʏᴡᴏʀᴅ Exᴛʀᴀᴄᴛᴏʀ\n" +
+  "» /paraphrase — Tᴇxᴛ Pᴀʀᴀᴘʜʀᴀsᴇʀ\n" +
+  "» /grammar — Gʀᴀᴍᴍᴀʀ Cʜᴇᴄᴋᴇʀ\n" +
+  "» /plagiarism — Dᴜᴘʟɪᴄᴀᴛᴇ Dᴇᴛᴇᴄᴛᴏʀ\n" +
+  "» /chatbot — Aɪ Cʜᴀᴛʙᴏᴛ\n\n" +
   "<b>🎲 Fᴜɴ</b>\n" +
   "» /quote — Qᴜᴏᴛᴇs | /joke — Jᴏᴋᴇs | /advice — Aᴅᴠɪᴄᴇ\n" +
   "» /roll — Dɪᴄᴇ | /flip — Cᴏɪɴ | /choose — Rᴀɴᴅᴏᴍ Pɪᴄᴋ" +

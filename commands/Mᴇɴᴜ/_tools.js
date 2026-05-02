@@ -130,7 +130,33 @@ var pages = {
     ]
   },
   "5": {
-    caption: "<b>🎲 Fᴜɴ & Rᴀɴᴅᴏᴍ (5/5)</b>",
+    caption: "<b>🤖 Aɪ Tᴏᴏʟs (5/6) — Nᴏ API Nᴇᴇᴅᴇᴅ</b>",
+    buttons: [
+      [
+        { text: "📝 Sᴜᴍᴍᴀʀɪᴢᴇ", callback_data: "/summarize" },
+        { text: "💬 Sᴇɴᴛɪᴍᴇɴᴛ", callback_data: "/sentiment" }
+      ],
+      [
+        { text: "📖 Rᴇᴀᴅᴀʙɪʟɪᴛʏ", callback_data: "/readability" },
+        { text: "🔑 Kᴇʏᴡᴏʀᴅs", callback_data: "/keyword" }
+      ],
+      [
+        { text: "✏️ Pᴀʀᴀᴘʜʀᴀsᴇ", callback_data: "/paraphrase" },
+        { text: "✍️ Gʀᴀᴍᴍᴀʀ", callback_data: "/grammar" }
+      ],
+      [
+        { text: "🔍 Pʟᴀɢɪᴀʀɪsᴍ", callback_data: "/plagiarism" },
+        { text: "🤖 Aɪ Cʜᴀᴛ", callback_data: "/chatbot" }
+      ],
+      [
+        { text: "◁", callback_data: "/tools4" },
+        { text: "❺", callback_data: "/start" },
+        { text: "▷", callback_data: "/tools6" }
+      ]
+    ]
+  },
+  "6": {
+    caption: "<b>🎲 Fᴜɴ & Rᴀɴᴅᴏᴍ (6/6)</b>",
     buttons: [
       [
         { text: "💡 Rᴀɴᴅᴏᴍ Qᴜᴏᴛᴇ", callback_data: "/quote" },
@@ -145,8 +171,8 @@ var pages = {
         { text: "💡 Aᴅᴠɪᴄᴇ", callback_data: "/advice" }
       ],
       [
-        { text: "◁", callback_data: "/tools4" },
-        { text: "❺", callback_data: "/start" },
+        { text: "◁", callback_data: "/tools5" },
+        { text: "❻", callback_data: "/start" },
         { text: "▷", callback_data: "/tools" }
       ]
     ]
@@ -155,7 +181,7 @@ var pages = {
 
 var page = "1"
 if (request && request.data) {
-  for (var p = "2"; p <= "5"; p++) {
+  for (var p = "2"; p <= "6"; p++) {
     if (request.data.indexOf("tools" + p) !== -1) { page = p; break }
   }
 }

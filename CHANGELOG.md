@@ -49,6 +49,24 @@
 
 ---
 
+## v2.4.0 - Free AI Features (2 May 2025)
+
+### 🆕 New Features (8 AI tools, zero API keys needed)
+- **Text Summarizer** (`/summarize`) — Extractive summarization using word frequency scoring
+- **Sentiment Analysis** (`/sentiment`) — Detect positive/negative/neutral mood with keyword matching
+- **Readability Score** (`/readability`) — Flesch-Kincaid reading level and grade assessment
+- **Keyword Extractor** (`/keyword`) — Extract top keywords by frequency with stop-word filtering
+- **Text Paraphraser** (`/paraphrase`) — Synonym replacement engine with 40+ word mappings
+- **Grammar Checker** (`/grammar`) — Spell check, double words, capitalization, common mistakes
+- **Plagiarism Detector** (`/plagiarism`) — Duplicate sentence/phrase detection + originality score
+- **AI Chatbot** (`/chatbot`) — Pattern-matching chatbot with greetings, math, time, jokes
+
+### ✨ Improvements
+- **Tools menu expanded to 6 pages** with dedicated AI section
+- **Updated /help** with AI commands section
+
+---
+
 ## v2.3.0 - Telegram & GitHub Features (2 May 2025)
 
 ### 🆕 New Features
