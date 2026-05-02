@@ -1,30 +1,21 @@
 # MultiFunctionsBot - Telegram Bot
 
-A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with **80+ utility tools**, free AI features, economy system, inline mode, group management, and more.
+A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with **120+ utility tools**, free AI features, economy system, downloaders, developer tools, games, and more.
 
 **[@MultiFunctionsBot](https://t.me/MultiFunctionsBot)**
 
 ---
 
-## ✨ What's New in v3.1.0
+## ✨ What's New in v3.2.0
 
-- 📊 **Polls & Quizzes** — Create interactive polls and quizzes
-- 🎨 **AI Image Generation** — Generate images from text (free, no API)
-- ⚡ **Inline Mode** — Use `@MultiFunctionsBot` anywhere
-- 💰 **Economy System** — Balance, daily rewards, transfers, leaderboard
-- 👋 **Custom Welcome** — Configure group welcome messages
-- 🌐 **Multi-Language** — 14 languages supported
-- 📡 **RSS Feeds** — Subscribe to RSS feeds
-- ⏰ **Scheduler** — Schedule messages
-- 🛡️ **Anti-Spam** — Rate limiting & flood protection
-- 🔗 **Webhooks** — GitHub & custom webhooks
-- 📦 **Data Export** — Export your data as JSON
-- 🏷️ **Sticker Creator** — Photo to sticker converter
-- 📁 **File Store** — Store files with shareable links
-- 🖼️ **Image Host** — Direct image URLs
-- 📋 **Pastebin** — Share code/text snippets
-- 📸 **Screenshot** — Capture any website
-- 📋 **Cloud Clipboard** — Cross-device text sync
+- 📥 **Downloaders** — YouTube, Instagram, TikTok, Music
+- 💰 **Crypto & Stocks** — Live prices for 18 coins + stock market
+- 📖 **Dictionary** — Word definitions & synonyms
+- 🎮 **Games** — Trivia, Word Scramble, Group Counting
+- 💻 **Developer Tools** — Code Runner (8 langs), API Tester, JSON, Regex
+- 🛡️ **Anti-Spam AI** — Forwards, links, CAPTCHA, auto-moderation
+- 🌡️ **Weather Alerts** — Temperature threshold notifications
+- 🐙 **GitHub Watch** — Repo notification subscriptions
 
 ---
 
@@ -34,7 +25,7 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | Command | Description |
 |---|---|
 | `/start` | Start the bot & main menu |
-| `/help` | List all commands (5 pages) |
+| `/help` | List all commands (7 pages) |
 | `/about` | Bot information & credits |
 
 ### ⚙️ Core Tools
@@ -76,22 +67,33 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/grammar` | Grammar & spelling checker |
 | `/plagiarism` | Duplicate detection & originality score |
 | `/chatbot` | AI chatbot (greetings, math, time, jokes) |
-| `/imagine` | 🆕 AI image generation from text prompts |
+| `/imagine` | AI image generation from text prompts |
 
-### 📁 File & Media Tools 🆕
+### 📥 Downloaders 🆕
 | Command | Description |
 |---|---|
-| `/store` | Store files with shareable links |
-| `/img` | Upload images, get direct URLs |
-| `/paste` | Pastebin — create & share text/code |
-| `/ss` | Screenshot any website |
-| `/clip` | Cloud clipboard (cross-device) |
+| `/yt` | Download YouTube videos/audio (720p/360p/mp3) |
+| `/ig` | Download Instagram posts/reels |
+| `/tiktok` | Download TikTok videos (no watermark) |
+| `/music` | Search & play music |
+
+### 💰 Finance 🆕
+| Command | Description |
+|---|---|
+| `/crypto` | Live crypto prices (BTC, ETH, SOL, DOGE +14) |
+| `/stock` | Stock market prices (AAPL, GOOGL, TSLA, etc.) |
+
+### 📖 Dictionary 🆕
+| Command | Description |
+|---|---|
+| `/dict` | Word definitions, phonetics, examples |
+| `/synonym` | Find synonyms for any word |
 
 ### 📲 Telegram Tools
 | Command | Description |
 |---|---|
 | `/stickerinfo` | Get sticker details (emoji, set, file ID) |
-| `/sticker` | 🆕 Convert photo to sticker format |
+| `/sticker` | Convert photo to sticker format |
 | `/chatinfo` | Get chat info & ID (any chat) |
 | `/channelinfo` | Look up public channel/group info |
 | `/pfp` | Get user's profile photo |
@@ -116,6 +118,7 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/ghrepoinfo` | Detailed repo info (issues, license, topics) |
 | `/ghsearch` | Search GitHub repositories |
 | `/ghfollowers` | List user's followers |
+| `/ghwatch` | 🆕 Watch repos for notifications |
 
 ### 🎌 Anime & Weather
 | Command | Description |
@@ -126,6 +129,7 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/weather` | Current weather for any city |
 | `/forecast` | 3-day weather forecast |
 | `/airquality` | Air quality index (AQI) for any city |
+| `/alert` | 🆕 Weather threshold alerts |
 
 ### 🎲 Fun & Random
 | Command | Description |
@@ -144,11 +148,14 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/vaporwave` | Convert to ｗｉｄｅ vaporwave text |
 | `/zalgo` | Convert to z̸a̶l̷g̵o̸ glitch text |
 
-### 📊 Polls & Quizzes 🆕
+### 📊 Polls & Games 🆕
 | Command | Description |
 |---|---|
 | `/poll` | Create a Telegram poll |
 | `/quiz` | Create an interactive quiz |
+| `/trivia` | Trivia quiz game (4 categories) |
+| `/wordgame` | Word scramble game |
+| `/counting` | Group counting game |
 
 ### 🛡️ Group Management
 | Command | Description |
@@ -160,8 +167,13 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/notes` | View saved notes |
 | `/save` | Save a note (`/save name text`) |
 | `/delnote` | Delete a saved note |
-| `/welcome` | 🆕 Configure group welcome messages |
-| `/ratelimit` | 🆕 Configure anti-spam rate limiting |
+| `/welcome` | Configure group welcome messages |
+| `/ratelimit` | Configure anti-spam rate limiting |
+| `/antispam` | 🆕 Anti-spam settings |
+| `/automod` | 🆕 Auto-moderation (blacklists, whitelists) |
+| `/captcha` | 🆕 CAPTCHA verification for new members |
+| `/logchannel` | 🆕 Admin action logging |
+| `/reactionrole` | 🆕 Self-assignable roles |
 | `/addfilter` | Add auto-reply filter |
 | `/delfilter` | Delete a filter |
 | `/filters` | List all filters |
@@ -170,7 +182,7 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/clearreminders` | Clear all reminders |
 | `/afk` | Set AFK status with reason |
 
-### 💰 Economy 🆕
+### 💰 Economy
 | Command | Description |
 |---|---|
 | `/balance` | Check your $REACT wallet |
@@ -179,13 +191,30 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/leaderboard` | Top $REACT earners |
 | `/referral` | Get your referral link |
 
-### 📡 RSS & Scheduling 🆕
+### 📁 File & Media
+| Command | Description |
+|---|---|
+| `/store` | Store files with shareable links |
+| `/img` | Upload images, get direct URLs |
+| `/paste` | Pastebin — create & share text/code |
+| `/ss` | Screenshot any website |
+| `/clip` | Cloud clipboard (cross-device) |
+
+### 📡 RSS & Scheduling
 | Command | Description |
 |---|---|
 | `/rss` | RSS feed reader (subscribe/list/remove) |
 | `/schedule` | Schedule messages (`/schedule 2h Message`) |
 
-### ⚙️ Settings 🆕
+### 💻 Developer Tools 🆕
+| Command | Description |
+|---|---|
+| `/run` | Execute code (Python, JS, Go, Rust, Bash, Ruby, PHP) |
+| `/api` | HTTP request tester (GET/POST/PUT/DELETE) |
+| `/json` | JSON formatter & validator |
+| `/regex` | Regex tester with match highlighting |
+
+### ⚙️ Settings
 | Command | Description |
 |---|---|
 | `/settings` | User settings panel |
@@ -193,6 +222,7 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/mystats` | Personal statistics dashboard |
 | `/export` | Export your data as JSON |
 | `/deldata` | Delete all your data (GDPR) |
+| `/tm` | 🆕 Translation memory / glossary |
 
 ### 🔮 Feedback
 | Command | Description |
@@ -211,7 +241,7 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `!profile` | Admin profile |
 | `!logout` | Remove admin access |
 
-### ⚡ Inline Mode 🆕
+### ⚡ Inline Mode
 Use `@MultiFunctionsBot` in any chat:
 - 📱 Generate QR codes
 - 🌍 Quick translate
@@ -252,17 +282,17 @@ Send `!ZeroTwo` in the bot to claim admin access.
 │   └── ReferralLib.js          # Referral tracking
 ├── commands/
 │   ├── !.js                    # Error handler
-│   ├── Mᴇɴᴜ/                   # Menu & navigation (10 pages)
+│   ├── Mᴇɴᴜ/                   # Menu & navigation (7 pages)
 │   ├── Aᴅᴍɪɴ/                  # Admin panel (12 commands)
 │   ├── Sʜᴏʀᴛᴇɴᴇʀ/              # URL shortener
 │   ├── Tᴇʟᴇɢʀᴀᴍ Iᴅ/           # Profile info
 │   ├── Pᴀssᴡᴏʀᴅ/               # Password generator
-│   ├── Tʀᴀɴsʟᴀᴛᴇ/             # Translation
+│   ├── Tʀᴀɴsʟᴀᴛᴇ/             # Translation + memory
 │   ├── Uᴛɪʟɪᴛɪᴇs/              # Core utilities (20+ commands)
-│   ├── Aɪ/                     # AI tools (9 commands)
+│   ├── Aɪ/                     # AI tools (10 commands)
 │   ├── Aɴɪᴍᴇ/                  # Anime & manga
-│   ├── Wᴇᴀᴛʜᴇʀ/                # Weather & AQI
-│   ├── Gɪᴛʜᴜʙ/                 # GitHub lookup
+│   ├── Wᴇᴀᴛʜᴇʀ/                # Weather, AQI & alerts
+│   ├── Gɪᴛʜᴜʙ/                 # GitHub lookup & watch
 │   ├── Wɪᴋɪᴘᴇᴅɪᴀ/              # Wikipedia search
 │   ├── Exᴄʜᴀɴɢᴇ/               # Currency converter
 │   ├── Fᴜɴ/                    # Fun commands (10+)
@@ -280,7 +310,18 @@ Send `!ZeroTwo` in the bot to claim admin access.
 │   ├── Sᴄʜᴇᴅᴜʟᴇʀ/              # Message scheduler
 │   ├── Gʀᴏᴜᴘ Mᴀɴᴀɢᴇᴍᴇɴᴛ/      # Group management
 │   ├── Wᴇʙʜᴏᴏᴋs/               # Webhook config
-│   └── Iɴʟɪɴᴇ/                 # Inline mode handler
+│   ├── Iɴʟɪɴᴇ/                 # Inline mode handler
+│   ├── Fɪʟᴇ Sᴛᴏʀᴇ/             # File storage
+│   ├── Iᴍᴀɢᴇ Hᴏsᴛ/             # Image hosting
+│   ├── Pᴀꜱᴛᴇʙɪɴ/               # Code/text pastes
+│   ├── Sᴄʀᴇᴇɴꜱʜᴏᴛ/             # Website screenshots
+│   ├── Cʟᴏᴜᴅ Cʟɪᴘʙᴏᴀʀᴅ/       # Cross-device clipboard
+│   ├── Dᴏᴡɴʟᴏᴀᴅᴇʀs/            # YouTube/IG/TikTok/Music
+│   ├── Cʀʏᴘᴛᴏ/                 # Crypto prices
+│   ├── Sᴛᴏᴄᴋ/                  # Stock market
+│   ├── Dɪᴄᴛɪᴏɴᴀʀʏ/             # Dictionary & synonyms
+│   ├── Gᴀᴍᴇs/                  # Trivia, word game, counting
+│   └── Dᴇᴠᴇʟᴏᴘᴇʀ/              # Code runner, API, JSON, Regex
 ```
 
 ---
@@ -293,6 +334,13 @@ Send `!ZeroTwo` in the bot to claim admin access.
 | [wttr.in](https://wttr.in) | Weather & forecasts |
 | [WAQI](https://waqi.info) | Air quality index |
 | [Pollinations.ai](https://pollinations.ai) | AI image generation |
+| [Cobalt](https://cobalt.tools) | YouTube/IG/TikTok downloads |
+| [Piped](https://pipedapi.kavin.rocks) | Music search |
+| [CoinGecko](https://coingecko.com) | Cryptocurrency prices |
+| [Yahoo Finance](https://finance.yahoo.com) | Stock market data |
+| [Free Dictionary](https://dictionaryapi.dev) | Word definitions |
+| [Datamuse](https://datamuse.com) | Synonyms & word relations |
+| [Piston](https://emkc.org/piston) | Code execution |
 | [GitHub API](https://api.github.com) | GitHub profile lookup |
 | [Wikipedia REST API](https://en.wikipedia.org/api/rest_v1/) | Wikipedia search |
 | [ExchangeRate API](https://exchangerate-api.com) | Currency conversion |
@@ -338,9 +386,9 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed changes.
 
 - **Platform:** [Bots.Business](https://bots.business) (CBPaaS)
 - **Language:** JavaScript
-- **Commands:** 80+
-- **APIs:** 17 external services
-- **Version:** 3.1.0
+- **Commands:** 120+
+- **APIs:** 24 external services
+- **Version:** 3.2.0
 
 ---
 

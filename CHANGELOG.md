@@ -1,143 +1,104 @@
 # Changelog
 
-## v3.1.0 — May 2, 2025 🚀
+## v3.2.0 — May 2, 2025 🚀
 
-### ✨ 14 New Features Added
+### ✨ 22 New Features Added
 
-#### 1. 📊 Polls & Quizzes
-- `/poll` — Create Telegram polls with custom options
-- `/quiz` — Create interactive quizzes with correct answers
+#### 📥 Downloaders
+- `/yt` — YouTube video/audio downloader (720p/360p/mp3/mp4)
+- `/ig` — Instagram post/reel downloader
+- `/tiktok` — TikTok video downloader (no watermark)
+- `/music` — Music search & play (YouTube via Piped API)
 
-#### 2. 🏷️ Sticker Creator
-- `/sticker` — Convert photos to sticker format
-- Sticker info viewer (emoji, set, file ID, animated/video status)
+#### 💰 Finance
+- `/crypto` — Live cryptocurrency prices (18 coins, CoinGecko API)
+- `/stock` — Stock market prices (Yahoo Finance API)
 
-#### 3. 🎨 AI Image Generation
-- `/imagine` — Generate images from text prompts using Pollinations.ai
-- Free, no API key required
+#### 📖 Dictionary
+- `/dict` — Word definitions, phonetics, examples (Free Dictionary API)
+- `/synonym` — Synonym finder (Datamuse API)
 
-#### 4. 🌐 Multi-Language Support
-- `/lang` — Set preferred language (14 languages supported)
-- Languages: English, Hindi, Spanish, French, German, Arabic, Portuguese, Russian, Japanese, Korean, Chinese, Turkish, Indonesian, Italian
+#### 🎮 Games
+- `/trivia` — Trivia quiz with 4 categories, scoring system
+- `/wordgame` — Word scramble game
+- `/counting` — Group counting game with high scores
 
-#### 5. 💰 Economy System
-- `/balance` — Check wallet with rank system
-- `/daily` — Daily rewards with streak bonuses (50-150 $REACT)
-- `/transfer` — Send $REACT to other users
-- `/leaderboard` — Top earners ranking
-- `/referral` — Personal referral link with rewards
+#### 🛡️ Group Management
+- `/antispam` — Anti-spam config (block forwards, links, rate limits)
+- `/logchannel` — Admin action logging to channel
+- `/automod` — Auto-moderation (blacklists, whitelists, media restrictions)
+- `/captcha` — CAPTCHA verification for new members
+- `/reactionrole` — Self-assignable roles via emoji reactions
+- `/ghwatch` — GitHub repo notifications
+- `/alert` — Weather threshold alerts
+- `/tm` — Translation memory / personal glossary
 
-#### 6. 👋 Custom Welcome Messages
-- `/welcome` — Configure group welcome messages
-- Variables: `{name}`, `{username}`, `{group}`, `{count}`, `{id}`
-- Toggle enable/disable, preview, edit, reset
-- Auto-welcome on new member join
+#### 💻 Developer Tools
+- `/run` — Execute code (Python, JS, Go, Rust, Bash, Ruby, PHP, Java)
+- `/api` — HTTP request tester (GET/POST/PUT/DELETE)
+- `/json` — JSON formatter & validator
+- `/regex` — Regex tester with match highlighting
 
-#### 7. ⚡ Inline Mode
-- `@MultiFunctionsBot query` — Use bot inline
-- Quick tools: QR code, translate, base64, hash, text stats, reverse
-- Works in any chat without opening bot
+### 📝 Updates
+- Help menu: expanded to 7 pages with all new commands
+- Command count: 100+ → 120+
+- New folders: Downloaders, Crypto, Stock, Dictionary, Games, Developer
 
-#### 8. 📡 RSS Feed Reader
-- `/rss` — Subscribe to RSS feeds
-- Add, list, remove feeds
+---
 
-#### 9. ⏰ Message Scheduler
-- `/schedule` — Schedule messages (e.g. `/schedule 2h Meeting reminder`)
-- Supports minutes, hours, days
+## v3.1.0 — May 2, 2025
 
-#### 10. 🛡️ Rate Limiting & Anti-Spam
-- `/ratelimit` — Configure command rate limits
-- Anti-flood protection for groups
+### ✨ 14 Features Added
+1. Polls & Quizzes (`/poll`, `/quiz`)
+2. Sticker Creator (`/sticker`)
+3. AI Image Generation (`/imagine`)
+4. Multi-Language (`/lang` — 14 languages)
+5. Economy System (`/balance`, `/daily`, `/transfer`, `/leaderboard`, `/referral`)
+6. Custom Welcome Messages (`/welcome`)
+7. Inline Mode (`@MultiFunctionsBot` anywhere)
+8. RSS Feed Reader (`/rss`)
+9. Message Scheduler (`/schedule`)
+10. Rate Limiting (`/ratelimit`)
+11. Webhook Support (`/webhook`)
+12. User Settings (`/settings`, `/mystats`)
+13. Data Export (`/export`)
+14. Data Deletion (`/deldata`)
 
-#### 11. 🔗 Webhook Support
-- `/webhook` — Configure webhook notifications
-- GitHub webhooks (push, PR, issues)
-- Custom webhook support
-
-#### 12. ⚙️ User Settings Panel
-- `/settings` — Central settings hub
-- `/mystats` — Personal statistics dashboard
-- Language, timezone, preferences
-
-#### 13. 📦 Data Export
-- `/export` — Export all user data as JSON
-- GDPR-compliant data portability
-
-#### 14. 🗑️ Data Deletion
-- `/deldata` — Delete all personal data
-- Confirmation prompt for safety
-
-#### 15. 📁 File Store
-- `/store` — Upload any file and get shareable link
-- Supports photos, videos, audio, documents, stickers, GIFs
-- `/store list` — View all stored files
-- `/store get ID` — Retrieve file by ID
-- `/store delete ID` — Delete a file
-- Deep link access: `t.me/Bot?start=file_ID`
-
-#### 16. 🖼️ Image Host
-- `/img` — Upload image, get direct URL (telegra.ph)
-- BB code, Markdown, and direct link formats
-- Share button for easy distribution
-
-#### 17. 📋 Pastebin
-- `/paste` — Create paste from text/code
-- Shareable deep link: `t.me/Bot?start=paste_ID`
-- `/paste list` — View your pastes
-- View counter and timestamps
-
-#### 18. 📸 Screenshot Service
-- `/ss` — Take screenshot of any website
-- Full-page capture at 1280x720
-
-#### 19. 📋 Cloud Clipboard
-- `/clip save text` — Save text snippet
-- `/clip get` — Retrieve saved text
-- `/clip share` — Generate shareable link
-- `/clip clear` — Clear clipboard
-- Cross-device sync via bot
-
-### 📝 Improvements
-- **Help Menu** — Split into 5 paginated pages (under 4096 char limit)
-- **Tools Menu** — Expanded from 7 to 10 pages
-- **Command Count** — 60+ → 80+ commands
+### 📁 File & Media Tools
+15. File Store (`/store` — upload & share files)
+16. Image Host (`/img` — direct image URLs)
+17. Pastebin (`/paste` — share code/text)
+18. Screenshot (`/ss` — capture websites)
+19. Cloud Clipboard (`/clip` — cross-device sync)
 
 ---
 
 ## v3.0.0 — May 2, 2025
 
 ### 🎨 UI/UX Overhaul
-- Beautiful bordered welcome with user stats & quick access
-- Help menu: all commands organized in tree layout
-- Tools menu: 10 pages covering all features
-- About page: cleaner layout with live user count
-- Consistent navigation & small caps typography
+- Beautiful bordered welcome with user stats
+- Help menu: tree layout, all commands organized
+- Tools menu: 10 pages
+- Consistent small-caps typography
 
 ### 👑 Admin Panel
-- Redesigned control panel with stats & status
-- Enhanced dashboard with progress bars
-- Broadcast: voice/animation/GIF support + progress bar
-- Feedback management system
-- Maintenance mode with visual indicators
+- Redesigned control panel
+- Enhanced stats with progress bars
+- Broadcast: voice/animation/GIF support
+- Feedback management
 
 ### 🐛 Bug Fixes
-- Fixed _feedbacks.js unclosed tag
-- Fixed _start.js template literal syntax
-- Fixed warnBan.js deprecated API
-- Fixed _warnings.js to show actual warning count
-- Complete _warn.js rewrite with reply-based system
-- Better error handler with admin context
+- Fixed unclosed HTML tags
+- Fixed template literal syntax
+- Fixed deprecated APIs
+- Complete warning system rewrite
 
-### ✨ New Features (v3.0)
-- /textcase, /hex, /8ball, /clap, /emojify, /mock
-- /reverse, /vaporwave, /zalgo (text effects)
-- /airquality (AQI index)
-- /remind, /reminders, /clearreminders
-- /afk (away status)
+### ✨ New Features
+- Text effects: `/textcase`, `/hex`, `/8ball`, `/clap`, `/emojify`, `/mock`, `/reverse`, `/vaporwave`, `/zalgo`
+- `/airquality`, `/remind`, `/afk`
 
 ---
 
 ## v2.0.0 — January 25, 2025
 - Initial release with 50+ features
-- AI tools, GitHub integration, anime search, weather, and more
+- AI tools, GitHub integration, anime search, weather
