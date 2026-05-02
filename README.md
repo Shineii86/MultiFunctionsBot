@@ -1,6 +1,6 @@
 # MultiFunctionsBot - Telegram Bot
 
-A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with multiple utility tools and admin features.
+A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with **30+ utility tools**, anime/manga search, weather, and more.
 
 **[@MultiFunctionsBot](https://t.me/MultiFunctionsBot)**
 
@@ -8,37 +8,70 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 
 ## Features
 
-### Menu
-- `/start` - Start the bot & main menu
-- `/help` - List all available commands
-- `/about` - Bot information & credits
+### 📌 Menu
+| Command | Description |
+|---|---|
+| `/start` | Start the bot & main menu |
+| `/help` | List all available commands |
+| `/about` | Bot information & credits |
 
-### Tools
-- `/shortener` - Shorten URLs via Bitly API
-- `/telegramId` - View your Telegram profile info
-- `/password` - Generate secure passwords (8-32 chars)
-- `/translate` - Translate text to 20+ languages
-- `/qrcode` - Generate QR codes from text/URLs
-- `/base64` - Base64 encode/decode
-- `/hash` - Generate MD5/SHA1/SHA256/SHA384/SHA512 hashes
-- `/wordcount` - Count words, characters, lines, sentences
-- `/uuid` - Generate random UUIDs (v4)
-- `/datetime` - Current date/time across 10 timezones
+### ⚙️ Core Tools
+| Command | Description |
+|---|---|
+| `/shortener` | Shorten URLs via Bitly API |
+| `/telegramId` | View your Telegram profile info |
+| `/password` | Generate secure passwords (8-32 chars) |
+| `/translate` | Translate text to 20+ languages |
+| `/qrcode` | Generate QR codes from text/URLs |
+| `/base64` | Base64 encode/decode |
+| `/hash` | Generate MD5/SHA1/SHA256/SHA384/SHA512 hashes |
+| `/wordcount` | Count words, characters, lines, sentences |
+| `/uuid` | Generate random UUIDs (v4) |
+| `/datetime` | Current date/time across 10 timezones |
 
-### Admin Panel
-- `!ZeroTwo` - Claim admin access
-- `!master` - Open admin control panel
-- `!profile` - View admin profile
-- `!maintenance` - Toggle maintenance mode
-- `!broadcast` - Broadcast messages to all users
-- `!status` - View bot statistics
-- `!restart` - Restart bot for all users
-- `!logout` - Remove admin access
+### 🔄 Converters & Search
+| Command | Description |
+|---|---|
+| `/morse` | Morse code encoder/decoder |
+| `/binary` | Text ↔ Binary converter |
+| `/roman` | Numbers ↔ Roman numerals (1-3999) |
+| `/exchange` | Currency converter (160+ currencies) |
+| `/iplookup` | IP address lookup (country, city, ISP) |
+| `/github` | GitHub user profile lookup |
+| `/wiki` | Search Wikipedia articles |
+| `/textstats` | Detailed text analysis |
+| `/numberfact` | Trivia facts about any number |
 
-### Referral System
-- Deep link referral tracking
-- Special referral bonuses
-- Referral notifications
+### 🎌 Anime & Weather
+| Command | Description |
+|---|---|
+| `/anime` | Search anime info (MyAnimeList) |
+| `/manga` | Search manga info (MyAnimeList) |
+| `/character` | Anime/manga character lookup |
+| `/weather` | Current weather for any city |
+| `/forecast` | 3-day weather forecast |
+
+### 🎲 Fun & Random
+| Command | Description |
+|---|---|
+| `/quote` | Random inspirational quotes |
+| `/roll` | Roll dice (e.g. `2d6`, `4d20`) |
+| `/flip` | Flip a coin |
+| `/choose` | Random pick from a list |
+| `/joke` | Random jokes |
+| `/advice` | Random life advice |
+
+### 👑 Admin
+| Command | Description |
+|---|---|
+| `!ZeroTwo` | Claim admin access |
+| `!master` | Admin control panel |
+| `!broadcast` | Broadcast to all users |
+| `!maintenance` | Toggle maintenance mode |
+| `!status` | Bot statistics |
+| `!restart` | Restart bot |
+| `!profile` | Admin profile |
+| `!logout` | Remove admin access |
 
 ---
 
@@ -48,61 +81,74 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 
 1. Create a bot with [@BotFather](https://telegram.me/BotFather) and get the Secret Token
 2. Create a bot on [Bots.Business](https://bots.business) and add the Secret Token
-3. Add the Public Key from the App as a [Deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) with read access
+3. Add the Public Key from the App as a [Deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
 4. Import this git repo
 
-### Configure Bitly (for URL shortener)
-Set your Bitly API token in bot properties:
+### Configure Bitly (URL shortener)
 ```
 Bot.setProperty("bitly_token", "YOUR_BITLY_TOKEN", "string")
 ```
 
 ### Set Admin
-Send `!ZeroTwo` in the bot to claim admin access (first user becomes admin).
+Send `!ZeroTwo` in the bot to claim admin access.
 
 ---
 
 ## Architecture
 
 ```
-├── bot.json                    # Bot configuration
+├── bot.json
 ├── libs/
-│   ├── Helpers.js              # Shared utilities (ads, editOrSend, etc.)
-│   ├── DateTimeFormat.js       # Date formatting library
-│   └── ReferralLib.js          # Referral tracking library
+│   ├── Helpers.js              # Shared utilities
+│   ├── DateTimeFormat.js       # Date formatting
+│   └── ReferralLib.js          # Referral tracking
 ├── commands/
-│   ├── !.js                    # Global error handler
-│   ├── Mᴇɴᴜ/                   # Menu commands
-│   │   ├── _start.js           # /start command
-│   │   ├── _quinx.js           # Membership check handler
-│   │   ├── _about.js           # /about command
-│   │   ├── _tools.js           # /tools menu
-│   │   ├── _help.js            # /help command
-│   │   ├── _close.js           # Close menu
-│   │   └── @.js                # Maintenance check handler
-│   ├── Aᴅᴍɪɴ/                  # Admin commands
-│   │   ├── !ZeroTwo.js         # Claim admin
-│   │   ├── !master.js          # Admin panel
-│   │   ├── !profile.js         # Admin profile
-│   │   ├── !maintenance.js     # Maintenance toggle
-│   │   ├── !On.js              # Enable maintenance
-│   │   ├── !Off.js             # Disable maintenance
-│   │   ├── !broadcast.js       # Broadcast messages
-│   │   ├── !status.js          # Bot statistics
-│   │   ├── !restart.js         # Restart bot
-│   │   └── !logout.js          # Remove admin
+│   ├── !.js                    # Error handler
+│   ├── Mᴇɴᴜ/                   # Menu & navigation
+│   ├── Aᴅᴍɪɴ/                  # Admin panel
 │   ├── Sʜᴏʀᴛᴇɴᴇʀ/              # URL shortener
-│   ├── Tᴇʟᴇɢʀᴀᴍ Iᴅ/           # Telegram ID tool
+│   ├── Tᴇʟᴇɢʀᴀᴍ Iᴅ/           # Profile info
 │   ├── Pᴀssᴡᴏʀᴅ/               # Password generator
-│   ├── Tʀᴀɴsʟᴀᴛᴇ/             # Translation tool
-│   └── Uᴛɪʟɪᴛɪᴇs/              # Utility tools
-│       ├── _qrcode.js          # QR code generator
-│       ├── _base64.js          # Base64 encode/decode
-│       ├── _hash.js            # Hash generator
-│       ├── _wordcount.js       # Word counter
-│       ├── _uuid.js            # UUID generator
-│       └── _datetime.js        # Date/time display
+│   ├── Tʀᴀɴsʟᴀᴛᴇ/             # Translation
+│   ├── Uᴛɪʟɪᴛɪᴇs/              # Core utilities
+│   │   ├── _qrcode.js, _base64.js, _hash.js
+│   │   ├── _wordcount.js, _uuid.js, _datetime.js
+│   │   ├── _morse.js, _binary.js, _roman.js
+│   │   ├── _iplookup.js, _textstats.js, _numberfact.js
+│   │   └── _quote.js, _roll.js, _flip.js, _choose.js
+│   ├── Aɴɪᴍᴇ/                  # Anime & manga
+│   │   ├── _anime.js, _manga.js, _character.js
+│   │   └── (result handlers)
+│   ├── Wᴇᴀᴛʜᴇʀ/                # Weather
+│   │   ├── _weather.js, _forecast.js
+│   │   └── (result handlers)
+│   ├── Gɪᴛʜᴜʙ/                 # GitHub lookup
+│   ├── Wɪᴋɪᴘᴇᴅɪᴀ/              # Wikipedia search
+│   ├── Exᴄʜᴀɴɢᴇ/               # Currency converter
+│   └── Fᴜɴ/                    # Fun commands
+│       ├── _joke.js, _advice.js
+│       └── (result handlers)
 ```
+
+---
+
+## APIs Used
+
+| API | Used For |
+|---|---|
+| [Jikan API](https://jikan.moe) | Anime, manga & character search |
+| [wttr.in](https://wttr.in) | Weather & forecasts |
+| [GitHub API](https://api.github.com) | GitHub profile lookup |
+| [Wikipedia REST API](https://en.wikipedia.org/api/rest_v1/) | Wikipedia search |
+| [ExchangeRate API](https://exchangerate-api.com) | Currency conversion |
+| [Google Translate](https://translate.googleapis.com) | Text translation |
+| [Bitly API](https://dev.bitly.com) | URL shortening |
+| [QR Server](https://goqr.me/api/) | QR code generation |
+| [Numbers API](http://numbersapi.com) | Number trivia |
+| [Quotable](https://quotable.io) | Inspirational quotes |
+| [Official Joke API](https://github.com/15Dkatz/official_joke_api) | Jokes |
+| [Advice Slip](https://api.adviceslip.com) | Life advice |
+| [ip-api.com](http://ip-api.com) | IP geolocation |
 
 ---
 
@@ -135,7 +181,8 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed changes.
 
 - **Platform:** [Bots.Business](https://bots.business) (CBPaaS)
 - **Language:** JavaScript
-- **APIs:** Telegram Bot API, Bitly API, Google Translate API, QR Server API
+- **Commands:** 30+
+- **APIs:** 13 external services
 
 ---
 

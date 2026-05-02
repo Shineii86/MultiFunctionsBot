@@ -49,6 +49,27 @@
 
 ---
 
+## v2.2.0 - Anime, Weather & More (2 May 2025)
+
+### 🆕 New Features
+- **Anime Search** (`/anime`) — Search anime with cover art, score, synopsis, studios, genres (Jikan/MyAnimeList API)
+- **Manga Search** (`/manga`) — Search manga with cover art, chapters, volumes, authors (Jikan API)
+- **Character Lookup** (`/character`) — Anime/manga character info with images
+- **Current Weather** (`/weather`) — Real-time weather for any city (temp, humidity, wind, UV, forecast)
+- **3-Day Forecast** (`/forecast`) — Multi-day weather forecast with sunrise/sunset
+- **GitHub Profile** (`/github`) — Look up GitHub users (repos, followers, bio, avatar)
+- **Wikipedia Search** (`/wiki`) — Search and read Wikipedia article summaries
+- **Currency Converter** (`/exchange`) — Convert 160+ currencies with live rates
+- **Random Jokes** (`/joke`) — Jokes from Official Joke API
+- **Life Advice** (`/advice`) — Random wisdom from Advice Slip API
+
+### ✨ Improvements
+- **Tools menu expanded to 4 pages** with proper navigation
+- **Updated /help** with all 30+ commands organized by category
+- **README.md fully rewritten** with feature tables, architecture, and API list
+
+---
+
 ## v2.1.0 - New Features (2 May 2025)
 
 ### 🆕 New Features
