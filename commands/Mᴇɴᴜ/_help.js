@@ -12,7 +12,7 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases: /help1, /help2, /help3, /help4, /help5
   group: 
 CMD*/
 

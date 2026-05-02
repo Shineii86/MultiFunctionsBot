@@ -12,7 +12,7 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases: /tools2, /tools3, /tools4, /tools5, /tools6, /tools7, /tools8, /tools9, /tools10
   group: 
 CMD*/
 
