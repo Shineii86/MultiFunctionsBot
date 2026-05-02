@@ -18,48 +18,47 @@ CMD*/
 
 var adsFooter = Libs.Helpers.getAdsFooter()
 
-var caption = "<b>👮 Hᴇʟᴘ — Aʟʟ Cᴏᴍᴍᴀɴᴅs</b>\n\n" +
+var caption = "<b>👮 Hᴇʟᴘ — Aʟʟ Cᴏᴍᴍᴀɴᴅs (40+)</b>\n\n" +
   "<b>📌 Mᴇɴᴜ</b>\n" +
-  "» /start — Sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ\n" +
-  "» /help — Tʜɪs ʜᴇʟᴘ ᴍᴇɴᴜ\n" +
-  "» /about — Aʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ\n\n" +
+  "» /start — Sᴛᴀʀᴛ ʙᴏᴛ | /help — Tʜɪs ᴍᴇɴᴜ | /about — Iɴꜰᴏ\n\n" +
   "<b>⚙️ Cᴏʀᴇ Tᴏᴏʟs</b>\n" +
-  "» /shortener — Sʜᴏʀᴛᴇɴ Uʀʟs (Bɪᴛʟʏ)\n" +
-  "» /telegramId — Yᴏᴜʀ Tᴇʟᴇɢʀᴀᴍ Iɴғᴏ\n" +
-  "» /password — Gᴇɴᴇʀᴀᴛᴇ Pᴀssᴡᴏʀᴅs\n" +
-  "» /translate — Tʀᴀɴsʟᴀᴛᴇ (20+ ʟᴀɴɢs)\n" +
-  "» /qrcode — Gᴇɴᴇʀᴀᴛᴇ QR Cᴏᴅᴇs\n" +
+  "» /shortener — Uʀʟ Sʜᴏʀᴛᴇɴᴇʀ\n" +
+  "» /telegramId — Tᴇʟᴇɢʀᴀᴍ Pʀᴏꜰɪʟᴇ\n" +
+  "» /password — Pᴀssᴡᴏʀᴅ Gᴇɴ\n" +
+  "» /translate — Tᴇxᴛ Tʀᴀɴsʟᴀᴛɪᴏɴ\n" +
+  "» /qrcode — QR Cᴏᴅᴇ Gᴇɴ\n" +
   "» /base64 — Bᴀsᴇ64 Eɴᴄ/Dᴇᴄ\n" +
-  "» /hash — Mᴅ5/Sʜᴀ Hᴀsʜ Gᴇɴ\n" +
-  "» /wordcount — Cᴏᴜɴᴛ Wᴏʀᴅs/Cʜᴀʀs\n" +
-  "» /uuid — Gᴇɴᴇʀᴀᴛᴇ Uᴜɪᴅ\n" +
-  "» /datetime — Wᴏʀʟᴅ Cʟᴏᴄᴋ\n\n" +
-  "<b>🔄 Cᴏɴᴠᴇʀᴛᴇʀs & Sᴇᴀʀᴄʜ</b>\n" +
-  "» /morse — Mᴏʀsᴇ Cᴏᴅᴇ Eɴᴄ/Dᴇᴄ\n" +
-  "» /binary — Bɪɴᴀʀʏ Eɴᴄ/Dᴇᴄ\n" +
+  "» /hash — Hᴀsʜ Gᴇɴ (MD5/SHA)\n" +
+  "» /wordcount — Wᴏʀᴅ Cᴏᴜɴᴛᴇʀ\n" +
+  "» /uuid — UUID Gᴇɴ | /datetime — Wᴏʀʟᴅ Cʟᴏᴄᴋ\n\n" +
+  "<b>🔄 Cᴏɴᴠᴇʀᴛᴇʀs</b>\n" +
+  "» /morse — Mᴏʀsᴇ Cᴏᴅᴇ | /binary — Bɪɴᴀʀʏ\n" +
   "» /roman — Rᴏᴍᴀɴ Nᴜᴍᴇʀᴀʟs\n" +
   "» /exchange — Cᴜʀʀᴇɴᴄʏ Cᴏɴᴠᴇʀᴛᴇʀ\n" +
-  "» /iplookup — IP Aᴅᴅʀᴇss Lᴏᴏᴋᴜᴘ\n" +
-  "» /github — Gɪᴛʜᴜʙ Usᴇʀ Pʀᴏꜰɪʟᴇ\n" +
-  "» /wiki — Sᴇᴀʀᴄʜ Wɪᴋɪᴘᴇᴅɪᴀ\n" +
+  "» /iplookup — IP Lᴏᴏᴋᴜᴘ | /wiki — Wɪᴋɪᴘᴇᴅɪᴀ\n" +
   "» /textstats — Tᴇxᴛ Aɴᴀʟʏsɪs\n" +
   "» /numberfact — Nᴜᴍʙᴇʀ Tʀɪᴠɪᴀ\n\n" +
+  "<b>📲 Tᴇʟᴇɢʀᴀᴍ</b>\n" +
+  "» /stickerinfo — Sᴛɪᴄᴋᴇʀ Dᴇᴛᴀɪʟs\n" +
+  "» /chatinfo — Cʜᴀᴛ Iɴꜰᴏ & ID\n" +
+  "» /channelinfo — Cʜᴀɴɴᴇʟ/Gʀᴏᴜᴘ Iɴꜰᴏ\n" +
+  "» /pfp — Pʀᴏꜰɪʟᴇ Pʜᴏᴛᴏ\n" +
+  "» /botcheck — Cʜᴇᴄᴋ Iꜰ Usᴇʀ Is Bᴏᴛ\n" +
+  "» /mention — Gᴇɴᴇʀᴀᴛᴇ Mᴇɴᴛɪᴏɴ Lɪɴᴋ\n\n" +
+  "<b>🐙 Gɪᴛʜᴜʙ</b>\n" +
+  "» /github — Usᴇʀ Pʀᴏꜰɪʟᴇ\n" +
+  "» /ghrepos — Lɪsᴛ Usᴇʀ's Rᴇᴘᴏs\n" +
+  "» /ghrepoinfo — Rᴇᴘᴏ Dᴇᴛᴀɪʟs\n" +
+  "» /ghsearch — Sᴇᴀʀᴄʜ Rᴇᴘᴏs\n" +
+  "» /ghfollowers — Lɪsᴛ Fᴏʟʟᴏᴡᴇʀs\n\n" +
   "<b>🎌 Aɴɪᴍᴇ & Wᴇᴀᴛʜᴇʀ</b>\n" +
-  "» /anime — Sᴇᴀʀᴄʜ Aɴɪᴍᴇ Iɴꜰᴏ\n" +
-  "» /manga — Sᴇᴀʀᴄʜ Mᴀɴɢᴀ Iɴꜰᴏ\n" +
-  "» /character — Aɴɪᴍᴇ Cʜᴀʀᴀᴄᴛᴇʀ Iɴꜰᴏ\n" +
+  "» /anime — Aɴɪᴍᴇ Sᴇᴀʀᴄʜ | /manga — Mᴀɴɢᴀ\n" +
+  "» /character — Cʜᴀʀᴀᴄᴛᴇʀ Lᴏᴏᴋᴜᴘ\n" +
   "» /weather — Cᴜʀʀᴇɴᴛ Wᴇᴀᴛʜᴇʀ\n" +
   "» /forecast — 3-Dᴀʏ Fᴏʀᴇᴄᴀsᴛ\n\n" +
-  "<b>🎲 Fᴜɴ & Rᴀɴᴅᴏᴍ</b>\n" +
-  "» /quote — Iɴsᴘɪʀᴀᴛɪᴏɴᴀʟ Qᴜᴏᴛᴇs\n" +
-  "» /roll — Rᴏʟʟ Dɪᴄᴇ (2ᴅ6, 4ᴅ20)\n" +
-  "» /flip — Fʟɪᴘ ᴀ Cᴏɪɴ\n" +
-  "» /choose — Rᴀɴᴅᴏᴍ Cʜᴏɪᴄᴇ\n" +
-  "» /joke — Rᴀɴᴅᴏᴍ Jᴏᴋᴇs\n" +
-  "» /advice — Lɪꜰᴇ Aᴅᴠɪᴄᴇ\n\n" +
-  "<b>👑 Aᴅᴍɪɴ</b>\n" +
-  "» /ZeroTwo — Cʟᴀɪᴍ Aᴅᴍɪɴ\n" +
-  "» /master — Aᴅᴍɪɴ Pᴀɴᴇʟ" +
+  "<b>🎲 Fᴜɴ</b>\n" +
+  "» /quote — Qᴜᴏᴛᴇs | /joke — Jᴏᴋᴇs | /advice — Aᴅᴠɪᴄᴇ\n" +
+  "» /roll — Dɪᴄᴇ | /flip — Cᴏɪɴ | /choose — Rᴀɴᴅᴏᴍ Pɪᴄᴋ" +
   adsFooter
 
 var buttons = [

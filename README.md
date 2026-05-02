@@ -1,6 +1,6 @@
 # MultiFunctionsBot - Telegram Bot
 
-A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with **30+ utility tools**, anime/manga search, weather, and more.
+A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) platform with **40+ utility tools**, Telegram tools, GitHub integration, anime/manga search, weather, and more.
 
 **[@MultiFunctionsBot](https://t.me/MultiFunctionsBot)**
 
@@ -41,6 +41,25 @@ A feature-rich Telegram bot built on the [Bots.Business](https://bots.business) 
 | `/wiki` | Search Wikipedia articles |
 | `/textstats` | Detailed text analysis |
 | `/numberfact` | Trivia facts about any number |
+
+### 📲 Telegram Tools
+| Command | Description |
+|---|---|
+| `/stickerinfo` | Get sticker details (emoji, set, file ID, animated/video) |
+| `/chatinfo` | Get chat info & ID (any chat) |
+| `/channelinfo` | Look up public channel/group info |
+| `/pfp` | Get user's profile photo |
+| `/botcheck` | Check if a user is a bot |
+| `/mention` | Generate mention links (HTML/Markdown/plain) |
+
+### 🐙 GitHub
+| Command | Description |
+|---|---|
+| `/github` | GitHub user profile lookup |
+| `/ghrepos` | List user's repositories (stars, forks, languages) |
+| `/ghrepoinfo` | Detailed repo info (issues, license, topics) |
+| `/ghsearch` | Search GitHub repositories |
+| `/ghfollowers` | List user's followers |
 
 ### 🎌 Anime & Weather
 | Command | Description |
@@ -149,6 +168,7 @@ Send `!ZeroTwo` in the bot to claim admin access.
 | [Official Joke API](https://github.com/15Dkatz/official_joke_api) | Jokes |
 | [Advice Slip](https://api.adviceslip.com) | Life advice |
 | [ip-api.com](http://ip-api.com) | IP geolocation |
+| [Telegram Bot API](https://core.telegram.org/bots/api) | Sticker info, chat info, profile photos, bot check |
 
 ---
 
@@ -181,8 +201,8 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed changes.
 
 - **Platform:** [Bots.Business](https://bots.business) (CBPaaS)
 - **Language:** JavaScript
-- **Commands:** 30+
-- **APIs:** 13 external services
+- **Commands:** 40+
+- **APIs:** 14 external services
 
 ---
 

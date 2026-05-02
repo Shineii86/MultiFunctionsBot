@@ -49,6 +49,30 @@
 
 ---
 
+## v2.3.0 - Telegram & GitHub Features (2 May 2025)
+
+### 🆕 New Features
+
+**Telegram Tools (6 new):**
+- **Sticker Info** (`/stickerinfo`) — Get sticker details (emoji, set, dimensions, file ID, animated/video)
+- **Chat Info** (`/chatinfo`) — Get current chat or any chat's info (ID, type, members)
+- **Channel Info** (`/channelinfo`) — Look up public channels/groups by username
+- **Profile Photo** (`/pfp`) — Get user's profile photo in full size
+- **Bot Check** (`/botcheck`) — Check if a user is a bot
+- **Mention Link** (`/mention`) — Generate mention links (HTML, Markdown, plain)
+
+**GitHub Tools (4 new):**
+- **GitHub Repos** (`/ghrepos`) — List user's recent repos with stars/forks/languages
+- **Repo Details** (`/ghrepoinfo`) — Detailed repo info (issues, license, topics, dates)
+- **Search Repos** (`/ghsearch`) — Search GitHub repositories by keyword
+- **Followers** (`/ghfollowers`) — List user's followers
+
+### ✨ Improvements
+- **Tools menu expanded to 5 pages** with proper navigation
+- **Updated /help** with all 40+ commands
+
+---
+
 ## v2.2.0 - Anime, Weather & More (2 May 2025)
 
 ### 🆕 New Features
